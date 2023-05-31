@@ -1,0 +1,11 @@
+.priceInput {
+  width: 400px;
+  border-radius: 10px;
+  background: #413d75;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding-top: 6px;
+  line-height: 110%;
+}

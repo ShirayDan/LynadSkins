@@ -1,0 +1,1 @@
+export { Typeography } from "./Typeography";

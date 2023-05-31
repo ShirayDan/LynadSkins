@@ -1,0 +1,30 @@
+.container {
+  margin: 20px 0;
+  padding: 0 10px;
+}
+.items {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+@media screen and (min-width: 530px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media screen and (min-width: 675px) {
+  .items {
+    grid-template-columns: 1fr 1fr;
+  }
+  .item {
+    min-height: 180px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 70px;
+  }
+  .items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

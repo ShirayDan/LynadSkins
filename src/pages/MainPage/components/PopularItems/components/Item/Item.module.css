@@ -1,0 +1,26 @@
+.item {
+  background-color: rgba(54, 54, 54, 0.15);
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
+}
+.photo {
+  width: 80%;
+}
+.description {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+
+@media screen and (min-width: 530px) {
+  .item {
+    height: 205px;
+  }
+}

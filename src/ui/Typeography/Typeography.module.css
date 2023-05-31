@@ -1,0 +1,92 @@
+.h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.h6 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.span {
+  font-size: 14px;
+  font-weight: 600;
+}
+.subheading1 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subheading2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.body1 {
+  font-size: 1rem;
+}
+
+.body1 {
+  font-size: 0.875rem;
+}
+
+.error {
+  color: #eb5757;
+}
+
+.white {
+  color: #fff;
+}
+
+.black {
+  color: #000;
+}
+
+.lightGrey {
+  color: #bbb;
+}
+
+.grey {
+  color: #999;
+}
+
+.purple {
+  color: #806cf5;
+}
+
+.orange {
+  color: #e5864e;
+}
+
+.gold {
+  color: gold;
+}
+
+/* .title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 70px;
+  height: 1px;
+  border-bottom: 1px solid #7668cb;
+} */

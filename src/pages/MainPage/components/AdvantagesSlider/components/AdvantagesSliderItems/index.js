@@ -1,0 +1,1 @@
+export { AdvantageSliderItems } from "./AdvantageSliderItems";

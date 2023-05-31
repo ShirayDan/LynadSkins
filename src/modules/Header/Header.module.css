@@ -1,0 +1,39 @@
+.header {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  margin-right: 10px;
+  font-weight: 600;
+}
+.btn-second {
+  font-weight: 600;
+}
+.nav-bar {
+  display: none;
+}
+@media screen and (min-width: 1050px) {
+  .burger {
+    display: none;
+  }
+  .nav-bar {
+    display: block;
+  }
+  .link {
+    font-size: 20px;
+    font-size: 700;
+    color: #fff;
+    transition: ease 0.3s;
+  }
+  .link:hover {
+    color: #7668cb;
+    border-bottom: 1px solid #7668cb;
+    transition: ease 0.3s;
+  }
+  .item {
+    margin-left: 15px;
+  }
+}

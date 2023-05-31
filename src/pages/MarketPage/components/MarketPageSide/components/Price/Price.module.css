@@ -1,0 +1,18 @@
+.accordion {
+  display: flex;
+  border-bottom: 1px solid rgb(255 255 255/10%);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+.priceInput {
+  width: 75px;
+  border-radius: 10px;
+  background: #413d75;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding-top: 6px;
+  line-height: 110%;
+}

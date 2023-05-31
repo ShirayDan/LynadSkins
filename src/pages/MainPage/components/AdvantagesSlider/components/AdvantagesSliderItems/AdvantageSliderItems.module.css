@@ -1,0 +1,29 @@
+.item {
+  background-color: rgba(54, 54, 54, 0.15);
+  min-height: 210px;
+  padding: 10px;
+  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
+}
+.listItems {
+  padding-left: 15px;
+  position: relative;
+  color: #999;
+}
+.listItems::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background: #7668cb;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.subcont {
+  margin: 10px 0;
+}
+@media screen and (min-width: 675px) {
+  .item {
+    min-height: 180px;
+  }
+}
