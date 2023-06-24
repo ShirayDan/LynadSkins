@@ -21,6 +21,8 @@ export const ListItem = ({
   borderRadius,
   position,
   rotate,
+  cursor,
+  onClick,
 }) => {
   let cl = "";
   if (style) {
@@ -47,8 +49,10 @@ export const ListItem = ({
         borderRadius,
         position,
         rotate,
+        cursor,
       }}
       className={cl}
+      onClick={onClick}
     >
       {children}
     </li>

@@ -1,0 +1,21 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+}
+.iconred {
+  width: 20px;
+  height: 20px;
+  background: #bf0f0f;
+}
+.item {
+  margin: 10px 0;
+}
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icons {
+  display: flex;
+}

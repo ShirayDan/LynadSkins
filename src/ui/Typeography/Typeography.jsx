@@ -25,7 +25,9 @@ export const Typeography = ({
   mt,
   mb,
   m,
+  textAlign,
   fontSize,
+  hover,
 }) => {
   const Component = variant ? variantsMapping[variant] : "p";
   let cl = "";
@@ -41,7 +43,9 @@ export const Typeography = ({
   if (after) {
     cl += ` ${styles[after]}`;
   }
-
+  if (hover) {
+    cl += ` ${styles["text-hover"]}`;
+  }
   return (
     <Component
       className={cl}
@@ -51,6 +55,7 @@ export const Typeography = ({
         marginBottom: mb,
         margin: m,
         fontSize,
+        textAlign,
       }}
     >
       {children}

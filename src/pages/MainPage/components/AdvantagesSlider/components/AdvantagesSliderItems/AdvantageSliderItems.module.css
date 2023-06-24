@@ -7,7 +7,7 @@
 .listItems {
   padding-left: 15px;
   position: relative;
-  color: #999;
+  color: var(--grey);
 }
 .listItems::before {
   content: "";

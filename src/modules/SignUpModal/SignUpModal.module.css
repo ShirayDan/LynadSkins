@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 450px;
+  width: 100%;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.form {
+  width: 100%;
+}
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.reset {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.password {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin-top: 5px;
+}

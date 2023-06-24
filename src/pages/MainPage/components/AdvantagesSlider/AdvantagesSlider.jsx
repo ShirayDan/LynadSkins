@@ -1,42 +1,52 @@
 import React from "react";
 import styles from "./AdvantagesSlider.module.css";
+import { useTranslation } from "react-i18next";
+
 import { Typeography } from "../../../../ui/Typeography";
 import { Container } from "../../../../ui/Container";
 import { AdvantageSliderItems } from "./components/AdvantagesSliderItems";
 export const AdvantagesSlider = () => {
+  const { t, i18n } = useTranslation();
   const data = [
     {
-      title: "Store",
-      text: "Our Store mode makes the items buying process easier and faster.",
+      title: t("advantage_slider.one.title"),
+      text: t("advantage_slider.one.text"),
       advantages: [
-        "Items with a 23% discount",
-        "Ability to buy without Steam Guard and with any Steam level",
+        t("advantage_slider.one.advantages.one"),
+        t("advantage_slider.one.advantages.two"),
       ],
     },
     {
-      title: "Trade",
-      text: "Improved trade interface. Now faster and more user-friendly:",
+      title: t("advantage_slider.two.title"),
+      text: t("advantage_slider.two.text"),
       advantages: [
-        "Upgraded search filters",
-        "Cart interface added",
-        "More detailed skin cards",
+        t("advantage_slider.two.advantages.one"),
+        t("advantage_slider.two.advantages.two"),
+        t("advantage_slider.two.advantages.three"),
       ],
     },
     {
-      title: "Personal account",
-      text: "Added some more advantages like: ",
-      advantages: ["Easy access", "Personalized experience"],
+      title: t("advantage_slider.three.title"),
+      text: t("advantage_slider.three.text"),
+      advantages: [
+        t("advantage_slider.three.advantages.one"),
+        t("advantage_slider.three.advantages.two"),
+      ],
     },
     {
-      title: "Different statuses",
-      text: "Our webpage has 3 statuses: ",
-      advantages: ["Basic", "Prime", "Trader +"],
+      title: t("advantage_slider.four.title"),
+      text: t("advantage_slider.four.text"),
+      advantages: [
+        t("advantage_slider.four.advantages.one"),
+        t("advantage_slider.four.advantages.two"),
+        t("advantage_slider.four.advantages.three"),
+      ],
     },
   ];
   return (
     <Container styles={styles.container}>
       <Typeography color={"white"} variant={"h2"}>
-        Our advantages
+        {t("our_advantages")}
       </Typeography>
 
       <div className={styles.items}>

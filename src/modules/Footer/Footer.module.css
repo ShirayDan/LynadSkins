@@ -18,6 +18,11 @@
   margin-right: 5px;
   text-align: center;
   width: 33px;
+  transition: 0.25s;
+}
+.footer-link {
+  color: var(--grey);
+  transition: 0.25s;
 }
 @media screen and (min-width: 530px) {
   .footer {
@@ -45,5 +50,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: flex-start;
+  }
+  .socialItem:hover {
+    background-color: #e71fb8;
+  }
+  .footer-link:hover {
+    color: #e71fb8;
   }
 }

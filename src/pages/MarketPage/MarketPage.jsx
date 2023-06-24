@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./MarketPage.module.css";
-import { MarketPageFilters } from "./components/MarketPageFilters";
-import { MarketPageItems } from "./components/MarketPageItems";
-import { MarketPageSide } from "./components/MarketPageSide";
+import { MarketPageFilters } from "../../modules/MarketPageFilters";
+import { MarketPageItems } from "../../modules/MarketPageItems";
+import { MarketPageSide } from "../../modules/MarketPageSide";
 import { Container } from "../../ui/Container";
 export const MarketPage = () => {
   return (

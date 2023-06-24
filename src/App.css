@@ -1,3 +1,29 @@
+:root {
+  --background: linear-gradient(#423e77, #212126);
+  --text-primary: #fff;
+  --text-secondary: #806cf5;
+  --btn-outline: #fff;
+  --grey: #999;
+  --line: hsla(0, 0%, 100%, 0.1);
+  --shadow: #000;
+  --inputs: #413d75;
+  --modals: #4e4b73;
+  --modal-info: #36344d;
+  --burger: #000;
+}
+[data-theme="light"] {
+  --background: #fff;
+  --text-primary: #000;
+  --text-secondary: #806cf5;
+  --btn-outline: #806cf5;
+  --grey: #444;
+  --line: hsla(0, 0%, 15%, 0.1);
+  --shadow: #7a7979;
+  --inputs: #d1cece;
+  --modals: #d7d7d7;
+  --modal-info: #b5b4bc;
+  --burger: #b9b2b2;
+}
 * {
   padding: 0;
   margin: 0;
@@ -12,5 +38,5 @@ html {
   overflow-x: hidden;
 }
 .App {
-  background: linear-gradient(#423e77, #212126);
+  background: var(--background);
 }

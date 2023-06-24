@@ -8,11 +8,20 @@
 .btn {
   margin-right: 10px;
   font-weight: 600;
+  z-index: 1;
 }
 .btn-second {
   font-weight: 600;
+  z-index: 1;
 }
 .nav-bar {
+  display: none;
+}
+.left {
+  display: flex;
+  align-items: center;
+}
+.btns {
   display: none;
 }
 @media screen and (min-width: 1050px) {
@@ -25,15 +34,18 @@
   .link {
     font-size: 20px;
     font-size: 700;
-    color: #fff;
+    color: var(--text-primary);
+    border-bottom: 1px solid transparent;
     transition: ease 0.3s;
   }
   .link:hover {
-    color: #7668cb;
-    border-bottom: 1px solid #7668cb;
-    transition: ease 0.3s;
+    color: #e71fb8;
+    border-bottom: 1px solid #e71fb8;
   }
   .item {
     margin-left: 15px;
+  }
+  .btns {
+    display: flex;
   }
 }

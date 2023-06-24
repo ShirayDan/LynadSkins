@@ -9,7 +9,7 @@ export const Item = ({ img, exterior, price, width }) => {
         <Typeography variant={"h4"} color={"white"}>
           {exterior}
         </Typeography>
-        <Typeography>
+        <Typeography color={"white"}>
           {" "}
           From
           <Typeography variant={"span"} color={"white"}>

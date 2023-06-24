@@ -1,24 +1,41 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Typeography } from "../../ui/Typeography";
 import { List } from "../../ui/List";
 import { ListItem } from "../../ui/ListItem";
 import { Container } from "../../ui/Container";
+
 export const Footer = () => {
   const d = new Date().getFullYear();
   const social = [1, 2, 3, 4];
+  const { t, i18n } = useTranslation();
   const data = [
-    { title: "Company", items: ["About Us", "Service", "Blog", "Contact"] },
     {
-      title: "Support",
-      items: ["Comunity", "Faqs", "Privacy Policy", "Resources"],
+      title: t("footer_one_title"),
+      items: [
+        { text: t("footer_one_item_one"), link: "/prime" },
+        { text: t("footer_one_item_two"), link: "/" },
+        { text: t("footer_one_item_three"), link: "/" },
+        { text: t("footer_one_item_four"), link: "/" },
+      ],
     },
     {
-      title: "Get in Touch",
+      title: t("footer_two_title"),
       items: [
-        "LynadSkins@gmail.com",
-        "+(642)34276244",
-        " 442 Belle Terre St Floor 7, San Francisco, AV 4206",
+        { text: t("footer_two_item_one"), link: "/" },
+        { text: t("footer_two_item_two"), link: "/" },
+        { text: t("footer_two_item_three"), link: "/" },
+        { text: t("footer_two_item_four"), link: "/" },
+      ],
+    },
+    {
+      title: t("footer_three_title"),
+      items: [
+        { text: "LynadSkins@gmail.com" },
+        { text: "+(642)34276244" },
+        { text: " 442 Belle Terre St Floor 7, San Francisco, AV 4206" },
       ],
     },
   ];
@@ -34,8 +51,7 @@ export const Footer = () => {
             </Typeography>
           </Typeography>
           <Typeography color={"white"} p={"5px 0"}>
-            Buy, sell, and trade skins easier and faster. All deals are secured
-            with the highest level protection methods.
+            {t("footer_advantages")}
           </Typeography>
           <List variant={"ul"} mt={"25px"}>
             {social.map((item, i) => {
@@ -56,21 +72,31 @@ export const Footer = () => {
               <Typeography variant={"h3"} p={"0 0 15px 0"} color={"white"}>
                 {item.title}
               </Typeography>
-              <List>
-                {item.items.map((el, i) => {
-                  return (
-                    <ListItem p={"5px 0"}>
-                      <Typeography color={"lightGrey"}>{el}</Typeography>
-                    </ListItem>
-                  );
-                })}
+              <List variant={"ul"}>
+                {i == data.length - 1
+                  ? item.items.map((el, i) => (
+                      <ListItem p={"5px 0"}>
+                        <Typeography hover={true} color={"grey"}>
+                          {el.text}
+                        </Typeography>
+                      </ListItem>
+                    ))
+                  : item.items.map((el, i) => {
+                      return (
+                        <ListItem p={"5px 0"}>
+                          <Link to={el.link} className={styles["footer-link"]}>
+                            {el.text}
+                          </Link>
+                        </ListItem>
+                      );
+                    })}
               </List>
             </div>
           );
         })}
       </Container>
       <Typeography color={"white"} mb={"10px"}>
-        Copyright © {d} @LynadPro
+        {t("copyright")} © {d} @LynadPro
       </Typeography>
     </footer>
   );

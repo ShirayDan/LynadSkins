@@ -1,0 +1,28 @@
+.language {
+  color: #fff;
+  position: absolute;
+  top: 25px;
+  left: -5px;
+  background-color: #7668cb;
+  padding: 10px;
+  width: 95px;
+  border-radius: 5px;
+}
+.lang-cont {
+  position: relative;
+  z-index: 1;
+}
+.item {
+  margin-bottom: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+@media screen and (min-width: 1050px) {
+  .item:hover {
+    color: #e71fb8;
+  }
+  .lang-cont {
+    margin: 0 10px;
+  }
+}

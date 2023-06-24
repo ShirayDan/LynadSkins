@@ -1,0 +1,18 @@
+.btn {
+  width: 100%;
+  background-color: rgba(54, 54, 54, 0.15);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  border-radius: 5px;
+}
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: aliceblue;
+}
+.trade-place {
+  text-align: right;
+}

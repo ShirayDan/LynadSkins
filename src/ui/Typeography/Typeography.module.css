@@ -54,6 +54,10 @@
 }
 
 .white {
+  color: var(--text-primary);
+}
+
+.white-strong {
   color: #fff;
 }
 
@@ -66,11 +70,11 @@
 }
 
 .grey {
-  color: #999;
+  color: var(--grey);
 }
 
 .purple {
-  color: #806cf5;
+  color: var(--text-secondary);
 }
 
 .orange {
@@ -80,13 +84,12 @@
 .gold {
   color: gold;
 }
-
-/* .title::after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: "";
-  width: 70px;
-  height: 1px;
-  border-bottom: 1px solid #7668cb;
-} */
+.text-hover {
+  transition: 0.25s;
+  cursor: pointer;
+}
+@media screen and (min-width: 1050px) {
+  .text-hover:hover {
+    color: #e71fb8;
+  }
+}

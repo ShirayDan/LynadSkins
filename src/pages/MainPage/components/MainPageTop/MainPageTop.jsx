@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "./MainPageTop.module.css";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
 import img from "./../../../../i/karambit-1024.webp";
 import img2 from "./../../../../i/balisong_icon.webp";
 import img3 from "./../../../../i/m9.png";
@@ -8,7 +11,10 @@ import { Typeography } from "../../../../ui/Typeography";
 import { Button } from "../../../../ui/Button";
 import { Knife } from "./components/Knife";
 import { Container } from "../../../../ui/Container";
+
 export const MainPageTop = () => {
+  const { t, i18n } = useTranslation();
+  const nav = useNavigate();
   return (
     <>
       <Container styles={styles.container}>
@@ -43,18 +49,21 @@ export const MainPageTop = () => {
           />
           <div className={styles.title}>
             <Typeography color={"white"} variant={"h1"}>
-              A better way to trade CS skins
+              {t("main_title")}
             </Typeography>
           </div>
         </div>
         <div className={styles.subtitle}>
           <Typeography color={"grey"} variant={"h4"}>
-            Buy, sell, and trade skins easier and faster. All deals are secured
-            with the highest level protection methods.
+            {t("footer_advantages")}
           </Typeography>
         </div>
-
-        <Button style={styles["btn"]} text={"Try Now"}></Button>
+        <Button
+          hover={true}
+          style={styles.btn}
+          text={"Try Now"}
+          onClick={() => nav("/trade")}
+        ></Button>
       </Container>
     </>
   );

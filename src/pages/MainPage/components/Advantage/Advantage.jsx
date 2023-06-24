@@ -1,15 +1,18 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 import { AdvantageItem } from "./AdvantageItem/AdvantageItem";
 import { Container } from "../../../../ui/Container";
 import styles from "./Advantage.module.css";
 export const Advantage = () => {
+  const { t, i18n } = useTranslation();
   const text = [
-    { title: "35%", text: "Bonus for top up balance" },
-    { title: "80 K", text: "CS items on our website" },
-    { title: "30 sec", text: "From logging in to making a purchase" },
+    { title: "35%", text: t("advantage_one") },
+    { title: "80 K", text: t("advantage_two") },
+    { title: "30 sec", text: t("advantage_three") },
     {
       title: "24/7",
-      text: "Online support, response time less than 5 minutes",
+      text: t("advantage_four"),
     },
   ];
   return (

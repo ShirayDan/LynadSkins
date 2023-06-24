@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./PopularItems.module.css";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Item } from "./components/Item";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -17,6 +19,7 @@ import img10 from "./../../../../i/10.webp";
 import { Typeography } from "../../../../ui/Typeography";
 import { Container } from "../../../../ui/Container";
 export const PopularItems = () => {
+  const { t, i18n } = useTranslation();
   const data = [
     { img: img1, exterior: "Field-Tested", price: "13.30" },
     { img: img2, exterior: "Field-Tested", price: "38.24" },
@@ -33,11 +36,14 @@ export const PopularItems = () => {
     <Container styles={styles.container}>
       <div className={styles.titles}>
         <Typeography variant={"h2"} color={"white"}>
-          Popular CS items
+          {t("popular_items")}
         </Typeography>
-        <Typeography variant={"h3"} color={"purple"}>
-          Show all items
-        </Typeography>
+        <Link to={"/market"}>
+          {" "}
+          <Typeography hover={true} variant={"h3"} color={"purple"}>
+            {t("show_items")}
+          </Typeography>
+        </Link>
       </div>
       <Container styles={styles.itemsContainer}>
         <div className={styles.items}>
