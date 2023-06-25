@@ -28,8 +28,7 @@
 }
 @media screen and (min-width: 1050px) {
   .link:hover {
-    color: #e71fb8;
-    background: transparent;
+    background: #e71fb8;
     border: 2px solid #e71fb8;
   }
 }

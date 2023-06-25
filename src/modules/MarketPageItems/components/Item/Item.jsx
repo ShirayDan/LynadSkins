@@ -7,6 +7,7 @@ import { Typeography } from "../../../../ui/Typeography";
 import { Button } from "../../../../ui/Button";
 import { Modal } from "../../../../components/Modal/Modal";
 
+import cart from "./../../../../i/icons/cart.svg";
 export const Item = ({
   img,
   exterior,
@@ -55,9 +56,10 @@ export const Item = ({
             2
           )}`}</Typeography>
         </div>
+
         <Button
           style={styles.btn}
-          text={<div className={styles.icon}></div>}
+          text={<img src={cart} alt="" className={styles.img} />}
         ></Button>
       </div>
 

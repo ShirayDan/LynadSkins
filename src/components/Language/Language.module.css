@@ -5,7 +5,7 @@
   left: -5px;
   background-color: #7668cb;
   padding: 10px;
-  width: 95px;
+  width: 125px;
   border-radius: 5px;
 }
 .lang-cont {
@@ -17,6 +17,26 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+.text {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  transition: ease 0.2s;
+  height: 25px;
+  width: 25px;
+  margin-left: 5px;
+}
+.icon-opened {
+  rotate: 180deg;
+}
+.img {
+  padding-right: 10px;
+  width: 30px;
+  height: 20px;
 }
 @media screen and (min-width: 1050px) {
   .item:hover {

@@ -70,8 +70,8 @@ export const Header = ({ theme, setTheme, langFunc }) => {
       </div>
       <div className={styles.left}>
         <div className={styles.btns}>
-          <Language langFunc={langFunc} />
           <Currency />
+          <Language langFunc={langFunc} />
         </div>
         <DarkMode theme={theme} setTheme={setTheme} />
         {auth && <Profile />}

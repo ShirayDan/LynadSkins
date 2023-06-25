@@ -28,6 +28,7 @@ export const Typeography = ({
   textAlign,
   fontSize,
   hover,
+  icon,
 }) => {
   const Component = variant ? variantsMapping[variant] : "p";
   let cl = "";
@@ -45,6 +46,9 @@ export const Typeography = ({
   }
   if (hover) {
     cl += ` ${styles["text-hover"]}`;
+  }
+  if (icon) {
+    cl += ` ${styles.icon}`;
   }
   return (
     <Component

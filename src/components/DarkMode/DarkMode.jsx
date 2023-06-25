@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DarkMode.css";
 import { ReactComponent as Sun } from "../../i/Sun.svg";
 import { ReactComponent as Moon } from "../../i/Moon.svg";
 
 export const DarkMode = ({ theme, setTheme }) => {
   const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    theme == "light" ? setIsDark(false) : setIsDark(true);
+  }, [theme]);
+
   const switchTheme = () => {
     setTheme(theme == "light" ? "dark" : "light");
     setIsDark(!isDark);
   };
+
   return (
     <div className="wrapper">
       <input

@@ -1,9 +1,12 @@
 import styles from "./ItemModal.module.css";
+
 import { Typeography } from "../../ui/Typeography";
 import { List } from "../../ui/List";
 import { ListItem } from "../../ui/ListItem";
 import { Button } from "../../ui/Button";
 import { Container } from "../../ui/Container";
+
+import heart from "./../../i/icons/heart.svg";
 export const ItemModal = ({
   img,
   souvenir,
@@ -92,7 +95,7 @@ export const ItemModal = ({
           ></Button>
           <Button
             hover={true}
-            text={<div className={styles.icon}></div>}
+            text={<img className={styles.icon} src={heart} alt=""></img>}
             style={styles["modal-like"]}
           ></Button>
         </div>

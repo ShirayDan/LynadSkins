@@ -1,16 +1,41 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { useTranslation } from "react-i18next";
+
 import { Link } from "react-router-dom";
 import { Typeography } from "../../ui/Typeography";
 import { List } from "../../ui/List";
 import { ListItem } from "../../ui/ListItem";
 import { Container } from "../../ui/Container";
 
+import inst from "./../../i/icons/inst.svg";
+import steam from "./../../i/icons/steam.svg";
+import telega from "./../../i/icons/telega.svg";
+import twitter from "./../../i/icons/twitter.svg";
+
 export const Footer = () => {
   const d = new Date().getFullYear();
-  const social = [1, 2, 3, 4];
   const { t, i18n } = useTranslation();
+
+  const social = [
+    {
+      icon: inst,
+      link: "https://www.instagram.com",
+    },
+    {
+      icon: steam,
+      link: "https://store.steampowered.com",
+    },
+    {
+      icon: telega,
+      link: "https://web.telegram.org",
+    },
+    {
+      icon: twitter,
+      link: "https://twitter.com/",
+    },
+  ];
+
   const data = [
     {
       title: t("footer_one_title"),
@@ -39,7 +64,6 @@ export const Footer = () => {
       ],
     },
   ];
-  // prime,
   return (
     <footer className={styles.footer}>
       <Container styles={styles.container}>
@@ -57,9 +81,8 @@ export const Footer = () => {
             {social.map((item, i) => {
               return (
                 <ListItem style={styles.socialItem}>
-                  {" "}
-                  <a href="" className={styles.link}>
-                    {item}
+                  <a href={item.link} className={styles.link}>
+                    <img src={item.icon} alt="" className={styles.img} />
                   </a>
                 </ListItem>
               );

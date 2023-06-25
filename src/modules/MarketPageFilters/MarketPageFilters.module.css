@@ -4,12 +4,30 @@
   align-items: center;
   padding: 20px 5px;
 }
-.icon,
-.icon-filters {
+.icon {
+  transition: ease 0.2s;
+  height: 25px;
+  width: 25px;
+}
+.icon-heart,
+.icon-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 25px;
   height: 25px;
-  background-color: #fff;
-  margin: 0 5px;
+  background-color: #7668cb;
+  border-radius: 2px;
+  transition: 0.2s ease;
+}
+.icon-heart {
+  margin-right: 10px;
+}
+.icon path {
+  fill: var(--text-primary);
+}
+.icon-opened {
+  rotate: 180deg;
 }
 .filter-left,
 .filter-right {
@@ -47,10 +65,13 @@
     background-color: rgba(119, 119, 119, 0.25);
     border-radius: 5px;
   }
-  .icon-filters {
-    display: none;
-  }
   .item:hover {
     background-color: rgba(119, 119, 119, 0.25);
+  }
+  .icon-heart:hover {
+    background-color: #e71fb8;
+  }
+  .icon-cart:hover {
+    background-color: #e71fb8;
   }
 }

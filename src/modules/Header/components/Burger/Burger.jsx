@@ -10,6 +10,11 @@ import { DarkMode } from "../../../../components/DarkMode";
 import { Language } from "../../../../components/Language";
 import { Currency } from "../../../../components/Currency";
 
+import inst from "./../../../../i/icons/inst.svg";
+import steam from "./../../../../i/icons/steam.svg";
+import telega from "./../../../../i/icons/telega.svg";
+import twitter from "./../../../../i/icons/twitter.svg";
+
 export const Burger = ({ theme, setTheme, langFunc }) => {
   const [open, setOpen] = useState(false);
   const burger = useRef();
@@ -23,7 +28,24 @@ export const Burger = ({ theme, setTheme, langFunc }) => {
       : burger.current.classList.add(styles["active"]);
     changeOverflow(open);
   };
-  const social = [1, 2, 3, 4];
+  const social = [
+    {
+      icon: inst,
+      link: "https://www.instagram.com",
+    },
+    {
+      icon: steam,
+      link: "https://store.steampowered.com",
+    },
+    {
+      icon: telega,
+      link: "https://web.telegram.org",
+    },
+    {
+      icon: twitter,
+      link: "https://twitter.com/",
+    },
+  ];
 
   return (
     <>
@@ -100,8 +122,8 @@ export const Burger = ({ theme, setTheme, langFunc }) => {
             {social.map((item, i) => {
               return (
                 <ListItem style={styles["social-item"]}>
-                  <a href="" className={styles.link}>
-                    {item}
+                  <a href={item.link} className={styles.link}>
+                    <img src={item.icon} alt="" className={styles.img} />
                   </a>
                 </ListItem>
               );

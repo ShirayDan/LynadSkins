@@ -32,5 +32,15 @@
   align-items: center;
 }
 .icon {
-  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0 0 10px;
+}
+.icon svg {
+  fill: var(--text-primary);
+}
+.img {
+  width: 20px;
+  height: 20px;
 }

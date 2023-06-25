@@ -18,9 +18,27 @@
   font-size: 14px;
   color: #c0c0c0;
 }
-
+.bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: 0.2s;
+}
 @media screen and (min-width: 530px) {
   .item {
     height: 205px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .item {
+    transition: 0.2s;
+  }
+  .item:hover {
+    cursor: pointer;
+    background-color: rgba(231, 31, 184, 0.05);
+  }
+  .item:hover > .bottom {
+    opacity: 1;
   }
 }

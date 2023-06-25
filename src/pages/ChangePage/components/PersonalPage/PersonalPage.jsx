@@ -9,6 +9,9 @@ import { Button } from "../../../../ui/Button";
 import { Modal } from "../../../../components/Modal";
 import { SignInModal } from "../../../../modules/SignInModal";
 import { SignUpModal } from "../../../../modules/SignUpModal";
+
+import attention from "./../../../../i/icons/attention.svg";
+
 export const PersonalPage = () => {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -26,7 +29,9 @@ export const PersonalPage = () => {
   return (
     <Container className={styles.container}>
       <div className={styles.unauth}>
-        <div className={styles.icon}></div>
+        <div>
+          <img src={attention} alt="" className={styles.img} />
+        </div>
         <Typeography
           mb={"10px"}
           color={"white"}

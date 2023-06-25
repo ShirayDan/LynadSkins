@@ -105,9 +105,8 @@
   width: 100%;
 }
 .icon {
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
+  width: 30px;
+  height: 30px;
 }
 @media screen and (min-width: 1050px) {
   .container {

@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-
 import { AdvantageItem } from "./AdvantageItem/AdvantageItem";
 import { Container } from "../../../../ui/Container";
+
 import styles from "./Advantage.module.css";
 export const Advantage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const text = [
     { title: "35%", text: t("advantage_one") },
     { title: "80 K", text: t("advantage_two") },
