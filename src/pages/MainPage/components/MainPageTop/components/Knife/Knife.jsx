@@ -7,7 +7,7 @@ export const Knife = ({ name, img, textStyle, lineStyle, imgStyles }) => {
         <div className={styles.bullet}></div>
         <p className={styles[textStyle]}>{name}</p>
       </div>
-      <img src={img} className={imgStyles} />
+      <img src={img} alt={name} className={imgStyles} />
     </div>
   );
 };

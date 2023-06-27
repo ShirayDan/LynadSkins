@@ -13,6 +13,7 @@ i18n
     resources: {
       en: {
         translation: {
+          settings: "Settings",
           key: "hello world",
           footer_advantages:
             "Buy, sell, and trade skins easier and faster. All deals are secured with the highest level protection methods.",
@@ -205,6 +206,7 @@ i18n
       },
       ua: {
         translation: {
+          settings: "Налаштування",
           key: "Привіт",
           footer_advantages:
             "Купуйте, продавайте та обмінюйте скіни легше та швидше. Усі угоди забезпечені методами захисту найвищого рівня.",

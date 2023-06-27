@@ -21,16 +21,66 @@ import { Container } from "../../../../ui/Container";
 export const PopularItems = () => {
   const { t, i18n } = useTranslation();
   const data = [
-    { img: img1, exterior: "Field-Tested", price: "13.30" },
-    { img: img2, exterior: "Field-Tested", price: "38.24" },
-    { img: img3, exterior: "Field-Tested", price: "34.91" },
-    { img: img4, exterior: "Field-Tested", price: "31.04" },
-    { img: img5, exterior: "Field-Tested", price: "23.98" },
-    { img: img6, exterior: "Field-Tested", price: "48.02" },
-    { img: img7, exterior: "Field-Tested", price: "22.72" },
-    { img: img8, exterior: "Field-Tested", price: "29.98" },
-    { img: img9, exterior: "Field-Tested", price: "47.11" },
-    { img: img10, exterior: "Field-Tested", price: "61.70" },
+    {
+      img: img1,
+      exterior: "Field-Tested",
+      price: "13.30",
+      alt: "AK-47-Redline",
+    },
+    {
+      img: img2,
+      exterior: "Field-Tested",
+      price: "38.24",
+      alt: "AK-47-Asiimov",
+    },
+    {
+      img: img3,
+      exterior: "Field-Tested",
+      price: "34.91",
+      alt: "AK-47-Neon Rider",
+    },
+    {
+      img: img4,
+      exterior: "Field-Tested",
+      price: "31.04",
+      alt: "M4A4-The Emperor",
+    },
+    {
+      img: img5,
+      exterior: "Field-Tested",
+      price: "23.98",
+      alt: "AK-47-Neon Revolution",
+    },
+    {
+      img: img6,
+      exterior: "Field-Tested",
+      price: "48.02",
+      alt: "AK-47-Vulcan",
+    },
+    {
+      img: img7,
+      exterior: "Field-Tested",
+      price: "22.72",
+      alt: "M4A4-Neo-Noir",
+    },
+    {
+      img: img8,
+      exterior: "Field-Tested",
+      price: "29.98",
+      alt: "AWP-Neo-Noir",
+    },
+    {
+      img: img9,
+      exterior: "Field-Tested",
+      price: "47.11",
+      alt: "AK-47-Bloodsport",
+    },
+    {
+      img: img10,
+      exterior: "Field-Tested",
+      price: "61.70",
+      alt: "AWP-Asiimov",
+    },
   ];
   return (
     <Container styles={styles.container}>

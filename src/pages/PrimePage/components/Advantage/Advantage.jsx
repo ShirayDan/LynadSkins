@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Advantage.module.css";
 import { Typeography } from "../../../../ui/Typeography";
-export const Advantage = ({ title, description, img }) => {
+export const Advantage = ({ title, description, img, text }) => {
   return (
     <div className={styles["advantages-item"]}>
       <div className={styles.subcontainer}>
         <div className={styles["img-container"]}>
-          <img src={img} alt="" className={styles.img} />
+          <img src={img} alt={text} className={styles.img} />
         </div>
         <Typeography
           color={"white"}

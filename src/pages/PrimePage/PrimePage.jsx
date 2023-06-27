@@ -26,26 +26,31 @@ export const PrimePage = () => {
       title: t("prime_page.advantages.one.title"),
       description: t("prime_page.advantages.one.text"),
       img: img1,
+      text: "Increased deposit bonus",
     },
     {
       title: t("prime_page.advantages.two.title"),
       description: t("prime_page.advantages.two.text"),
       img: img2,
+      alt: "Trade commission",
     },
     {
       title: t("prime_page.advantages.three.title"),
       description: t("prime_page.advantages.three.text"),
       img: img3,
+      alt: "Discount in the Store",
     },
     {
       title: t("prime_page.advantages.four.title"),
       description: t("prime_page.advantages.four.text"),
       img: img4,
+      alt: "3D Skin Viewer",
     },
     {
       title: t("prime_page.advantages.five.title"),
       description: t("prime_page.advantages.five.text"),
       img: img5,
+      alt: "Priority support",
     },
   ];
   const info = [

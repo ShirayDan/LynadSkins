@@ -26,7 +26,7 @@ export const Item = ({
   return (
     <>
       <div className={styles.item} onClick={() => handleClick()}>
-        <img src={img} alt="" className={styles.photo} />
+        <img src={img} alt={`${item}-${skin}`} className={styles.photo} />
         <div className={styles.description}>
           <Typeography variant={"h3"} fontSize={"16px"} color={"grey"}>
             <Typeography variant={"span"} color={"gold"} fontSize={"16px"}>{`${

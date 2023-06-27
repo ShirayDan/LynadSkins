@@ -12,8 +12,9 @@ import { Color } from "./components/Color";
 import { Typeography } from "../../ui/Typeography";
 import { Button } from "../../ui/Button";
 import { Container } from "../../ui/Container/Container";
+
 export const MarketPageSide = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const FilterItem = ({ filter, fullList }) => {
     const [open, setOpen] = useState(false);
     const showAll = () => {

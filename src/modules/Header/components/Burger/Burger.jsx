@@ -2,11 +2,11 @@ import React, { useRef, useState } from "react";
 import styles from "./Burger.module.css";
 import { Link } from "react-router-dom";
 import { changeOverflow } from "../../../../helpers/helpers";
+import { useTranslation } from "react-i18next";
 
 import { List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
 import { Typeography } from "../../../../ui/Typeography";
-import { DarkMode } from "../../../../components/DarkMode";
 import { Language } from "../../../../components/Language";
 import { Currency } from "../../../../components/Currency";
 
@@ -15,10 +15,11 @@ import steam from "./../../../../i/icons/steam.svg";
 import telega from "./../../../../i/icons/telega.svg";
 import twitter from "./../../../../i/icons/twitter.svg";
 
-export const Burger = ({ theme, setTheme, langFunc }) => {
+export const Burger = ({ langFunc }) => {
   const [open, setOpen] = useState(false);
   const burger = useRef();
   const burgerBtn = useRef();
+  const { t } = useTranslation();
 
   const burgerClick = () => {
     open == false ? setOpen(true) : setOpen(false);
@@ -28,6 +29,7 @@ export const Burger = ({ theme, setTheme, langFunc }) => {
       : burger.current.classList.add(styles["active"]);
     changeOverflow(open);
   };
+
   const social = [
     {
       icon: inst,
@@ -105,7 +107,7 @@ export const Burger = ({ theme, setTheme, langFunc }) => {
             fontSize={"20px"}
             color={"white-strong"}
           >
-            Settings
+            {t("settings")}
           </Typeography>
           <div className={styles["burger-btns"]}>
             <Language langFunc={langFunc} />

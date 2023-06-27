@@ -84,10 +84,6 @@ export const MarketPageFilters = () => {
             />
           </svg>
         </div>
-        {/* <div
-          className={styles["icon-filters"]}
-          onClick={() => handleClick()}
-        ></div> */}
       </div>
       {moreFilters && (
         <Modal
