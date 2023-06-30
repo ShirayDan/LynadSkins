@@ -1,11 +1,10 @@
 .item {
-  background-color: rgba(54, 54, 54, 0.15);
+  background-color: rgba(121, 121, 121, 0.1);
   height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
 }
 .photo {
   width: 80%;

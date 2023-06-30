@@ -1,8 +1,7 @@
 .item {
-  background-color: rgba(54, 54, 54, 0.15);
+  background-color: rgba(121, 121, 121, 0.1);
   min-height: 210px;
   padding: 10px;
-  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
 }
 .listItems {
   padding-left: 15px;

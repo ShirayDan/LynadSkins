@@ -1,9 +1,8 @@
 .item {
-  background-color: rgba(54, 54, 54, 0.15);
+  background-color: rgba(121, 121, 121, 0.1);
   width: 100%;
   min-width: 270px;
   display: flex;
-  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
