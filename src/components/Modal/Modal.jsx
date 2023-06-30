@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Modal.module.css";
 
-import { Button } from "./../../ui/Button";
 import { Cross } from "../Cross";
 export const Modal = ({ children, handleClick, guns }) => {
   return (

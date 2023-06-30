@@ -7,7 +7,8 @@ import { Typeography } from "../../../../ui/Typeography";
 import { Button } from "../../../../ui/Button";
 import { Modal } from "../../../../components/Modal/Modal";
 
-import cart from "./../../../../i/icons/cart.svg";
+import { FaShoppingCart } from "react-icons/fa";
+
 export const Item = ({
   img,
   exterior,
@@ -57,10 +58,7 @@ export const Item = ({
           )}`}</Typeography>
         </div>
 
-        <Button
-          style={styles.btn}
-          text={<img src={cart} alt="" className={styles.img} />}
-        ></Button>
+        <Button style={styles.btn} text={<FaShoppingCart />}></Button>
       </div>
 
       {open && (

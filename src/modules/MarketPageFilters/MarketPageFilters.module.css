@@ -10,7 +10,8 @@
   width: 25px;
 }
 .icon-heart,
-.icon-cart {
+.icon-cart,
+.icon-filters {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +22,12 @@
   transition: 0.2s ease;
   cursor: pointer;
 }
-.icon-heart {
+.cart {
+  position: relative;
+}
+
+.icon-heart,
+.icon-cart {
   margin-right: 10px;
 }
 .icon path {
@@ -66,6 +72,12 @@
     padding: 20px 10px;
     background-color: rgba(119, 119, 119, 0.25);
     border-radius: 5px;
+  }
+  .icon-filters {
+    display: none;
+  }
+  .icon-cart {
+    margin-right: 0px;
   }
   .item:hover {
     background-color: rgba(119, 119, 119, 0.25);

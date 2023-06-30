@@ -10,10 +10,10 @@ import { Typeography } from "../../../../ui/Typeography";
 import { Language } from "../../../../components/Language";
 import { Currency } from "../../../../components/Currency";
 
-import inst from "./../../../../i/icons/inst.svg";
-import steam from "./../../../../i/icons/steam.svg";
-import telega from "./../../../../i/icons/telega.svg";
-import twitter from "./../../../../i/icons/twitter.svg";
+import { FaSteam } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 export const Burger = ({ langFunc }) => {
   const [open, setOpen] = useState(false);
@@ -32,19 +32,19 @@ export const Burger = ({ langFunc }) => {
 
   const social = [
     {
-      icon: inst,
+      icon: <FaInstagram fill="white" fontSize={"20px"} />,
       link: "https://www.instagram.com",
     },
     {
-      icon: steam,
+      icon: <FaSteam fill="white" fontSize={"20px"} />,
       link: "https://store.steampowered.com",
     },
     {
-      icon: telega,
+      icon: <FaTelegram fill="white" fontSize={"20px"} />,
       link: "https://web.telegram.org",
     },
     {
-      icon: twitter,
+      icon: <FaTwitter fill="white" fontSize={"20px"} />,
       link: "https://twitter.com/",
     },
   ];
@@ -125,7 +125,7 @@ export const Burger = ({ langFunc }) => {
               return (
                 <ListItem style={styles["social-item"]}>
                   <a href={item.link} className={styles.link}>
-                    <img src={item.icon} alt="" className={styles.img} />
+                    {item.icon}
                   </a>
                 </ListItem>
               );

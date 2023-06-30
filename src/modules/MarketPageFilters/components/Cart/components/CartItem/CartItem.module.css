@@ -1,0 +1,36 @@
+.item {
+  background-color: rgba(54, 54, 54, 0.15);
+  width: 100%;
+  min-width: 270px;
+  display: flex;
+  box-shadow: rgba(231, 31, 184, 0.15) 0px 25px 50px -12px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+.photo {
+  width: calc(100% - 190px);
+  min-width: 90px;
+  max-width: 150px;
+  height: 100%;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 140px;
+  max-width: 180px;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.bucket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  display: flex;
+}

@@ -10,7 +10,7 @@ import { Modal } from "../../../../components/Modal";
 import { SignInModal } from "../../../../modules/SignInModal";
 import { SignUpModal } from "../../../../modules/SignUpModal";
 
-import attention from "./../../../../i/icons/attention.svg";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 export const PersonalPage = () => {
   const { t, i18n } = useTranslation();
@@ -30,7 +30,7 @@ export const PersonalPage = () => {
     <Container className={styles.container}>
       <div className={styles.unauth}>
         <div>
-          <img src={attention} alt="" className={styles.img} />
+          <FaExclamationTriangle fontSize={"16px"} fill="red" />
         </div>
         <Typeography
           mb={"10px"}

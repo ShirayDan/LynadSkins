@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./ContactInfo.module.css";
+
 import { Typeography } from "../../../../ui/Typeography";
-import { Input } from "../../../../ui/Input";
-import { Button } from "../../../../ui/Button";
 import { List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
+
+import { FaPen } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 export const ContactInfo = () => {
   return (
@@ -22,8 +24,11 @@ export const ContactInfo = () => {
           <div className={styles["item-top"]}>
             <Typeography color={"white"}>E-mail:</Typeography>
             <div className={styles.icons}>
-              <div className={styles.iconred}></div>
-              <div className={styles.icon}></div>
+              <FaPen />
+              <span className={styles.icon}>
+                {" "}
+                <FaTrash />
+              </span>
             </div>
           </div>
           <Typeography color={"grey"}>Not installed</Typeography>
@@ -32,8 +37,11 @@ export const ContactInfo = () => {
           <div className={styles["item-top"]}>
             <Typeography color={"white"}>Telegram:</Typeography>
             <div className={styles.icons}>
-              <div className={styles.iconred}></div>
-              <div className={styles.icon}></div>
+              <FaPen />
+              <span className={styles.icon}>
+                {" "}
+                <FaTrash />
+              </span>
             </div>
           </div>
           <Typeography color={"grey"}>Not installed</Typeography>

@@ -7,6 +7,9 @@ import { Container } from "../../ui/Container";
 import { Tab } from "../../components/Tab";
 import { BuyBtn } from "./components/BuyBtn";
 import { PersonalPage } from "./components/PersonalPage";
+
+import { FaTriangleExclamation } from "react-icons";
+
 export const ChangePage = () => {
   return (
     <>

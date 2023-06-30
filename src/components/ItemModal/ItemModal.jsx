@@ -6,7 +6,8 @@ import { ListItem } from "../../ui/ListItem";
 import { Button } from "../../ui/Button";
 import { Container } from "../../ui/Container";
 
-import heart from "./../../i/icons/heart.svg";
+import { FaHeart } from "react-icons/fa";
+
 export const ItemModal = ({
   img,
   souvenir,
@@ -23,14 +24,14 @@ export const ItemModal = ({
         <img src={img} alt="" className={styles["modal-image"]} />
       </div>
       <div className={styles["modal-right"]}>
-        <Typeography variant={"h6"} color={"white"}>
-          <Typeography variant={"span"} color={"gold"}>{`${
+        <Typeography fontSize={"16px"} variant={"h3"} color={"white"}>
+          <Typeography fontSize={"16px"} variant={"span"} color={"gold"}>{`${
             souvenir == true ? "SV " : ""
           }`}</Typeography>
-          <Typeography variant={"span"}>{`${
+          <Typeography variant={"span"} fontSize={"16px"}>{`${
             souvenir == true && statTrak == true ? "/ " : ""
           }`}</Typeography>
-          <Typeography variant={"span"} color={"orange"}>{`${
+          <Typeography variant={"span"} fontSize={"16px"} color={"orange"}>{`${
             statTrak == true ? "ST " : ""
           }`}</Typeography>
           {item}
@@ -95,7 +96,7 @@ export const ItemModal = ({
           ></Button>
           <Button
             hover={true}
-            text={<img className={styles.icon} src={heart} alt=""></img>}
+            text={<FaHeart fontSize={"30px"} />}
             style={styles["modal-like"]}
           ></Button>
         </div>
