@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./CartItem.module.css";
+import styles from "./SmallItem.module.css";
 
-import { Container } from "./../../../../../../ui/Container";
-import { Typeography } from "../../../../../../ui/Typeography";
+import { Container } from "../../ui/Container";
+import { Typeography } from "../../ui/Typeography";
 
 import { FaTrash } from "react-icons/fa";
 
-export const CartItem = ({
+export const SmallItem = ({
   img,
   exterior,
   price,

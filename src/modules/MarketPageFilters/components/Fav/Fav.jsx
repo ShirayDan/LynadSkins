@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Cart.module.css";
+import styles from "./Fav.module.css";
 
 import { SmallModalInner } from "../../../../components/SmallModalInner/SmallModalInner";
 import { Container } from "../../../../ui/Container";
@@ -8,7 +8,7 @@ import { SmallModalEmpty } from "../../../../components/SmallModalEmpty";
 
 import img1 from "../../../../i/1.webp";
 
-export const Cart = () => {
+export const Fav = () => {
   const data = [
     {
       id: 1,
@@ -156,16 +156,15 @@ export const Cart = () => {
     <Container styles={styles.container}>
       {data.length ? (
         <>
-          <SmallModalInner data={data} type={"Cart"} />
+          <SmallModalInner data={data} type={"Favorites"} />
           <div className={styles.btns}>
-            <Button text={"Buy"} style={styles.btn} />
-            <Button text={"Empty Cart"} style={styles.btn} />
+            <Button text={"Reset favorites"} style={styles.btn} />
           </div>
         </>
       ) : (
         <SmallModalEmpty
-          message={"Your cart is empty"}
-          desc={"Add some items you want to purchase from our inventory"}
+          message={"Your wishlist is empty"}
+          desc={"Add some items to see them in wishlist"}
         />
       )}
     </Container>

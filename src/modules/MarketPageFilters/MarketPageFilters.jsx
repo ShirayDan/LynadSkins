@@ -10,6 +10,7 @@ import { Modal } from "../../components/Modal";
 import { ModalSmall } from "../../components/ModalSmall";
 import { Cart } from "./components/Cart";
 import { Input } from "../../ui/Input";
+import { Fav } from "./components/Fav";
 
 import { FaAngleDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -24,6 +25,8 @@ export const MarketPageFilters = () => {
   const [moreFilters, setMoreFilters] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [search, setSearch] = useState(false);
+  const [favOpen, setFavOpen] = useState(false);
+
   const showAll = () => {
     setOpen(!open);
   };
@@ -40,6 +43,12 @@ export const MarketPageFilters = () => {
     }
   };
 
+  const openFavMenu = () => {
+    setFavOpen(!favOpen);
+    if (window.innerWidth < 1050) {
+      changeOverflow(cartOpen);
+    }
+  };
   const filterModalClick = (text) => {
     setOpen(false);
     setFilter(text);
@@ -60,58 +69,66 @@ export const MarketPageFilters = () => {
 
   return (
     <div className={styles.filters}>
-      <div className={styles["filter-left"]}>
-        <div className={styles["icon-heart"]}>
-          <FaHeart fontSize={"15px"} fill="white" />
-        </div>
-        <div className={styles["filter-box"]} onClick={showAll}>
-          {filter}
-          <div
-            className={
-              open ? `${styles.icon} ${styles["icon-opened"]}` : styles.icon
-            }
-          >
-            <FaAngleDown fontSize={"25px"} />
-          </div>
-          {open && (
-            <div className={styles["filters-container"]}>
-              <List variant={"ul"}>
-                {filterParams.map((item) => {
-                  return (
-                    <ListItem
-                      style={styles.item}
-                      onClick={() => filterModalClick(item)}
-                    >
-                      {item}
-                    </ListItem>
-                  );
-                })}
-              </List>
+      <div className={styles["filter-top"]}>
+        <div className={styles.input}>
+          <Input width={"100%"} />
+          <div className={styles["search-btn"]}>
+            <div className={styles["icon-search"]}>
+              <FaSearch fontSize={"15px"} fill="white" />
             </div>
-          )}
+          </div>
         </div>
       </div>
-      <div className={styles["filter-right"]}>
-        <Input width={"350px"} />
-        <div className={styles["search-btn"]}>
-          <div className={styles["icon-search"]}>
-            <FaSearch fontSize={"15px"} fill="white" />
+      <div className={styles["filter-bottom"]}>
+        <div className={styles["filter-left"]}>
+          <div className={styles.fav} onClick={() => openFavMenu()}>
+            <div className={styles["icon-heart"]}>
+              <FaHeart fontSize={"15px"} fill="white" />
+            </div>
+          </div>
+          <div className={styles["filter-box"]} onClick={showAll}>
+            {filter}
+            <div
+              className={
+                open ? `${styles.icon} ${styles["icon-opened"]}` : styles.icon
+              }
+            >
+              <FaAngleDown fontSize={"25px"} />
+            </div>
+            {open && (
+              <div className={styles["filters-container"]}>
+                <List variant={"ul"}>
+                  {filterParams.map((item) => {
+                    return (
+                      <ListItem
+                        style={styles.item}
+                        onClick={() => filterModalClick(item)}
+                      >
+                        {item}
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </div>
+            )}
           </div>
         </div>
-        <div className={styles.search} onClick={() => searchModalClick()}>
-          <div className={styles["icon-search"]}>
-            <FaSearch fontSize={"15px"} fill="white" />
+        <div className={styles["filter-right"]}>
+          <div className={styles.search} onClick={() => searchModalClick()}>
+            <div className={styles["icon-search"]}>
+              <FaSearch fontSize={"15px"} fill="white" />
+            </div>
           </div>
-        </div>
 
-        <div className={styles.cart} onClick={() => openCartMenu()}>
-          <div className={styles["icon-cart"]}>
-            <FaShoppingCart fontSize={"15px"} fill="white" />
+          <div className={styles.cart} onClick={() => openCartMenu()}>
+            <div className={styles["icon-cart"]}>
+              <FaShoppingCart fontSize={"15px"} fill="white" />
+            </div>
           </div>
-        </div>
 
-        <div className={styles["icon-filters"]} onClick={() => handleClick()}>
-          <FaFilter fontSize={"15px"} fill="white" />
+          <div className={styles["icon-filters"]} onClick={() => handleClick()}>
+            <FaFilter fontSize={"15px"} fill="white" />
+          </div>
         </div>
       </div>
       {moreFilters && (
@@ -123,6 +140,9 @@ export const MarketPageFilters = () => {
       )}
       {cartOpen && (
         <ModalSmall handleClick={() => openCartMenu()} children={<Cart />} />
+      )}
+      {favOpen && (
+        <ModalSmall handleClick={() => openFavMenu()} children={<Fav />} />
       )}
       {search && (
         <Modal handleClick={() => searchModalClick()} children={<div>1</div>} />
