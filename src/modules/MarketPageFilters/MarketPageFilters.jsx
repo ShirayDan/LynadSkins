@@ -11,6 +11,7 @@ import { ModalSmall } from "../../components/ModalSmall";
 import { Cart } from "./components/Cart";
 import { Input } from "../../ui/Input";
 import { Fav } from "./components/Fav";
+import { Search } from "./components/Search";
 
 import { FaAngleDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -145,7 +146,11 @@ export const MarketPageFilters = () => {
         <ModalSmall handleClick={() => openFavMenu()} children={<Fav />} />
       )}
       {search && (
-        <Modal handleClick={() => searchModalClick()} children={<div>1</div>} />
+        <Modal
+          handleClick={() => searchModalClick()}
+          children={<Search />}
+          guns={true}
+        />
       )}
     </div>
   );
