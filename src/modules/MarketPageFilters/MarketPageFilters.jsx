@@ -9,11 +9,13 @@ import { FilterPhones } from "./components/FilterPhones";
 import { Modal } from "../../components/Modal";
 import { ModalSmall } from "../../components/ModalSmall";
 import { Cart } from "./components/Cart";
+import { Input } from "../../ui/Input";
 
 import { FaAngleDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 export const MarketPageFilters = () => {
   const { t, i18n } = useTranslation();
@@ -21,6 +23,7 @@ export const MarketPageFilters = () => {
   const [filter, setFilter] = useState(t("sorting_newest"));
   const [moreFilters, setMoreFilters] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [search, setSearch] = useState(false);
   const showAll = () => {
     setOpen(!open);
   };
@@ -32,7 +35,6 @@ export const MarketPageFilters = () => {
 
   const openCartMenu = () => {
     setCartOpen(!cartOpen);
-    console.log();
     if (window.innerWidth < 1050) {
       changeOverflow(cartOpen);
     }
@@ -41,6 +43,11 @@ export const MarketPageFilters = () => {
   const filterModalClick = (text) => {
     setOpen(false);
     setFilter(text);
+  };
+
+  const searchModalClick = (text) => {
+    setSearch(!search);
+    changeOverflow(search);
   };
 
   const filterParams = [
@@ -54,6 +61,9 @@ export const MarketPageFilters = () => {
   return (
     <div className={styles.filters}>
       <div className={styles["filter-left"]}>
+        <div className={styles["icon-heart"]}>
+          <FaHeart fontSize={"15px"} fill="white" />
+        </div>
         <div className={styles["filter-box"]} onClick={showAll}>
           {filter}
           <div
@@ -82,19 +92,22 @@ export const MarketPageFilters = () => {
         </div>
       </div>
       <div className={styles["filter-right"]}>
-        <div className={styles["icon-heart"]}>
-          <FaHeart fontSize={"15px"} fill="white" />
+        <Input width={"350px"} />
+        <div className={styles["search-btn"]}>
+          <div className={styles["icon-search"]}>
+            <FaSearch fontSize={"15px"} fill="white" />
+          </div>
         </div>
+        <div className={styles.search} onClick={() => searchModalClick()}>
+          <div className={styles["icon-search"]}>
+            <FaSearch fontSize={"15px"} fill="white" />
+          </div>
+        </div>
+
         <div className={styles.cart} onClick={() => openCartMenu()}>
           <div className={styles["icon-cart"]}>
             <FaShoppingCart fontSize={"15px"} fill="white" />
           </div>
-          {cartOpen && (
-            <ModalSmall
-              handleClick={() => openCartMenu()}
-              children={<Cart />}
-            />
-          )}
         </div>
 
         <div className={styles["icon-filters"]} onClick={() => handleClick()}>
@@ -107,6 +120,12 @@ export const MarketPageFilters = () => {
           children={<FilterPhones />}
           guns={true}
         />
+      )}
+      {cartOpen && (
+        <ModalSmall handleClick={() => openCartMenu()} children={<Cart />} />
+      )}
+      {search && (
+        <Modal handleClick={() => searchModalClick()} children={<div>1</div>} />
       )}
     </div>
   );

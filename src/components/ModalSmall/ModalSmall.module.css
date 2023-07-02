@@ -34,8 +34,8 @@
   .modal {
     width: 375px;
     height: unset;
-    top: 35px;
-    right: -9px;
+    top: 125px;
+    right: 10px;
     left: unset;
     position: absolute;
     z-index: 4;

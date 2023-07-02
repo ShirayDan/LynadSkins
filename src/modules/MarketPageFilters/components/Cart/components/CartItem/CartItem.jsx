@@ -61,7 +61,9 @@ export const CartItem = ({
         </div>
 
         <div className={styles.bucket}>
-          <FaTrash fontSize={"14px"} fill="white" />
+          <div className={styles["bucket-icon"]}>
+            <FaTrash fontSize={"14px"} fill="white" />
+          </div>
         </div>
       </div>
     </Container>

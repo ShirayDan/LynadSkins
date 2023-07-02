@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5px;
+  padding: 20px 10px;
 }
 .icon {
   transition: ease 0.2s;
@@ -11,7 +11,8 @@
 }
 .icon-heart,
 .icon-cart,
-.icon-filters {
+.icon-filters,
+.icon-search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +28,8 @@
 }
 
 .icon-heart,
-.icon-cart {
+.icon-cart,
+.icon-search {
   margin-right: 10px;
 }
 .icon path {
@@ -39,6 +41,8 @@
 .filter-left,
 .filter-right {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .filters-container {
   font-size: 14px;
@@ -51,7 +55,7 @@
   z-index: 1;
 }
 .filter-box {
-  width: 200px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,10 +70,11 @@
   cursor: pointer;
   transition: 0.25s;
 }
-
+.search-btn {
+  display: none;
+}
 @media screen and (min-width: 1050px) {
   .filters {
-    padding: 20px 10px;
     background-color: rgba(121, 121, 121, 0.1);
     border-radius: 5px;
   }
@@ -87,5 +92,17 @@
   }
   .icon-cart:hover {
     background-color: #e71fb8;
+  }
+  .icon-search:hover {
+    background-color: #e71fb8;
+  }
+  .search-btn {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search {
+    display: none;
   }
 }

@@ -24,10 +24,10 @@ export const ContactInfo = () => {
           <div className={styles["item-top"]}>
             <Typeography color={"white"}>E-mail:</Typeography>
             <div className={styles.icons}>
-              <FaPen />
+              <FaPen fill="var(--text-primary)" />
               <span className={styles.icon}>
                 {" "}
-                <FaTrash />
+                <FaTrash fill="var(--text-primary)" />
               </span>
             </div>
           </div>
@@ -37,10 +37,10 @@ export const ContactInfo = () => {
           <div className={styles["item-top"]}>
             <Typeography color={"white"}>Telegram:</Typeography>
             <div className={styles.icons}>
-              <FaPen />
+              <FaPen fill="var(--text-primary)" />
               <span className={styles.icon}>
                 {" "}
-                <FaTrash />
+                <FaTrash fill="var(--text-primary)" />
               </span>
             </div>
           </div>

@@ -1,13 +1,14 @@
 .priceInput {
   width: 100%;
   border-radius: 5px;
-  background: var(--inputs);
+  background: var(--modals);
   border: none;
   padding: 5px;
   color: var(--text-primary);
   font-size: 14px;
   padding-top: 6px;
   line-height: 110%;
+  border: 1px solid var(--text-secondary);
 }
 [type="submit"],
 [type="reset"] {

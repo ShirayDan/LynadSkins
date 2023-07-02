@@ -3,7 +3,6 @@
   width: 30px;
   height: 20px;
   position: relative;
-  z-index: 3;
 }
 .burger-span-top,
 .burger-span-bottom {

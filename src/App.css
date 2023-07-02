@@ -21,7 +21,7 @@
   --shadow: #7a7979;
   --inputs: #d7d7d7;
   --modals: #d7d7d7;
-  --modal-info: #b5b4bc;
+  --modal-info: rgba(121, 121, 121, 0.1);
   --burger: #b9b2b2;
 }
 * {
