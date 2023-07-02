@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ProfilePage.module.css";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "../../ui/Container";
 import { Typeography } from "../../ui/Typeography";
@@ -11,6 +12,7 @@ import { Background } from "./components/Background";
 import { MarketPageItems } from "./../../modules/MarketPageItems";
 
 export const ProfilePage = () => {
+  const { t } = useTranslation();
   return (
     <Container styles={styles.container}>
       <Typeography
@@ -19,7 +21,7 @@ export const ProfilePage = () => {
         color={"white"}
         m={"0 0 20px 10px"}
       >
-        Personal Info
+        {t("personalPage.personal_info")}
       </Typeography>
       <div className={styles.top}>
         <Background>
@@ -43,7 +45,7 @@ export const ProfilePage = () => {
         color={"white"}
         m={"0 0 20px 10px"}
       >
-        Your inventory
+        {t("personalPage.your_inventory")}
       </Typeography>
       <MarketPageItems />
     </Container>

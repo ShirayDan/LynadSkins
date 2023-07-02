@@ -19,7 +19,7 @@ import { DarkMode } from "../../components/DarkMode";
 export const Header = ({ theme, setTheme, langFunc }) => {
   const [open, setOpen] = useState(false);
   const [signUpOpen, setSignUpOpen] = useState(false);
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   const handleClick = () => {
     setOpen(!open);

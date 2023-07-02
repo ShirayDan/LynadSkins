@@ -1,20 +1,23 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "../../../../ui/Container";
 import { Typeography } from "../../../../ui/Typeography";
 import { List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
+
 export const ProfileInfo = () => {
+  const { t } = useTranslation();
   return (
     <Container>
       <Typeography fontSize={"24px"} variant={"h2"} color={"white"}>
-        Profile
+        {t("personalPage.profile")}
       </Typeography>
       <div className={styles["profile-info"]}>
         <img src="" alt="" />
         <Typeography variant={"h3"} color={"white"}>
-          Profile name
+          {t("personalPage.profile_name")}
         </Typeography>
       </div>
       <List>
@@ -23,7 +26,9 @@ export const ProfileInfo = () => {
           justifyContent={"space-between"}
           style={styles.item}
         >
-          <Typeography color={"grey"}>Commission:</Typeography>
+          <Typeography color={"grey"}>
+            {t("personalPage.commission")}
+          </Typeography>
           <Typeography color={"white"}>7%</Typeography>
         </ListItem>
         <ListItem
@@ -31,7 +36,9 @@ export const ProfileInfo = () => {
           justifyContent={"space-between"}
           style={styles.item}
         >
-          <Typeography color={"grey"}>Registration:</Typeography>
+          <Typeography color={"grey"}>
+            {t("personalPage.registration")}
+          </Typeography>
           <Typeography color={"white"}>20.01.2020</Typeography>
         </ListItem>
         <ListItem
@@ -39,7 +46,7 @@ export const ProfileInfo = () => {
           justifyContent={"space-between"}
           style={styles.item}
         >
-          <Typeography color={"grey"}>Trades:</Typeography>
+          <Typeography color={"grey"}>{t("personalPage.trades")}</Typeography>
           <Typeography color={"white"}>0</Typeography>
         </ListItem>
       </List>

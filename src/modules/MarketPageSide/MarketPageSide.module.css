@@ -52,9 +52,14 @@
   .container {
     width: 220px;
     background-color: rgba(121, 121, 121, 0.1);
-    height: calc(100vh + 5px);
+    height: calc(100vh + 43px);
   }
   .sideBar {
     margin-right: 10px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    height: calc(100vh + 8px);
   }
 }

@@ -3,8 +3,6 @@ import styles from "./PrimePage.module.css";
 import { useTranslation } from "react-i18next";
 
 import { Container } from "../../ui/Container";
-// import { Typeography } from "../../ui/Typeography";
-// import { Button } from "../../ui/Button";
 import { Advantage } from "./components/Advantage";
 import { Tab } from "../../components/Tab";
 import { TabContent } from "./components/TabContent";
@@ -18,7 +16,7 @@ import img3 from "./../../i/advantage-3.webp";
 import img4 from "./../../i/advantage-4.webp";
 import img5 from "./../../i/advantage-5.webp";
 export const PrimePage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const table = useRef();
 
   const advantages = [
