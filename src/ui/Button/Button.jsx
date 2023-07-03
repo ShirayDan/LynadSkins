@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
+import { motion } from "framer-motion";
+
 export const Button = ({ text, style, onClick, disabled, hover }) => {
   let cl = styles.btn;
   if (style) {
@@ -9,8 +11,13 @@ export const Button = ({ text, style, onClick, disabled, hover }) => {
     cl += ` ${styles["btn-hover"]}`;
   }
   return (
-    <button disabled={disabled} className={cl} onClick={onClick}>
+    <motion.button
+      whileTap={!disabled && { scale: 0.8 }}
+      disabled={disabled}
+      className={cl}
+      onClick={onClick}
+    >
       {text}
-    </button>
+    </motion.button>
   );
 };

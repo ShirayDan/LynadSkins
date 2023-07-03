@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Language.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { List } from "../../ui/List";
 import { ListItem } from "../../ui/ListItem";
@@ -31,26 +32,33 @@ export const Language = ({ langFunc }) => {
           </div>
         </Typeography>
       </div>
-      {languageOpen && (
-        <div className={styles.language}>
-          <List variant={"ul"}>
-            <ListItem
-              onClick={() => langFunc.changeLanguage("en")}
-              style={styles.item}
-            >
-              <img src={usa} alt="" className={styles.img} />
-              English
-            </ListItem>
-            <ListItem
-              onClick={() => langFunc.changeLanguage("ua")}
-              style={styles.item}
-            >
-              <img src={ua} alt="" className={styles.img} />
-              Ukrainian
-            </ListItem>
-          </List>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {languageOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={styles.language}
+          >
+            <List variant={"ul"}>
+              <ListItem
+                onClick={() => langFunc.changeLanguage("en")}
+                style={styles.item}
+              >
+                <img src={usa} alt="" className={styles.img} />
+                English
+              </ListItem>
+              <ListItem
+                onClick={() => langFunc.changeLanguage("ua")}
+                style={styles.item}
+              >
+                <img src={ua} alt="" className={styles.img} />
+                Ukrainian
+              </ListItem>
+            </List>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

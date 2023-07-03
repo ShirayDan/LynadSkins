@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./PersonalPage.module.css";
 import { useTranslation } from "react-i18next";
 import { changeOverflow } from "../../../../helpers/helpers";
+import { AnimatePresence } from "framer-motion";
 
 import { Container } from "../../../../ui/Container";
 import { Typeography } from "../../../../ui/Typeography";
@@ -54,16 +55,22 @@ export const PersonalPage = () => {
             onClick={() => handleClick()}
           ></Button>
         </div>
-
-        {open && (
-          <Modal children={<SignInModal />} handleClick={() => handleClick()} />
-        )}
-        {signUpOpen && (
-          <Modal
-            children={<SignUpModal />}
-            handleClick={() => openSignUpModal()}
-          />
-        )}
+        <AnimatePresence initial={false}>
+          {open && (
+            <Modal
+              children={<SignInModal />}
+              handleClick={() => handleClick()}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial={false}>
+          {signUpOpen && (
+            <Modal
+              children={<SignUpModal />}
+              handleClick={() => openSignUpModal()}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </Container>
   );

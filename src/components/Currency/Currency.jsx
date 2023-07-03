@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Currency.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { List } from "../../ui/List";
 import { ListItem } from "../../ui/ListItem";
@@ -30,14 +31,21 @@ export const Currency = () => {
           </div>
         </Typeography>
       </div>
-      {currencyOpen && (
-        <div className={styles.currency}>
-          <List variant={"ul"}>
-            <ListItem style={styles.item}>USD</ListItem>
-            <ListItem style={styles.item}>UAH</ListItem>
-          </List>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {currencyOpen && (
+          <motion.div
+            className={styles.currency}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <List variant={"ul"}>
+              <ListItem style={styles.item}>USD</ListItem>
+              <ListItem style={styles.item}>UAH</ListItem>
+            </List>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

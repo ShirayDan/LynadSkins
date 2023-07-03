@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { changeOverflow } from "../../helpers/helpers";
+import { AnimatePresence } from "framer-motion";
 
 import { Burger } from "./components/Burger";
 import { List } from "../../ui/List";
@@ -91,16 +92,22 @@ export const Header = ({ theme, setTheme, langFunc }) => {
             ></Button>
           </>
         )}
-
-        {open && (
-          <Modal children={<SignInModal />} handleClick={() => handleClick()} />
-        )}
-        {signUpOpen && (
-          <Modal
-            children={<SignUpModal />}
-            handleClick={() => openSignUpModal()}
-          />
-        )}
+        <AnimatePresence initial={false}>
+          {open && (
+            <Modal
+              children={<SignInModal />}
+              handleClick={() => handleClick()}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial={false}>
+          {signUpOpen && (
+            <Modal
+              children={<SignUpModal />}
+              handleClick={() => openSignUpModal()}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

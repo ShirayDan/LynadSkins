@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Item.module.css";
 import { changeOverflow } from "../../../../helpers/helpers";
+import { AnimatePresence } from "framer-motion";
 
 import { ItemModal } from "../../../../components/ItemModal";
 import { Typeography } from "../../../../ui/Typeography";
@@ -60,25 +61,26 @@ export const Item = ({
 
         <Button style={styles.btn} text={<FaShoppingCart />}></Button>
       </div>
-
-      {open && (
-        <Modal
-          handleClick={() => handleClick()}
-          children={
-            <ItemModal
-              img={img}
-              statTrak={statTrak}
-              souvenir={souvenir}
-              item={item}
-              skin={skin}
-              exterior={exterior}
-              price={price}
-              float={float}
-            />
-          }
-          guns={true}
-        />
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <Modal
+            handleClick={() => handleClick()}
+            children={
+              <ItemModal
+                img={img}
+                statTrak={statTrak}
+                souvenir={souvenir}
+                item={item}
+                skin={skin}
+                exterior={exterior}
+                price={price}
+                float={float}
+              />
+            }
+            guns={true}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };

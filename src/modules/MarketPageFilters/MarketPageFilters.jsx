@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./MarketPageFilters.module.css";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { changeOverflow } from "../../helpers/helpers";
 import { List } from "../../ui/List";
@@ -45,10 +46,10 @@ export const MarketPageFilters = () => {
   };
 
   const openFavMenu = () => {
-    setFavOpen(!favOpen);
-    if (window.innerWidth < 1050) {
-      changeOverflow(cartOpen);
-    }
+    // setFavOpen(!favOpen);
+    // if (window.innerWidth < 1050) {
+    //   changeOverflow(cartOpen);
+    // }
   };
   const filterModalClick = (text) => {
     setOpen(false);
@@ -73,20 +74,27 @@ export const MarketPageFilters = () => {
       <div className={styles["filter-top"]}>
         <div className={styles.input}>
           <Input width={"100%"} />
-          <div className={styles["search-btn"]}>
+          <motion.div
+            whileTap={{ scale: 0.8 }}
+            className={styles["search-btn"]}
+          >
             <div className={styles["icon-search"]}>
               <FaSearch fontSize={"15px"} fill="white" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className={styles["filter-bottom"]}>
         <div className={styles["filter-left"]}>
-          <div className={styles.fav} onClick={() => openFavMenu()}>
+          <motion.div
+            whileTap={{ scale: 0.8 }}
+            className={styles.fav}
+            onClick={() => openFavMenu()}
+          >
             <div className={styles["icon-heart"]}>
               <FaHeart fontSize={"15px"} fill="white" />
             </div>
-          </div>
+          </motion.div>
           <div className={styles["filter-box"]} onClick={showAll}>
             {filter}
             <div
@@ -115,43 +123,61 @@ export const MarketPageFilters = () => {
           </div>
         </div>
         <div className={styles["filter-right"]}>
-          <div className={styles.search} onClick={() => searchModalClick()}>
+          <motion.div
+            whileTap={{ scale: 0.8 }}
+            className={styles.search}
+            onClick={() => searchModalClick()}
+          >
             <div className={styles["icon-search"]}>
               <FaSearch fontSize={"15px"} fill="white" />
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.cart} onClick={() => openCartMenu()}>
+          <motion.div
+            whileTap={{ scale: 0.8 }}
+            className={styles.cart}
+            onClick={() => openCartMenu()}
+          >
             <div className={styles["icon-cart"]}>
               <FaShoppingCart fontSize={"15px"} fill="white" />
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles["icon-filters"]} onClick={() => handleClick()}>
+          <motion.div
+            whileTap={{ scale: 0.8 }}
+            className={styles["icon-filters"]}
+            onClick={() => handleClick()}
+          >
             <FaFilter fontSize={"15px"} fill="white" />
-          </div>
+          </motion.div>
         </div>
       </div>
-      {moreFilters && (
-        <Modal
-          handleClick={() => handleClick()}
-          children={<FilterPhones />}
-          guns={true}
-        />
-      )}
-      {cartOpen && (
-        <ModalSmall handleClick={() => openCartMenu()} children={<Cart />} />
-      )}
-      {favOpen && (
+      <AnimatePresence initial={false}>
+        {moreFilters && (
+          <Modal
+            handleClick={() => handleClick()}
+            children={<FilterPhones />}
+            guns={true}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence initial={false}>
+        {cartOpen && (
+          <ModalSmall handleClick={() => openCartMenu()} children={<Cart />} />
+        )}
+      </AnimatePresence>
+      {/* {favOpen && (
         <ModalSmall handleClick={() => openFavMenu()} children={<Fav />} />
-      )}
-      {search && (
-        <Modal
-          handleClick={() => searchModalClick()}
-          children={<Search />}
-          guns={true}
-        />
-      )}
+      )} */}
+      <AnimatePresence initial={false}>
+        {search && (
+          <Modal
+            handleClick={() => searchModalClick()}
+            children={<Search />}
+            guns={true}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
