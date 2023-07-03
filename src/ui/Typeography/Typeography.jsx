@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, forwardRef } from "react";
 import styles from "./Typeography.module.css";
+import { motion } from "framer-motion";
 
 const variantsMapping = {
   h1: "h1",
@@ -15,54 +16,62 @@ const variantsMapping = {
   span: "span",
 };
 
-export const Typeography = ({
-  variant,
-  color,
-  children,
-  before,
-  after,
-  p,
-  mt,
-  mb,
-  m,
-  textAlign,
-  fontSize,
-  hover,
-  icon,
-}) => {
-  const Component = variant ? variantsMapping[variant] : "p";
-  let cl = "";
-  if (variant) {
-    cl += `${styles[variant]}`;
+export const Typeography = forwardRef(
+  (
+    {
+      variant,
+      color,
+      children,
+      before,
+      after,
+      p,
+      mt,
+      mb,
+      m,
+      textAlign,
+      fontSize,
+      hover,
+      icon,
+    },
+    ref
+  ) => {
+    const Component = variant ? variantsMapping[variant] : "p";
+    let cl = "";
+    if (variant) {
+      cl += `${styles[variant]}`;
+    }
+    if (color) {
+      cl += ` ${styles[color]}`;
+    }
+    if (before) {
+      cl += ` ${styles[before]}`;
+    }
+    if (after) {
+      cl += ` ${styles[after]}`;
+    }
+    if (hover) {
+      cl += ` ${styles["text-hover"]}`;
+    }
+    if (icon) {
+      cl += ` ${styles.icon}`;
+    }
+    return (
+      <Component
+        ref={ref}
+        className={cl}
+        style={{
+          padding: p,
+          marginTop: mt,
+          marginBottom: mb,
+          margin: m,
+          fontSize,
+          textAlign,
+        }}
+      >
+        {children}
+      </Component>
+    );
   }
-  if (color) {
-    cl += ` ${styles[color]}`;
-  }
-  if (before) {
-    cl += ` ${styles[before]}`;
-  }
-  if (after) {
-    cl += ` ${styles[after]}`;
-  }
-  if (hover) {
-    cl += ` ${styles["text-hover"]}`;
-  }
-  if (icon) {
-    cl += ` ${styles.icon}`;
-  }
-  return (
-    <Component
-      className={cl}
-      style={{
-        padding: p,
-        marginTop: mt,
-        marginBottom: mb,
-        margin: m,
-        fontSize,
-        textAlign,
-      }}
-    >
-      {children}
-    </Component>
-  );
-};
+);
+
+export const MTypeography = motion(Typeography);

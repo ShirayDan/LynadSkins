@@ -3,10 +3,25 @@ import styles from "./AdvantagesSlider.module.css";
 import { useTranslation } from "react-i18next";
 
 import { Typeography } from "../../../../ui/Typeography";
-import { Container } from "../../../../ui/Container";
+import { MContainer } from "../../../../ui/Container";
 import { AdvantageSliderItems } from "./components/AdvantagesSliderItems";
+import { motion } from "framer-motion";
+
 export const AdvantagesSlider = () => {
   const { t, i18n } = useTranslation();
+
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  };
+
   const data = [
     {
       title: t("advantage_slider.one.title"),
@@ -44,7 +59,13 @@ export const AdvantagesSlider = () => {
     },
   ];
   return (
-    <Container styles={styles.container}>
+    <MContainer
+      initial="hidden"
+      whileInView="visible"
+      variants={textAnimation}
+      custom={1}
+      styles={styles.container}
+    >
       <Typeography color={"white"} variant={"h2"}>
         {t("our_advantages")}
       </Typeography>
@@ -54,6 +75,6 @@ export const AdvantagesSlider = () => {
           return <AdvantageSliderItems content={item} />;
         })}
       </div>
-    </Container>
+    </MContainer>
   );
 };

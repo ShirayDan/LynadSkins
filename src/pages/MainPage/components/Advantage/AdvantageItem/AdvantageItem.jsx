@@ -1,12 +1,36 @@
 import React from "react";
-import { Typeography } from "../../../../../ui/Typeography";
+import { MTypeography } from "../../../../../ui/Typeography";
+import { motion } from "framer-motion";
 export const AdvantageItem = ({ title, text }) => {
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  };
   return (
-    <div>
-      <Typeography color={"white"} variant={"h2"} after={"title"}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <MTypeography
+        variants={textAnimation}
+        custom={1}
+        color={"white"}
+        variant={"h2"}
+        after={"title"}
+      >
         {title}
-      </Typeography>
-      <Typeography color={"grey"}>{text}</Typeography>
-    </div>
+      </MTypeography>
+      <MTypeography variants={textAnimation} custom={1} color={"grey"}>
+        {text}
+      </MTypeography>
+    </motion.div>
   );
 };

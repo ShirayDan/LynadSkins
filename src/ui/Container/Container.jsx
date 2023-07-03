@@ -1,10 +1,16 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { motion } from "framer-motion";
 
-export const Container = ({ children, styles }) => {
+export const Container = forwardRef(({ children, styles }, ref) => {
   let cl = "";
   if (styles) {
     cl += `${styles}`;
   }
 
-  return <div className={cl}>{children}</div>;
-};
+  return (
+    <div ref={ref} className={cl}>
+      {children}
+    </div>
+  );
+});
+export const MContainer = motion(Container);

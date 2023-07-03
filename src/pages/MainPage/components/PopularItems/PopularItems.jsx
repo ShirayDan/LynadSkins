@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "./PopularItems.module.css";
+import "swiper/css";
+
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Item } from "./components/Item";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { Autoplay } from "swiper";
+import { Typeography } from "../../../../ui/Typeography";
+import { MContainer, Container } from "../../../../ui/Container";
+import { motion } from "framer-motion";
+
 import img1 from "./../../../../i/1.webp";
 import img2 from "./../../../../i/2.webp";
 import img3 from "./../../../../i/3.webp";
@@ -16,10 +21,22 @@ import img7 from "./../../../../i/7.webp";
 import img8 from "./../../../../i/8.webp";
 import img9 from "./../../../../i/9.webp";
 import img10 from "./../../../../i/10.webp";
-import { Typeography } from "../../../../ui/Typeography";
-import { Container } from "../../../../ui/Container";
+
 export const PopularItems = () => {
   const { t, i18n } = useTranslation();
+
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  };
+
   const data = [
     {
       img: img1,
@@ -83,7 +100,13 @@ export const PopularItems = () => {
     },
   ];
   return (
-    <Container styles={styles.container}>
+    <MContainer
+      initial="hidden"
+      whileInView="visible"
+      variants={textAnimation}
+      custom={1}
+      styles={styles.container}
+    >
       <div className={styles.titles}>
         <Typeography variant={"h2"} color={"white"}>
           {t("popular_items")}
@@ -139,6 +162,6 @@ export const PopularItems = () => {
           </Swiper>
         </div>
       </Container>
-    </Container>
+    </MContainer>
   );
 };
