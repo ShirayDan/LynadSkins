@@ -64,6 +64,7 @@ export const AdvantagesSlider = () => {
       whileInView="visible"
       variants={textAnimation}
       custom={1}
+      viewport={{ once: true }}
       styles={styles.container}
     >
       <Typeography color={"white"} variant={"h2"}>

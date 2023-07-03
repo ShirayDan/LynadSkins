@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import styles from "./PrimePage.module.css";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 import { Container } from "../../ui/Container";
-import { Advantage } from "./components/Advantage";
+import { MAdvantage } from "./components/Advantage";
 import { Tab } from "../../components/Tab";
 import { TabContent } from "./components/TabContent";
 import { TabPc } from "./components/TabPc";
@@ -15,9 +16,22 @@ import img2 from "./../../i/advantage-2.png";
 import img3 from "./../../i/advantage-3.webp";
 import img4 from "./../../i/advantage-4.webp";
 import img5 from "./../../i/advantage-5.webp";
+
 export const PrimePage = () => {
   const { t } = useTranslation();
   const table = useRef();
+
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  };
 
   const advantages = [
     {
@@ -259,15 +273,23 @@ export const PrimePage = () => {
   return (
     <Container styles={styles.container}>
       <PrimePageTop ref={table} />
-      <div className={styles.advantages}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className={styles.advantages}
+      >
         {advantages.map((item, i) => (
-          <Advantage
+          <MAdvantage
+            custom={i + 1}
+            variants={textAnimation}
             title={item.title}
+            key={i}
             description={item.description}
             img={item.img}
           />
         ))}
-      </div>
+      </motion.div>
       <FreePrime />
       <div className={styles.tab} id="table">
         {" "}

@@ -1,13 +1,32 @@
 import React from "react";
 import styles from "./TabContent.module.css";
-import { List } from "./../../../../ui/List";
+import { motion } from "framer-motion";
+
+import { MList } from "./../../../../ui/List";
 import { ListItem } from "./../../../../ui/ListItem";
 import { Button } from "../../../../ui/Button";
 import { Typeography } from "../../../../ui/Typeography";
+
 export const TabContent = ({ info, val }) => {
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.2 },
+    }),
+  };
+
   return (
-    <div className={styles.container}>
-      <List>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      className={styles.container}
+    >
+      <MList custom={1} variants={textAnimation}>
         {info[0].map((item, i) => {
           return (
             <ListItem style={styles.item}>
@@ -16,7 +35,7 @@ export const TabContent = ({ info, val }) => {
             </ListItem>
           );
         })}
-      </List>
+      </MList>
       <div className={styles.bottom}>
         <Typeography
           color={"white"}
@@ -32,6 +51,6 @@ export const TabContent = ({ info, val }) => {
           text={"Choose this plan"}
         ></Button>
       </div>
-    </div>
+    </motion.div>
   );
 };

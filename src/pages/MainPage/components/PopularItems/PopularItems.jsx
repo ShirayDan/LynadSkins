@@ -105,6 +105,7 @@ export const PopularItems = () => {
       whileInView="visible"
       variants={textAnimation}
       custom={1}
+      viewport={{ once: true }}
       styles={styles.container}
     >
       <div className={styles.titles}>

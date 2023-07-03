@@ -1,15 +1,35 @@
 import React from "react";
 import styles from "./TabPc.module.css";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
-import { List } from "../../../../ui/List";
+import { MList, List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
 import { Button } from "../../../../ui/Button";
+
 export const TabPc = ({ info }) => {
   const { t, i18n } = useTranslation();
+
+  const textAnimation = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.05 },
+    }),
+  };
+
   return (
-    <div className={styles.container}>
-      <List variant={"ul"}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={styles.container}
+    >
+      <MList variants={textAnimation} variant={"ul"}>
         {info.map((item, i) => {
           return (
             <ListItem style={i == 0 ? styles.subitemTop : styles.item}>
@@ -70,7 +90,7 @@ export const TabPc = ({ info }) => {
             </ListItem>
           </List>
         </ListItem>
-      </List>
-    </div>
+      </MList>
+    </motion.div>
   );
 };
