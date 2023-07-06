@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./SingInModal.module.css";
 import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import { Input } from "../../ui/Input";
 import { Container } from "../../ui/Container";
@@ -10,6 +12,9 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
 export const SignInModal = () => {
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
+
   const [viewPass, setViewPass] = useState("password");
   const {
     register,
@@ -17,11 +22,24 @@ export const SignInModal = () => {
     handleSubmit,
     reset,
   } = useForm({
+    defaultValues: {
+      email: "test@test.ua",
+      password: "12345",
+    },
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit = async (values) => {
+    const data = await dispatch(fetchAuth(values));
+
+    if (!data.payload) {
+      return alert("Не удалось авторизоваться");
+    }
+
+    if ("token" in data.payload) {
+      window.localStorage.setItem("token", data.payload.token);
+    }
+
     reset();
   };
 
@@ -65,7 +83,7 @@ export const SignInModal = () => {
                 placeholder={"Password"}
                 obj={register("Password", {
                   required: true,
-                  minLength: 6,
+                  minLength: 5,
                   maxLength: 12,
                 })}
                 mt={"5px"}

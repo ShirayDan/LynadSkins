@@ -1,6 +1,7 @@
 .profile-info {
   margin: 15px 0;
   display: flex;
+  justify-content: space-between;
 }
 .item {
   margin: 10px 0;

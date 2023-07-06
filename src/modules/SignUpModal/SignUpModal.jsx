@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "./SignUpModal.module.css";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
+import { Navigate } from "react-router-dom";
 
 import { Input } from "../../ui/Input";
 import { Container } from "../../ui/Container";
@@ -12,6 +15,8 @@ import { FaExclamationTriangle } from "react-icons/fa";
 
 export const SignUpModal = () => {
   const [viewPass, setViewPass] = useState("password");
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
 
   const {
     register,
@@ -19,13 +24,32 @@ export const SignUpModal = () => {
     handleSubmit,
     reset,
   } = useForm({
+    defaultValues: {
+      fullName: "Dan 10",
+      email: "test10@test.ua",
+      password: "12345",
+    },
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit = async (values) => {
+    alert(JSON.stringify(values));
+    const data = await dispatch(fetchRegister(values));
+
+    if (!data.payload) {
+      return alert("Не удалось зарегестрироваться");
+    }
+
+    if ("token" in data.payload) {
+      window.localStorage.setItem("token", data.payload.token);
+    }
+
     reset();
   };
+
+  // if (isAuth) {
+  //   return <Navigate to="/" />;
+  // }
 
   const changeView = () => {
     viewPass == "password" ? setViewPass("text") : setViewPass("password");
@@ -47,12 +71,29 @@ export const SignUpModal = () => {
           onSubmit={handleSubmit(onSubmit)}
           className={styles.form}
         >
+          <label htmlFor="fullName" className={styles.label}>
+            Full name:
+            <Input
+              type={"text"}
+              placeholder={"fullName"}
+              obj={register("fullName", {
+                required: true,
+              })}
+              mt={"5px"}
+            />
+          </label>
+          <div>
+            {errors?.firstName && (
+              <p>{errors?.firstName?.message || "Error one"}</p>
+            )}
+          </div>
+
           <label htmlFor="Email" className={styles.label}>
             Email:
             <Input
               type={"email"}
-              placeholder={"Email"}
-              obj={register("Email", {
+              placeholder={"email"}
+              obj={register("email", {
                 required: true,
                 pattern: /^\S+@\S+$/i,
               })}
@@ -64,15 +105,16 @@ export const SignUpModal = () => {
               <p>{errors?.firstName?.message || "Error one"}</p>
             )}
           </div>
+
           <label htmlFor="Password" className={styles.label}>
             Password:
             <div className={styles.password}>
               <Input
                 type={viewPass}
-                placeholder={"Password"}
-                obj={register("Password", {
+                placeholder={"password"}
+                obj={register("password", {
                   required: true,
-                  minLength: 6,
+                  minLength: 5,
                   maxLength: 12,
                 })}
                 mt={"5px"}

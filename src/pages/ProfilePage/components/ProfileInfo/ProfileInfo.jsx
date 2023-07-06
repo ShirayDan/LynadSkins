@@ -7,7 +7,7 @@ import { Typeography } from "../../../../ui/Typeography";
 import { List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
 
-export const ProfileInfo = () => {
+export const ProfileInfo = ({ data }) => {
   const { t } = useTranslation();
   return (
     <Container>
@@ -15,9 +15,11 @@ export const ProfileInfo = () => {
         {t("personalPage.profile")}
       </Typeography>
       <div className={styles["profile-info"]}>
-        <img src="" alt="" />
         <Typeography variant={"h3"} color={"white"}>
           {t("personalPage.profile_name")}
+        </Typeography>
+        <Typeography variant={"h3"} color={"white"}>
+          {data?.fullName}
         </Typeography>
       </div>
       <List>

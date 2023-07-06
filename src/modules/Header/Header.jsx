@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { changeOverflow } from "../../helpers/helpers";
 import { AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../../redux/slices/auth";
 
 import { Burger } from "./components/Burger";
 import { List } from "../../ui/List";
@@ -20,7 +22,7 @@ import { DarkMode } from "../../components/DarkMode";
 export const Header = ({ theme, setTheme, langFunc }) => {
   const [open, setOpen] = useState(false);
   const [signUpOpen, setSignUpOpen] = useState(false);
-  const [auth, setAuth] = useState(true);
+  const isAuth = useSelector(selectIsAuth);
 
   const handleClick = () => {
     setOpen(!open);
@@ -75,8 +77,8 @@ export const Header = ({ theme, setTheme, langFunc }) => {
           <Language langFunc={langFunc} />
         </div>
         <DarkMode theme={theme} setTheme={setTheme} />
-        {auth && <Profile />}
-        {!auth && (
+        {isAuth && <Profile />}
+        {!isAuth && (
           <>
             <Button
               text={"Sign up"}
