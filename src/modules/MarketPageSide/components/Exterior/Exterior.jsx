@@ -1,7 +1,7 @@
 import styles from "./Exterior.module.css";
 import { useTranslation } from "react-i18next";
 
-import { Container } from "../../../../ui/Container";
+import { MContainer } from "../../../../ui/Container";
 import { Item } from "../../../../components/Item";
 import { List } from "../../../../ui/List";
 export const Exterior = () => {
@@ -14,12 +14,17 @@ export const Exterior = () => {
     { text: t("battle_scarred"), value: "battle_scarred" },
   ];
   return (
-    <Container styles={styles.typeContainer}>
+    <MContainer
+      styles={styles.typeContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <List>
         {items.map((item, i) => {
           return <Item text={item.text} value={item.value} />;
         })}
       </List>
-    </Container>
+    </MContainer>
   );
 };

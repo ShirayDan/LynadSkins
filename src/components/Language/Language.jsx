@@ -21,7 +21,7 @@ export const Language = ({ langFunc }) => {
       <div onClick={() => openModal(languageOpen, setlanguageOpen)}>
         <Typeography color={"white"} hover={true} icon={true}>
           Language
-          <div
+          <span
             className={
               languageOpen
                 ? `${styles.icon} ${styles["icon-opened"]}`
@@ -29,7 +29,7 @@ export const Language = ({ langFunc }) => {
             }
           >
             <FaChevronDown fontSize={"16px"} />
-          </div>
+          </span>
         </Typeography>
       </div>
       <AnimatePresence initial={false}>

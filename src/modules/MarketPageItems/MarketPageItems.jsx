@@ -765,6 +765,7 @@ export const MarketPageItems = () => {
         {data.map((item, i) => {
           return (
             <Item
+              key={i}
               img={item.img}
               exterior={item.exterior}
               price={item.price}

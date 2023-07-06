@@ -73,7 +73,7 @@ export const AdvantagesSlider = () => {
 
       <div className={styles.items}>
         {data.map((item, i) => {
-          return <AdvantageSliderItems content={item} />;
+          return <AdvantageSliderItems key={i} content={item} />;
         })}
       </div>
     </MContainer>

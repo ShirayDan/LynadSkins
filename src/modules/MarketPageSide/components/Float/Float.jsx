@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "./Float.module.css";
 
 export const Float = () => {
   const [value, setValue] = useState(1);
   return (
-    <div className={styles.accordion}>
+    <motion.div
+      className={styles.accordion}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className={styles["show-container"]}>
         <div className={styles["show-val"]}>0</div>
         <div className={styles["show-val"]}>{value}</div>
@@ -18,6 +24,6 @@ export const Float = () => {
         className={styles["float-input"]}
         onChange={(e) => setValue(e.target.value)}
       />
-    </div>
+    </motion.div>
   );
 };

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import { MTypeography } from "../../../../ui/Typeography";
 
-export const PrimePageTop = ({ ref }) => {
+export const PrimePageTop = ({ innerRef }) => {
   const { t, i18n } = useTranslation();
 
   let id = window.innerWidth > 1050 ? "tablePC" : "table";
@@ -29,6 +29,7 @@ export const PrimePageTop = ({ ref }) => {
       whileInView="visible"
       viewport={{ once: true }}
       className={styles["premium-top"]}
+      ref={innerRef}
     >
       <MTypeography
         variant={"h1"}

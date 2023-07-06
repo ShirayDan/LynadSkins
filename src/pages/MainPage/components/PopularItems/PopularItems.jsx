@@ -151,7 +151,7 @@ export const PopularItems = () => {
           >
             {data.map((item, i) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <Item
                     img={item.img}
                     exterior={item.exterior}

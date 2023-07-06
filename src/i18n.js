@@ -9,7 +9,6 @@ i18n
   .use(initReactI18next)
   .init({
     lng: "en",
-    debug: true,
     resources: {
       en: {
         translation: {
@@ -209,7 +208,7 @@ i18n
             commission: "Commission:",
             registration: "Registration:",
             trades: "Trades:",
-            subscription: "subscription",
+            subscription: "Subscription",
             subscription_text:
               "You have no active subscriptions. You can learn more about the subscription in the Prime page.",
             subscription_short: "Now you can try five days free period.",

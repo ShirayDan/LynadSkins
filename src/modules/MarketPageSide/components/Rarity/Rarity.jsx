@@ -2,7 +2,7 @@ import styles from "./Rarity.module.css";
 import { useTranslation } from "react-i18next";
 
 import { List } from "../../../../ui/List";
-import { Container } from "../../../../ui/Container";
+import { MContainer } from "../../../../ui/Container";
 import { Item } from "../../../../components/Item";
 
 export const Rarity = () => {
@@ -16,12 +16,17 @@ export const Rarity = () => {
     { text: t("covert"), value: "covert" },
   ];
   return (
-    <Container styles={styles.typeContainer}>
+    <MContainer
+      styles={styles.typeContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <List>
         {items.map((item, i) => {
           return <Item text={item.text} value={item.value} />;
         })}
       </List>
-    </Container>
+    </MContainer>
   );
 };

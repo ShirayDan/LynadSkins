@@ -17,7 +17,11 @@ export const AdvantageSliderItems = ({ content }) => {
 
       <List mt={"10px"} variant={"ul"}>
         {content.advantages.map((item, i) => {
-          return <ListItem style={styles.listItems}>{item}</ListItem>;
+          return (
+            <ListItem key={i} style={styles.listItems}>
+              {item}
+            </ListItem>
+          );
         })}
       </List>
     </div>

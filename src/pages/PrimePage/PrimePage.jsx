@@ -19,7 +19,7 @@ import img5 from "./../../i/advantage-5.webp";
 
 export const PrimePage = () => {
   const { t } = useTranslation();
-  const table = useRef();
+  const table = React.useRef();
 
   const textAnimation = {
     hidden: {
@@ -272,7 +272,7 @@ export const PrimePage = () => {
   ];
   return (
     <Container styles={styles.container}>
-      <PrimePageTop ref={table} />
+      <PrimePageTop innerRef={table} />
       <motion.div
         initial="hidden"
         whileInView="visible"

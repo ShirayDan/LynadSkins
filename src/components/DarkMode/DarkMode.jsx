@@ -22,9 +22,9 @@ export const DarkMode = ({ theme, setTheme }) => {
         type="checkbox"
         id="darkmode-toggle"
         checked={isDark}
-        onClick={() => switchTheme()}
+        onChange={() => switchTheme()}
       />
-      <label className={"dark_mode_label"} for="darkmode-toggle">
+      <label className={"dark_mode_label"} htmlFor="darkmode-toggle">
         <Moon />
         <Sun />
       </label>

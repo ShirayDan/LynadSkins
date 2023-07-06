@@ -9,3 +9,9 @@
   z-index: 1;
   color: white;
 }
+.btn {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 0;
+}

@@ -32,7 +32,7 @@ export const TabPc = ({ info }) => {
       <MList variants={textAnimation} variant={"ul"}>
         {info.map((item, i) => {
           return (
-            <ListItem style={i == 0 ? styles.subitemTop : styles.item}>
+            <ListItem key={i} style={i == 0 ? styles.subitemTop : styles.item}>
               <List
                 variant={"ul"}
                 display={"grid"}

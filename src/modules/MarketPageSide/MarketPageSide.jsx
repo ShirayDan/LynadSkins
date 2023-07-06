@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./MarketPageSide.module.css";
 import { useTranslation } from "react-i18next";
-
+import { AnimatePresence } from "framer-motion";
 import { Exterior } from "./components/Exterior";
 import { Float } from "./components/Float";
 import { Other } from "./components/Other";
@@ -34,7 +34,7 @@ export const MarketPageSide = () => {
             )}
           </div>
         </div>
-        {open && fullList}
+        <AnimatePresence initial={false}>{open && fullList}</AnimatePresence>
       </>
     );
   };

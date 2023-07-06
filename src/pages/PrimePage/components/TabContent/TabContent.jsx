@@ -29,7 +29,7 @@ export const TabContent = ({ info, val }) => {
       <MList custom={1} variants={textAnimation}>
         {info[0].map((item, i) => {
           return (
-            <ListItem style={styles.item}>
+            <ListItem style={styles.item} key={i}>
               <Typeography color={"grey"}>{item.option}</Typeography>
               <Typeography p={"0 0 0 15px"}>{item.status}</Typeography>
             </ListItem>

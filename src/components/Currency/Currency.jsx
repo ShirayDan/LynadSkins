@@ -20,7 +20,7 @@ export const Currency = () => {
       >
         <Typeography color={"white"} hover={true} icon={true}>
           Currency
-          <div
+          <span
             className={
               currencyOpen
                 ? `${styles.icon} ${styles["icon-opened"]}`
@@ -28,7 +28,7 @@ export const Currency = () => {
             }
           >
             <FaChevronDown fontSize={"16px"} />
-          </div>
+          </span>
         </Typeography>
       </div>
       <AnimatePresence initial={false}>

@@ -1,5 +1,6 @@
 import styles from "./Other.module.css";
-import { Container } from "../../../../ui/Container";
+
+import { MContainer } from "../../../../ui/Container";
 import { List } from "../../../../ui/List";
 import { Item } from "../../../../components/Item";
 export const Other = () => {
@@ -8,12 +9,17 @@ export const Other = () => {
     { text: "Souvenir", value: "Souvenir" },
   ];
   return (
-    <Container styles={styles.typeContainer}>
+    <MContainer
+      styles={styles.typeContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <List variant={"ul"}>
         {items.map((item, i) => {
           return <Item text={item.text} value={item.value} />;
         })}
       </List>
-    </Container>
+    </MContainer>
   );
 };

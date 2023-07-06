@@ -123,7 +123,7 @@ export const Burger = ({ langFunc }) => {
           >
             {social.map((item, i) => {
               return (
-                <ListItem style={styles["social-item"]}>
+                <ListItem key={i} style={styles["social-item"]}>
                   <a href={item.link} className={styles.link}>
                     {item.icon}
                   </a>

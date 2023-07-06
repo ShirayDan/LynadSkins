@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Color.module.css";
-import { Container } from "../../../../ui/Container";
+import { MContainer } from "../../../../ui/Container";
 import { List } from "../../../../ui/List";
 import { ListItem } from "../../../../ui/ListItem";
 export const Color = () => {
@@ -15,7 +15,12 @@ export const Color = () => {
     { first: "#775536", second: "#b87e48" },
   ];
   return (
-    <Container styles={styles.typeContainer}>
+    <MContainer
+      styles={styles.typeContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <List variant={"ul"} display={"flex"} flexWrap={"wrap"} gap={"10px"}>
         {colors.map((item) => {
           return (
@@ -29,6 +34,6 @@ export const Color = () => {
         })}
         <ListItem style={styles["item-colorful"]}></ListItem>
       </List>
-    </Container>
+    </MContainer>
   );
 };

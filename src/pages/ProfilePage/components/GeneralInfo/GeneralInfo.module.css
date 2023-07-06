@@ -17,3 +17,6 @@
 .item:last-child {
   border-bottom: none;
 }
+.steamID {
+  color: var(--text-primary);
+}

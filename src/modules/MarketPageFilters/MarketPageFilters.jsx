@@ -107,9 +107,10 @@ export const MarketPageFilters = () => {
             {open && (
               <div className={styles["filters-container"]}>
                 <List variant={"ul"}>
-                  {filterParams.map((item) => {
+                  {filterParams.map((item, i) => {
                     return (
                       <ListItem
+                        key={i}
                         style={styles.item}
                         onClick={() => filterModalClick(item)}
                       >

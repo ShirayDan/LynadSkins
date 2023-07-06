@@ -48,10 +48,10 @@ export const GeneralInfo = () => {
         <ListItem style={styles.item}>
           <Typeography>
             {" "}
-            <div className={styles["links-item"]}>
-              <Typeography color={"white"}>Steam ID64:</Typeography>
-              <Typeography color={"white"}>76561198308918726</Typeography>
-            </div>
+            <span className={styles["links-item"]}>
+              <span className={styles.steamID}>Steam ID64:</span>
+              <span className={styles.steamID}>76561198308918726</span>
+            </span>
           </Typeography>
         </ListItem>
       </List>

@@ -80,7 +80,7 @@ export const Footer = () => {
           <List variant={"ul"} mt={"25px"}>
             {social.map((item, i) => {
               return (
-                <ListItem style={styles.socialItem}>
+                <ListItem style={styles.socialItem} key={i}>
                   <a href={item.link} className={styles.link}>
                     {item.icon}
                   </a>
@@ -91,14 +91,14 @@ export const Footer = () => {
         </div>
         {data.map((item, i) => {
           return (
-            <div className={styles.item}>
+            <div className={styles.item} key={i}>
               <Typeography variant={"h3"} p={"0 0 15px 0"} color={"white"}>
                 {item.title}
               </Typeography>
               <List variant={"ul"}>
                 {i == data.length - 1
                   ? item.items.map((el, i) => (
-                      <ListItem p={"5px 0"}>
+                      <ListItem p={"5px 0"} key={i}>
                         <Typeography hover={true} color={"grey"}>
                           {el.text}
                         </Typeography>
@@ -106,7 +106,7 @@ export const Footer = () => {
                     ))
                   : item.items.map((el, i) => {
                       return (
-                        <ListItem p={"5px 0"}>
+                        <ListItem p={"5px 0"} key={i}>
                           <Link to={el.link} className={styles["footer-link"]}>
                             {el.text}
                           </Link>
