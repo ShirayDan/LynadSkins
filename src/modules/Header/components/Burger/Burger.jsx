@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { changeOverflow } from '../../../../helpers/helpers'
+import { logout, selectIsAuth } from '../../../../redux/slices/auth'
 import styles from './Burger.module.css'
 
 import { Currency } from '../../../../components/Currency'
 import { Language } from '../../../../components/Language'
+import { Button } from '../../../../ui/Button'
 import { List } from '../../../../ui/List'
 import { ListItem } from '../../../../ui/ListItem'
 import { Typeography } from '../../../../ui/Typeography'
@@ -25,6 +28,16 @@ export const Burger = ({ langFunc }) => {
 			? burger.current.classList.remove(styles['active'])
 			: burger.current.classList.add(styles['active'])
 		changeOverflow(open)
+	}
+
+	const dispatch = useDispatch()
+	const isAuth = useSelector(selectIsAuth)
+
+	const onClickLogout = () => {
+		if (window.confirm('You really want to log out?')) {
+			dispatch(logout())
+			window.localStorage.removeItem('token')
+		}
 	}
 
 	const social = [
@@ -95,6 +108,13 @@ export const Burger = ({ langFunc }) => {
 										</Typeography>
 									</Link>
 								</ListItem>
+								<ListItem style={styles.item}>
+									<Link to={'/profile'}>
+										<Typeography color={'white-strong'} fontSize={'20px'}>
+											Profile
+										</Typeography>
+									</Link>
+								</ListItem>
 							</List>
 						</nav>
 					</div>
@@ -111,23 +131,35 @@ export const Burger = ({ langFunc }) => {
 						<Currency />
 					</div>
 				</div>
-				<div className={styles.social}>
-					<List
-						variant={'ul'}
-						display={'flex'}
-						alignItems={'center'}
-						justifyContent={'space-between'}
-					>
-						{social.map((item, i) => {
-							return (
-								<ListItem key={i} style={styles['social-item']}>
-									<a href={item.link} className={styles.link}>
-										{item.icon}
-									</a>
-								</ListItem>
-							)
-						})}
-					</List>
+				<div>
+					{isAuth && (
+						<div className=''>
+							<Button
+								onClick={onClickLogout}
+								style={styles.btn}
+								text={'Log out'}
+							></Button>
+						</div>
+					)}
+
+					<div className={styles.social}>
+						<List
+							variant={'ul'}
+							display={'flex'}
+							alignItems={'center'}
+							justifyContent={'space-between'}
+						>
+							{social.map((item, i) => {
+								return (
+									<ListItem key={i} style={styles['social-item']}>
+										<a href={item.link} className={styles.link}>
+											{item.icon}
+										</a>
+									</ListItem>
+								)
+							})}
+						</List>
+					</div>
 				</div>
 			</div>
 		</>

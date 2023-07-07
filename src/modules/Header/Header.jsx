@@ -10,6 +10,7 @@ import { Currency } from '../../components/Currency'
 import { DarkMode } from '../../components/DarkMode'
 import { Language } from '../../components/Language'
 import { Modal } from '../../components/Modal/Modal'
+import { Money } from '../../components/Money'
 import { Button } from '../../ui/Button'
 import { List } from '../../ui/List'
 import { ListItem } from '../../ui/ListItem'
@@ -77,7 +78,14 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 					<Language langFunc={langFunc} />
 				</div>
 				<DarkMode theme={theme} setTheme={setTheme} />
-				{isAuth && <Profile />}
+				{isAuth && (
+					<>
+						<Money />
+						<div className={styles.hide}>
+							<Profile />
+						</div>
+					</>
+				)}
 				{!isAuth && (
 					<>
 						<Button

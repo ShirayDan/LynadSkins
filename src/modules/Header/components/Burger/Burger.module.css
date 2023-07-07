@@ -124,3 +124,12 @@
   width: 25px;
   height: 25px;
 }
+.btn {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0;
+  background-color: transparent;
+  margin-bottom: 10px;
+  color: #eb5757;
+}
