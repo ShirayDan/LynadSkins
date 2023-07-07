@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./BlogPage.module.css";
+import React from 'react'
 
 export const BlogPage = () => {
-  return <div>BlogPage</div>;
-};
+	return <div>BlogPage</div>
+}

@@ -1,1 +1,1 @@
-export { SmallModalEmpty } from "./SmallModalEmpty";
+export { SmallModalEmpty } from './SmallModalEmpty'

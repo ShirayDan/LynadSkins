@@ -1,1 +1,1 @@
-export { Exterior } from "./Exterior";
+export { Exterior } from './Exterior'

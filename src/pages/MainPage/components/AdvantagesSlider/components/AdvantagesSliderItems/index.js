@@ -1,1 +1,1 @@
-export { AdvantageSliderItems } from "./AdvantageSliderItems";
+export { AdvantageSliderItems } from './AdvantageSliderItems'

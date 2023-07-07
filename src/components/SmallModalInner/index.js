@@ -1,1 +1,1 @@
-export { SmallModalInner } from "./SmallModalInner";
+export { SmallModalInner } from './SmallModalInner'

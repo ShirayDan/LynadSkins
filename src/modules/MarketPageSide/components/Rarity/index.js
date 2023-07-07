@@ -1,1 +1,1 @@
-export { Rarity } from "./Rarity";
+export { Rarity } from './Rarity'

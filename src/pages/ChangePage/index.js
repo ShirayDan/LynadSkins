@@ -1,1 +1,1 @@
-export { ChangePage } from "./ChangePage";
+export { ChangePage } from './ChangePage'

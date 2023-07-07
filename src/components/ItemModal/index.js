@@ -1,1 +1,1 @@
-export { ItemModal } from "./ItemModal";
+export { ItemModal } from './ItemModal'

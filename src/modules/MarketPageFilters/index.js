@@ -1,1 +1,1 @@
-export { MarketPageFilters } from "./MarketPageFilters";
+export { MarketPageFilters } from './MarketPageFilters'

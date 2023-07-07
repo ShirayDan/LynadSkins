@@ -1,17 +1,17 @@
-import React from "react";
-import "./App.css";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import React from 'react'
+import { Provider } from 'react-redux'
+import './App.css'
+import store from './redux/store'
 
-import { MainLayout } from "./routes";
+import { MainLayout } from './routes'
 const App = () => {
-  return (
-    <>
-      <Provider store={store}>
-        <MainLayout />
-      </Provider>
-    </>
-  );
-};
+	return (
+		<>
+			<Provider store={store}>
+				<MainLayout />
+			</Provider>
+		</>
+	)
+}
 
-export default App;
+export default App

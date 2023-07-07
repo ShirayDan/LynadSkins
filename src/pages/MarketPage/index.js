@@ -1,1 +1,1 @@
-export { MarketPage } from "./MarketPage";
+export { MarketPage } from './MarketPage'

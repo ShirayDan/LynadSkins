@@ -1,1 +1,1 @@
-export { MainPageTop } from "./MainPageTop";
+export { MainPageTop } from './MainPageTop'

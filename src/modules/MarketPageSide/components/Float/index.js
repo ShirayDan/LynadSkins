@@ -1,1 +1,1 @@
-export { Float } from "./Float";
+export { Float } from './Float'

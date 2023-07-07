@@ -1,1 +1,1 @@
-export { PrimePage } from "./PrimePage";
+export { PrimePage } from './PrimePage'

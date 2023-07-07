@@ -1,1 +1,1 @@
-export { Type } from "./Type";
+export { Type } from './Type'

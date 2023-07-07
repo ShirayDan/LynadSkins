@@ -1,1 +1,1 @@
-export { Typeography, MTypeography } from "./Typeography";
+export { MTypeography, Typeography } from './Typeography'

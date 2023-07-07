@@ -1,1 +1,1 @@
-export { Nopage } from "./Nopage";
+export { Nopage } from './Nopage'

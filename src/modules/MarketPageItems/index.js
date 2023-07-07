@@ -1,1 +1,1 @@
-export { MarketPageItems } from "./MarketPageItems";
+export { MarketPageItems } from './MarketPageItems'

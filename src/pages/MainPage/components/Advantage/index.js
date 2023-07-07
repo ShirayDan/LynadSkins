@@ -1,1 +1,1 @@
-export { Advantage } from "./Advantage";
+export { Advantage } from './Advantage'

@@ -1,1 +1,1 @@
-export { PrimePageTop } from "./PrimePageTop";
+export { PrimePageTop } from './PrimePageTop'

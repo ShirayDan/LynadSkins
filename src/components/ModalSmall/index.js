@@ -1,1 +1,1 @@
-export { ModalSmall } from "./ModalSmall";
+export { ModalSmall } from './ModalSmall'

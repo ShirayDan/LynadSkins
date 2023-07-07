@@ -1,1 +1,1 @@
-export { FreePrime } from "./FreePrime";
+export { FreePrime } from './FreePrime'

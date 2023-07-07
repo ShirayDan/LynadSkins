@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { MarketPageSide } from "../../../MarketPageSide";
+import { MarketPageSide } from '../../../MarketPageSide'
 export const FilterPhones = () => {
-  return <MarketPageSide />;
-};
+	return <MarketPageSide />
+}

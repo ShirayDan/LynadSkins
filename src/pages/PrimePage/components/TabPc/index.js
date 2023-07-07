@@ -1,1 +1,1 @@
-export { TabPc } from "./TabPc";
+export { TabPc } from './TabPc'

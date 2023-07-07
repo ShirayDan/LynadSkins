@@ -1,1 +1,1 @@
-export { BuyBtn } from "./BuyBtn";
+export { BuyBtn } from './BuyBtn'

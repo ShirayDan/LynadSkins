@@ -1,1 +1,1 @@
-export { List, MList } from "./List";
+export { List, MList } from './List'

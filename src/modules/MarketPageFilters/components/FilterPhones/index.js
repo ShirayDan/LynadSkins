@@ -1,1 +1,1 @@
-export { FilterPhones } from "./FilterPhones";
+export { FilterPhones } from './FilterPhones'
