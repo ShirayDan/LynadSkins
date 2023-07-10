@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import styles from './Exterior.module.css'
 
-import { Item } from '../../../../components/Item'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
+import { SideItem } from './../../../../components/SideItem'
+
 export const Exterior = () => {
 	const { t, i18n } = useTranslation()
 	const items = [
@@ -22,7 +23,7 @@ export const Exterior = () => {
 		>
 			<List>
 				{items.map((item, i) => {
-					return <Item text={item.text} value={item.value} />
+					return <SideItem text={item.text} value={item.value} />
 				})}
 			</List>
 		</MContainer>

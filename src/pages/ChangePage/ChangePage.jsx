@@ -1,14 +1,20 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectIsAuth } from '../../redux/slices/auth'
+import styles from './ChangePage.module.css'
+
 import { Tab } from '../../components/Tab'
 import { MarketPageFilters } from '../../modules/MarketPageFilters'
 import { MarketPageItems } from '../../modules/MarketPageItems'
 import { MarketPageSide } from '../../modules/MarketPageSide'
+import { UserSkins } from '../../modules/UserSkins'
 import { Container } from '../../ui/Container'
-import styles from './ChangePage.module.css'
 import { BuyBtn } from './components/BuyBtn'
 import { PersonalPage } from './components/PersonalPage'
 
 export const ChangePage = () => {
+	const isAuth = useSelector(selectIsAuth)
+
 	return (
 		<>
 			<Container styles={styles.container}>
@@ -21,7 +27,8 @@ export const ChangePage = () => {
 						firstContent={
 							<div>
 								<MarketPageFilters />
-								<PersonalPage />
+								{!isAuth && <PersonalPage />}
+								{isAuth && <UserSkins />}
 							</div>
 						}
 						secondContent={
@@ -34,7 +41,8 @@ export const ChangePage = () => {
 				</div>
 				<div className={styles.profile}>
 					<MarketPageFilters />
-					<PersonalPage />
+					{!isAuth && <PersonalPage />}
+					{isAuth && <UserSkins />}
 				</div>
 				<div className={styles.sideBar}>
 					<MarketPageSide />

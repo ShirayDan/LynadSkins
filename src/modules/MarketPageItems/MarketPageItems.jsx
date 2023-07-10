@@ -49,8 +49,9 @@ import img6 from './../../i/6.png'
 import img7 from './../../i/7.webp'
 import img8 from './../../i/8.webp'
 import img9 from './../../i/9.webp'
+
+import { Item } from '../../components/Item/Item'
 import styles from './MarketPageItems.module.css'
-import { Item } from './components/Item'
 
 export const MarketPageItems = () => {
 	const data = [

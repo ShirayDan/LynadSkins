@@ -6,9 +6,9 @@ import axios from '../../axios'
 import { selectIsAuth } from '../../redux/slices/auth'
 import styles from './ProfilePage.module.css'
 
+import { UserSkins } from '../../modules/UserSkins'
 import { Container } from '../../ui/Container'
 import { Typeography } from '../../ui/Typeography'
-import { MarketPageItems } from './../../modules/MarketPageItems'
 import { Background } from './components/Background'
 import { ContactInfo } from './components/ContactInfo'
 import { GeneralInfo } from './components/GeneralInfo'
@@ -64,7 +64,7 @@ export const ProfilePage = () => {
 			>
 				{t('personalPage.your_inventory')}
 			</Typeography>
-			<MarketPageItems />
+			<UserSkins />
 		</Container>
 	)
 }

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import styles from './Type.module.css'
 
-import { Item } from '../../../../components/Item'
+import { SideItem } from '../../../../components/SideItem'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
@@ -26,7 +26,7 @@ export const Type = () => {
 		>
 			<List>
 				{items.map((item, i) => {
-					return <Item text={item.text} value={item.value} />
+					return <SideItem text={item.text} value={item.value} />
 				})}
 			</List>
 		</MContainer>

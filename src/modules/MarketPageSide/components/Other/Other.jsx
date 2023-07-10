@@ -1,6 +1,6 @@
 import styles from './Other.module.css'
 
-import { Item } from '../../../../components/Item'
+import { SideItem } from '../../../../components/SideItem'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 export const Other = () => {
@@ -17,7 +17,7 @@ export const Other = () => {
 		>
 			<List variant={'ul'}>
 				{items.map((item, i) => {
-					return <Item text={item.text} value={item.value} />
+					return <SideItem text={item.text} value={item.value} />
 				})}
 			</List>
 		</MContainer>
