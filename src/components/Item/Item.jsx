@@ -19,6 +19,7 @@ export const Item = ({
 	souvenir,
 	item,
 	skin,
+	person,
 }) => {
 	const [open, setOpen] = useState(false)
 	const handleClick = () => {
@@ -29,7 +30,11 @@ export const Item = ({
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
 				<img src={img} alt={`${item}-${skin}`} className={styles.photo} />
-				<div className={styles.description}>
+				<div
+					className={`${styles.description} ${
+						person && styles.description_bottom
+					}`}
+				>
 					<Typeography variant={'h3'} fontSize={'16px'} color={'grey'}>
 						<Typeography variant={'span'} color={'gold'} fontSize={'16px'}>{`${
 							souvenir == true ? 'SV ' : ''
@@ -58,8 +63,9 @@ export const Item = ({
 						2
 					)}`}</Typeography>
 				</div>
-
-				<Button style={styles.btn} text={<FaShoppingCart />}></Button>
+				{!person && (
+					<Button style={styles.btn} text={<FaShoppingCart />}></Button>
+				)}
 			</div>
 			<AnimatePresence initial={false}>
 				{open && (
@@ -75,6 +81,7 @@ export const Item = ({
 								exterior={exterior}
 								price={price}
 								float={float}
+								btns={person}
 							/>
 						}
 						guns={true}

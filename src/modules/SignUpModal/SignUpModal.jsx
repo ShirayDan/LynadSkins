@@ -10,7 +10,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaExclamationTriangle, FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignUpModal = () => {
+export const SignUpModal = ({ state }) => {
 	const [viewPass, setViewPass] = useState('password')
 	const dispatch = useDispatch()
 	const isAuth = useSelector(selectIsAuth)
@@ -42,6 +42,7 @@ export const SignUpModal = () => {
 		}
 
 		reset()
+		state(false)
 	}
 
 	// if (isAuth) {

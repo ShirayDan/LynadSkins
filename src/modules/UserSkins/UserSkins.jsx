@@ -125,6 +125,7 @@ export const UserSkins = () => {
 							souvenir={item.souvenir}
 							item={item.item}
 							skin={item.skin}
+							person={true}
 						/>
 					)
 				})}

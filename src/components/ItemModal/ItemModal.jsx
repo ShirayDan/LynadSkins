@@ -17,6 +17,7 @@ export const ItemModal = ({
 	exterior,
 	price,
 	float,
+	btns,
 }) => {
 	return (
 		<Container styles={styles.container}>
@@ -88,18 +89,20 @@ export const ItemModal = ({
 					<Typeography color={'white'}>Price</Typeography>
 					<Typeography color={'white'}>{`$ ${price.toFixed(2)}`}</Typeography>
 				</div>
-				<div className={styles['modal-buttons']}>
-					<Button
-						hover={true}
-						text={'ADD TO CART'}
-						style={styles['modal-cart']}
-					></Button>
-					<Button
-						hover={true}
-						text={<FaHeart fontSize={'30px'} />}
-						style={styles['modal-like']}
-					></Button>
-				</div>
+				{!btns && (
+					<div className={styles['modal-buttons']}>
+						<Button
+							hover={true}
+							text={'ADD TO CART'}
+							style={styles['modal-cart']}
+						></Button>
+						<Button
+							hover={true}
+							text={<FaHeart fontSize={'30px'} />}
+							style={styles['modal-like']}
+						></Button>
+					</div>
+				)}
 			</div>
 		</Container>
 	)

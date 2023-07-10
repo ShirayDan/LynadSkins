@@ -10,7 +10,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignInModal = () => {
+export const SignInModal = ({ state }) => {
 	const isAuth = useSelector(selectIsAuth)
 	const dispatch = useDispatch()
 
@@ -40,6 +40,7 @@ export const SignInModal = () => {
 		}
 
 		reset()
+		state(false)
 	}
 
 	const changeView = () => {
@@ -105,7 +106,7 @@ export const SignInModal = () => {
 						<Input
 							type={'submit'}
 							mt={'10px'}
-							value={'Sing UP'}
+							value={'Sing in'}
 							disabled={!isValid}
 						/>
 

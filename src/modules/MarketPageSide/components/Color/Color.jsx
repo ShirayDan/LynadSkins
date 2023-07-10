@@ -22,9 +22,9 @@ export const Color = () => {
 			exit={{ opacity: 0 }}
 		>
 			<List variant={'ul'} display={'flex'} flexWrap={'wrap'} gap={'10px'}>
-				{colors.map((item) => {
+				{colors.map((item, i) => {
 					return (
-						<ListItem bg={item.first} style={styles.item}>
+						<ListItem key={i} bg={item.first} style={styles.item}>
 							<div
 								className={styles.half}
 								style={{ background: item.second }}

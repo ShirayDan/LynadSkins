@@ -13,6 +13,7 @@
 .photo {
 	width: 100%;
 	max-width: 180px;
+	transition: 0.3s ease;
 }
 .description {
 	padding: 10px;
@@ -21,6 +22,9 @@
 	left: 0;
 	font-size: 14px;
 	color: #c0c0c0;
+}
+.description_bottom {
+	bottom: 0px;
 }
 .btn {
 	width: 100%;
@@ -50,5 +54,11 @@
 	.item:hover > .btn {
 		border-radius: 0;
 		box-shadow: inset 15em 0 0 0 rgb(0, 255, 0);
+	}
+	.description_bottom {
+		bottom: 0px;
+	}
+	.item:hover > .photo {
+		transform: scale(0.92) rotate(12deg);
 	}
 }

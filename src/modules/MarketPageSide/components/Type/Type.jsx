@@ -26,7 +26,7 @@ export const Type = () => {
 		>
 			<List>
 				{items.map((item, i) => {
-					return <SideItem text={item.text} value={item.value} />
+					return <SideItem key={i} text={item.text} value={item.value} />
 				})}
 			</List>
 		</MContainer>
