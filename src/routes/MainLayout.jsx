@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import { BlogPage } from '../pages/BlogPage/BlogPage'
 import { ChangePage } from './../pages/ChangePage'
 import { Layout } from './../pages/Layout'
 import { MainPage } from './../pages/MainPage'
@@ -18,6 +19,7 @@ export const MainLayout = () => {
 					<Route path='trade' element={<ChangePage />} />
 					<Route path='prime' element={<PrimePage />} />
 					<Route path='profile' element={<ProfilePage />} />
+					<Route path='blog' element={<BlogPage />} />
 					<Route path='*' element={<Nopage />} />
 				</Route>
 			</Routes>

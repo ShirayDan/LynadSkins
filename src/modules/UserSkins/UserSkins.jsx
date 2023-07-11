@@ -1,8 +1,9 @@
 import { Item } from '../../components/Item/Item'
+import { SkeletonItem } from '../../components/SkeletonItem'
 import img1 from './../../i/1.webp'
 import img2 from './../../i/2.webp'
 import styles from './UserSkins.module.css'
-const data = [
+let data = [
 	{
 		id: 1,
 		item: 'AK-47',
@@ -31,76 +32,6 @@ const data = [
 		type: 'Assault Rifles',
 		color: ['red', 'white'],
 	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
 ]
 
 export const UserSkins = () => {
@@ -113,8 +44,8 @@ export const UserSkins = () => {
 			}`}
 		>
 			<div className={styles.conitaner}>
-				{data.map((item, i) => {
-					return (
+				{(data ? data : [...Array(20)]).map((item, i) => {
+					return data ? (
 						<Item
 							key={i}
 							img={item.img}
@@ -125,8 +56,9 @@ export const UserSkins = () => {
 							souvenir={item.souvenir}
 							item={item.item}
 							skin={item.skin}
-							person={true}
 						/>
+					) : (
+						<SkeletonItem key={i} />
 					)
 				})}
 			</div>

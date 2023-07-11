@@ -66,6 +66,11 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 							Market
 						</Link>
 					</ListItem>
+					<ListItem style={styles.item}>
+						<Link className={styles.link} to={'/blog'}>
+							Blog
+						</Link>
+					</ListItem>
 				</List>
 			</nav>
 

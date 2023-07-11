@@ -29,7 +29,12 @@ export const Item = ({
 	return (
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
-				<img src={img} alt={`${item}-${skin}`} className={styles.photo} />
+				<img
+					src={img}
+					alt={`${item}-${skin}`}
+					className={styles.photo}
+					loading='lazy'
+				/>
 				<div
 					className={`${styles.description} ${
 						person && styles.description_bottom

@@ -32,6 +32,7 @@ export const Typeography = forwardRef(
 			fontSize,
 			hover,
 			icon,
+			fontWeight,
 		},
 		ref
 	) => {
@@ -66,6 +67,7 @@ export const Typeography = forwardRef(
 					margin: m,
 					fontSize,
 					textAlign,
+					fontWeight,
 				}}
 			>
 				{children}

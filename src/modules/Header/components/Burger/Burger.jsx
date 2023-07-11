@@ -102,16 +102,26 @@ export const Burger = ({ langFunc }) => {
 									</Link>
 								</ListItem>
 								<ListItem style={styles.item}>
-									<Link to={'/market'}>
+									<Link onClick={() => burgerClick()} to={'/market'}>
 										<Typeography color={'white-strong'} fontSize={'20px'}>
 											Market
 										</Typeography>
 									</Link>
 								</ListItem>
+								{isAuth && (
+									<ListItem style={styles.item}>
+										<Link onClick={() => burgerClick()} to={'/profile'}>
+											<Typeography color={'white-strong'} fontSize={'20px'}>
+												Profile
+											</Typeography>
+										</Link>
+									</ListItem>
+								)}
+
 								<ListItem style={styles.item}>
-									<Link to={'/profile'}>
+									<Link onClick={() => burgerClick()} to={'/blog'}>
 										<Typeography color={'white-strong'} fontSize={'20px'}>
-											Profile
+											Blog
 										</Typeography>
 									</Link>
 								</ListItem>

@@ -1,4 +1,6 @@
 import React from 'react'
+import { Item } from '../../components/Item/Item'
+import { SkeletonItem } from '../../components/SkeletonItem'
 import img1 from './../../i/1.webp'
 import img10 from './../../i/10.webp'
 import img11 from './../../i/11.png'
@@ -49,12 +51,10 @@ import img6 from './../../i/6.png'
 import img7 from './../../i/7.webp'
 import img8 from './../../i/8.webp'
 import img9 from './../../i/9.webp'
-
-import { Item } from '../../components/Item/Item'
 import styles from './MarketPageItems.module.css'
 
 export const MarketPageItems = () => {
-	const data = [
+	let data = [
 		{
 			id: 1,
 			item: 'AK-47',
@@ -763,8 +763,8 @@ export const MarketPageItems = () => {
 	return (
 		<div className={styles['main-container']}>
 			<div className={styles.conitaner}>
-				{data.map((item, i) => {
-					return (
+				{(data ? data : [...Array(20)]).map((item, i) => {
+					return data ? (
 						<Item
 							key={i}
 							img={item.img}
@@ -776,6 +776,8 @@ export const MarketPageItems = () => {
 							item={item.item}
 							skin={item.skin}
 						/>
+					) : (
+						<SkeletonItem key={i} />
 					)
 				})}
 			</div>
