@@ -1,0 +1,30 @@
+.container {
+	margin-top: 15px;
+	padding: 20px;
+	background-color: rgba(121, 121, 121, 0.1);
+	border-radius: 5px;
+}
+.userPhoto {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.comment {
+	display: flex;
+}
+.userMessage {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.line {
+	margin-left: 50px;
+	height: 1px;
+	background-color: rgba(121, 121, 121, 0.1);
+}
+@media screen and (min-width: 1050px) {
+	.container {
+		max-width: 1200px;
+		margin: 15px auto 0;
+	}
+}

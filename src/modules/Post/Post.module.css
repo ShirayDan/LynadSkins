@@ -1,0 +1,62 @@
+.container {
+	margin-top: 15px;
+	background-color: rgba(121, 121, 121, 0.1);
+	border: 1px solid rgba(121, 121, 121, 0.1);
+	border-radius: 5px;
+}
+.postImage {
+	width: 100%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.wrapper {
+	padding: 10px 20px 20px;
+	display: flex;
+	flex-direction: column;
+}
+.userInfo {
+	display: flex;
+}
+.userPhoto {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	margin-right: 10px;
+}
+.userName {
+	font-weight: 500;
+	font-size: 14px;
+}
+.additional {
+	font-size: 12px;
+	opacity: 0.6;
+}
+.userDetails {
+	display: flex;
+	flex-direction: column;
+	color: var(--text-primary);
+}
+.postContainer {
+	padding-left: 40px;
+}
+.hashtag,
+.icon {
+	font-size: 14px;
+	margin-right: 15px;
+}
+
+.postContent {
+	margin: 30px 0 50px;
+}
+.icon {
+	color: var(--text-primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.link {
+	color: var(--text-primary);
+}
+.counter {
+	margin-left: 5px;
+}
