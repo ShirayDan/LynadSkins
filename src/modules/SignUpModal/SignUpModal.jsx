@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { changeOverflow } from '../../helpers/helpers'
 import { fetchRegister, selectIsAuth } from '../../redux/slices/auth'
 import styles from './SignUpModal.module.css'
 
@@ -10,7 +11,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaExclamationTriangle, FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignUpModal = ({ state }) => {
+export const SignUpModal = ({ state, setState }) => {
 	const [viewPass, setViewPass] = useState('password')
 	const dispatch = useDispatch()
 	const isAuth = useSelector(selectIsAuth)
@@ -42,7 +43,8 @@ export const SignUpModal = ({ state }) => {
 		}
 
 		reset()
-		state(false)
+		setState(false)
+		changeOverflow(state)
 	}
 
 	// if (isAuth) {

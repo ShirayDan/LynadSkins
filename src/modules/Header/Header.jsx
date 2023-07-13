@@ -110,7 +110,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 				<AnimatePresence initial={false}>
 					{open && (
 						<Modal
-							children={<SignInModal state={setOpen} />}
+							children={<SignInModal state={open} setState={setOpen} />}
 							handleClick={() => handleClick()}
 						/>
 					)}
@@ -118,7 +118,9 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 				<AnimatePresence initial={false}>
 					{signUpOpen && (
 						<Modal
-							children={<SignUpModal state={setSignUpOpen} />}
+							children={
+								<SignUpModal state={signUpOpen} setState={setSignUpOpen} />
+							}
 							handleClick={() => openSignUpModal()}
 						/>
 					)}

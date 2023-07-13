@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { changeOverflow } from '../../helpers/helpers'
 import { fetchAuth, selectIsAuth } from '../../redux/slices/auth'
 import styles from './SingInModal.module.css'
 
@@ -10,7 +11,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignInModal = ({ state }) => {
+export const SignInModal = ({ state, setState }) => {
 	const isAuth = useSelector(selectIsAuth)
 	const dispatch = useDispatch()
 
@@ -40,7 +41,8 @@ export const SignInModal = ({ state }) => {
 		}
 
 		reset()
-		state(false)
+		setState(false)
+		changeOverflow(state)
 	}
 
 	const changeView = () => {
