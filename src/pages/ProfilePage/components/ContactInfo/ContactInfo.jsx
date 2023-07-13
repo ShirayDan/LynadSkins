@@ -1,7 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import styles from './ContactInfo.module.css'
 
+import { Button } from '../../../../ui/Button'
 import { List } from '../../../../ui/List'
 import { ListItem } from '../../../../ui/ListItem'
 import { Typeography } from '../../../../ui/Typeography'
@@ -10,6 +12,7 @@ import { FaPen, FaTrash } from 'react-icons/fa'
 
 export const ContactInfo = () => {
 	const { t } = useTranslation()
+	const nav = useNavigate()
 	return (
 		<div>
 			<Typeography
@@ -63,6 +66,13 @@ export const ContactInfo = () => {
 						{t('personalPage.not_installed')}
 					</Typeography>
 				</ListItem>
+				<div className={styles.post}>
+					<Typeography>{t('personalPage.you_have_something')}</Typeography>
+					<Button
+						text={t('personalPage.create_post')}
+						onClick={() => nav('/add-post')}
+					></Button>
+				</div>
 			</List>
 		</div>
 	)

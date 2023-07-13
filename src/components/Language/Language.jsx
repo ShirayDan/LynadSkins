@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from './Language.module.css'
 
 import { List } from '../../ui/List'
@@ -12,7 +13,7 @@ import usa from './../../i/icons/usa.svg'
 
 export const Language = ({ langFunc }) => {
 	const [languageOpen, setlanguageOpen] = useState(false)
-
+	const { t } = useTranslation()
 	const openModal = (val, setVal) => {
 		setVal(!val)
 	}
@@ -20,7 +21,8 @@ export const Language = ({ langFunc }) => {
 		<div className={styles['lang-cont']}>
 			<div onClick={() => openModal(languageOpen, setlanguageOpen)}>
 				<Typeography color={'white'} hover={true} icon={true}>
-					Language
+					{' '}
+					{t('language')}
 					<span
 						className={
 							languageOpen

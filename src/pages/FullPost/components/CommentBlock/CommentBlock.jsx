@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 import { ListItem } from '../../../../ui/ListItem'
@@ -8,6 +9,7 @@ import styles from './CommentBlock.module.css'
 import img from '../../../../i/flag-punisher.jpg'
 
 export const CommentBlock = ({ children }) => {
+	const { t } = useTranslation()
 	return (
 		<Container styles={styles.container}>
 			<Typeography
@@ -16,7 +18,7 @@ export const CommentBlock = ({ children }) => {
 				fontSize={'20px'}
 				fontWeight={500}
 			>
-				Comments
+				{t('blog.comments')}
 			</Typeography>
 			<List mt={'8px'} mb={'8px'} variant={'ul'}>
 				<ListItem p={'8px 0'} style={styles.comment}>

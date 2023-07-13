@@ -52,6 +52,7 @@ export const ProfilePage = () => {
 				<Background>
 					<GeneralInfo></GeneralInfo>
 				</Background>
+
 				<Background>
 					<ContactInfo></ContactInfo>
 				</Background>

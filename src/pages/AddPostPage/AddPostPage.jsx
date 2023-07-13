@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from '../../axios'
@@ -9,6 +10,7 @@ import { Button } from '../../ui/Button'
 import { Container } from '../../ui/Container'
 
 export const AddPostPage = () => {
+	const { t } = useTranslation()
 	const { id } = useParams()
 	const navigate = useNavigate()
 	const isAuth = useSelector(selectIsAuth)
@@ -85,7 +87,7 @@ export const AddPostPage = () => {
 	return (
 		<Container styles={styles.container}>
 			<Button
-				text={'Download preview'}
+				text={t('blog.download_preview')}
 				style={styles.btn}
 				onClick={() => inputFileRef.current.click()}
 			></Button>
@@ -97,7 +99,7 @@ export const AddPostPage = () => {
 			/>
 			{imageUrl && (
 				<>
-					<Button text={'Delete'} onClick={onClickRemoveImage}></Button>
+					<Button text={t('blog.delete')} onClick={onClickRemoveImage}></Button>
 					<img
 						className={styles.image}
 						src={`http://localhost:4444${imageUrl}`}
@@ -109,7 +111,7 @@ export const AddPostPage = () => {
 			<input
 				type='text'
 				className={styles['input-title']}
-				placeholder={'Enter title'}
+				placeholder={t('blog.enter_title')}
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 			/>
@@ -118,23 +120,23 @@ export const AddPostPage = () => {
 				className={styles['input-tags']}
 				value={tags}
 				onChange={(e) => setTags(e.target.value)}
-				placeholder={'Enter tags'}
+				placeholder={t('blog.enter_tags')}
 			/>
 
 			<textarea
 				value={text}
 				onChange={(e) => setText(e.target.value)}
 				className={styles.textarea}
-				placeholder='Enter text'
+				placeholder={t('blog.enter_text')}
 			></textarea>
 			<div className={styles.buttons}>
 				<Button
 					onClick={onSubmit}
-					text={isEditing ? 'Save' : 'Publish'}
+					text={isEditing ? t('blog.save') : t('blog.publish')}
 					style={styles.submit}
 				></Button>
-				<a href='/'>
-					<Button text={'Cancel'}></Button>
+				<a href='/blog'>
+					<Button text={t('blog.cancel')}></Button>
 				</a>
 			</div>
 		</Container>

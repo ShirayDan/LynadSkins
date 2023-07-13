@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from './Currency.module.css'
 
 import { List } from '../../ui/List'
@@ -8,6 +9,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaChevronDown } from 'react-icons/fa'
 export const Currency = () => {
+	const { t } = useTranslation()
 	const [currencyOpen, setCurrencyOpen] = useState(false)
 	const openModal = (val, setVal) => {
 		setVal(!val)
@@ -19,7 +21,7 @@ export const Currency = () => {
 				onClick={() => openModal(currencyOpen, setCurrencyOpen)}
 			>
 				<Typeography color={'white'} hover={true} icon={true}>
-					Currency
+					{t('currency')}
 					<span
 						className={
 							currencyOpen
