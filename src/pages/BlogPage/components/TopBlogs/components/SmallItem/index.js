@@ -1,1 +1,1 @@
-export { SmallItem } from './SmallItem'
+export { MSmallItem, SmallItem } from './SmallItem'

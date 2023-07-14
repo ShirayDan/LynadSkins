@@ -1,1 +1,1 @@
-export { SmallBlogItem } from './SmallBlogItem'
+export { MSmallBlogItem, SmallBlogItem } from './SmallBlogItem'

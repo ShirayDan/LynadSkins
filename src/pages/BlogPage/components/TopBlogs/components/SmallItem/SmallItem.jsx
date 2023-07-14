@@ -1,10 +1,12 @@
-import React from 'react'
-import { Typeography } from '../../../../../../ui/Typeography'
+import { motion } from 'framer-motion'
+import React, { forwardRef } from 'react'
 import styles from './SmallItem.module.css'
 
-export const SmallItem = ({ photo, title, hashtag }) => {
+import { Typeography } from '../../../../../../ui/Typeography'
+
+export const SmallItem = forwardRef(({ photo, title, hashtag }, ref) => {
 	return (
-		<div className={styles.column}>
+		<div className={styles.column} ref={ref}>
 			<div className={styles.photo}>
 				<img src={photo} alt='' className={styles.photo} />
 			</div>
@@ -22,4 +24,5 @@ export const SmallItem = ({ photo, title, hashtag }) => {
 			</div>
 		</div>
 	)
-}
+})
+export const MSmallItem = motion(SmallItem)

@@ -1,10 +1,12 @@
-import React from 'react'
-import { Container } from './../../ui/Container'
+import { motion } from 'framer-motion'
+import React, { forwardRef } from 'react'
 import styles from './SmallBlogItem.module.css'
 
-export const SmallBlogItem = () => {
+import { Container } from './../../ui/Container'
+
+export const SmallBlogItem = forwardRef(({}, ref) => {
 	return (
-		<Container styles={styles.container}>
+		<Container ref={ref} styles={styles.container}>
 			<div className={`${styles.photo} ${styles.pulse}`}></div>
 			<div>
 				<div className={`${styles.hashtag} ${styles.pulse}`}></div>
@@ -12,4 +14,5 @@ export const SmallBlogItem = () => {
 			</div>
 		</Container>
 	)
-}
+})
+export const MSmallBlogItem = motion(SmallBlogItem)

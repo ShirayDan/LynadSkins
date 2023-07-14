@@ -1,3 +1,6 @@
+.container {
+	margin-bottom: 20px;
+}
 .img {
 	background-color: rgba(121, 121, 121, 0.1);
 	border: 1px solid rgba(121, 121, 121, 0.1);
@@ -30,5 +33,40 @@
 	}
 	100% {
 		opacity: 0;
+	}
+}
+.description {
+	display: none;
+}
+@media screen and (min-width: 768px) {
+	.img {
+		height: 130px;
+	}
+	.top {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 10px;
+	}
+}
+@media screen and (min-width: 992px) {
+	.container {
+		margin-bottom: 30px;
+	}
+	.img {
+		height: 160px;
+	}
+	.top {
+		grid-gap: 20px;
+	}
+	.description {
+		display: block;
+		margin-top: 20px;
+		height: 140px;
+		border-radius: 5px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.img {
+		height: 210px;
 	}
 }

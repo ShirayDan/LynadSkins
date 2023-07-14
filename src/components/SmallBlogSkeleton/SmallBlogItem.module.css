@@ -23,7 +23,7 @@
 	margin-bottom: 5px;
 }
 .title {
-	width: 350px;
+	width: 250px;
 }
 .pulse {
 	display: block;
@@ -39,5 +39,11 @@
 	}
 	100% {
 		opacity: 0;
+	}
+}
+@media screen and (min-width: 992px) {
+	.title {
+		width: 150px;
+		height: 35px;
 	}
 }

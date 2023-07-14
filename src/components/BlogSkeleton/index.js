@@ -1,1 +1,1 @@
-export { BlogSkeleton } from './BlogSkeleton'
+export { BlogSkeleton, MBlogSkeleton } from './BlogSkeleton'
