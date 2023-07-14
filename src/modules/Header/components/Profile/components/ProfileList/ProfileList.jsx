@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
 import { logout, selectIsAuth } from '../../../../../../redux/slices/auth'
@@ -8,9 +9,9 @@ import styles from './ProfileList.module.css'
 import { Button } from '../../../../../../ui/Button'
 import { List } from '../../../../../../ui/List'
 import { ListItem } from '../../../../../../ui/ListItem'
-import { Typeography } from '../../../../../../ui/Typeography'
 
 export const ProfileList = () => {
+	const { t } = useTranslation()
 	const dispatch = useDispatch()
 	const isAuth = useSelector(selectIsAuth)
 
@@ -34,18 +35,18 @@ export const ProfileList = () => {
 		>
 			<List>
 				<ListItem m={'0 0 5px 0'}>
-					{' '}
-					<Link to={'/profile'}>
-						{' '}
-						<Typeography color={'white'}>Personal area</Typeography>
+					<Link to={'/profile'} className={styles.link}>
+						{t('personal_area')}
 					</Link>
 				</ListItem>
-				<ListItem m={'0 0 5px 0'}>Support</ListItem>
+				<ListItem m={'0 0 5px 0'} style={styles.link}>
+					{t('support')}
+				</ListItem>
 				<ListItem>
 					<Button
 						onClick={onClickLogout}
 						style={styles.btn}
-						text={'Log out'}
+						text={t('log_out')}
 					></Button>
 				</ListItem>
 			</List>

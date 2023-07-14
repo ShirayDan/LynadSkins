@@ -1,4 +1,5 @@
 import React from 'react'
+import { SmallBlogItem } from '../../../../components/SmallBlogSkeleton/SmallBlogItem'
 import { Container } from '../../../../ui/Container'
 import styles from './TopBlog.module.css'
 import { SmallItem } from './components/SmallItem'
@@ -43,6 +44,7 @@ export const TopBlog = () => {
 					/>
 				)
 			})}
+			<SmallBlogItem />
 		</Container>
 	)
 }

@@ -14,7 +14,7 @@ export const Money = () => {
 					~ {'$3670.00'}
 				</Typeography>
 			</div>
-			<Button text={<FiPlus />} style={styles.btn}></Button>
+			<Button text={<FiPlus />} hover={true} style={styles.btn}></Button>
 		</div>
 	)
 }

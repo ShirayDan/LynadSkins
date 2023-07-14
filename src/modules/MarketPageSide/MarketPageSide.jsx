@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+
 import { Button } from '../../ui/Button'
 import { Container } from '../../ui/Container/Container'
 import { Typeography } from '../../ui/Typeography'

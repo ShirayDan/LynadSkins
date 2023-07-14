@@ -1,0 +1,1 @@
+export { SmallBlogItem } from './SmallBlogItem'

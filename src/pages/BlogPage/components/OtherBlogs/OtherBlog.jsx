@@ -1,5 +1,6 @@
 import React from 'react'
 import { BlogItem } from '../../../../components/BlogItem'
+import { BlogSkeleton } from '../../../../components/BlogSkeleton'
 import { Container } from '../../../../ui/Container'
 import styles from './OtherBlog.module.css'
 
@@ -89,6 +90,7 @@ export const OtherBlog = () => {
 					'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.'
 				}
 			/>
+			<BlogSkeleton />
 		</Container>
 	)
 }
