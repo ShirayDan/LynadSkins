@@ -11,19 +11,19 @@ import { OtherBlog } from './components/OtherBlogs'
 // import img1 from '../../i/hotskins_eng-768x432.png'
 
 export const BlogPage = () => {
-	const isPostsLoading = false
+	// const isPostsLoading = false
 
-	const textAnimation = {
-		hidden: {
-			x: -100,
-			opacity: 0,
-		},
-		visible: (custom) => ({
-			x: 0,
-			opacity: 1,
-			transition: { delay: custom * 0.2 },
-		}),
-	}
+	// const textAnimation = {
+	// 	hidden: {
+	// 		x: -100,
+	// 		opacity: 0,
+	// 	},
+	// 	visible: (custom) => ({
+	// 		x: 0,
+	// 		opacity: 1,
+	// 		transition: { delay: custom * 0.2 },
+	// 	}),
+	// }
 
 	return (
 		<Container styles={styles.container}>

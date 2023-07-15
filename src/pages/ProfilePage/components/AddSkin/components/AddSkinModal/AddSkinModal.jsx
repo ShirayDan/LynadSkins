@@ -14,7 +14,7 @@ export const AddSkinModal = () => {
 			</Typeography>
 			<form action='' className={styles.form}>
 				<label htmlFor='' className={styles.label}>
-					Gun:
+					Item name:
 					<Input mt={'5px'} />
 				</label>
 				<label htmlFor='' className={styles.label}>

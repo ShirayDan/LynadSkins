@@ -27,7 +27,6 @@ export const ProfilePage = () => {
 		})
 	}, [])
 
-	console.log(data)
 	if (!window.localStorage.getItem('token') && !isAuth) {
 		return <Navigate to='/' />
 	}

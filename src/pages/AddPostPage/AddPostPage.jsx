@@ -86,28 +86,37 @@ export const AddPostPage = () => {
 
 	return (
 		<Container styles={styles.container}>
-			<Button
-				text={t('blog.download_preview')}
-				style={styles.btn}
-				onClick={() => inputFileRef.current.click()}
-			></Button>
-			<input
-				onChange={handleChangeFile}
-				type='file'
-				hidden
-				ref={inputFileRef}
-			/>
-			{imageUrl && (
-				<>
-					<Button text={t('blog.delete')} onClick={onClickRemoveImage}></Button>
-					<img
-						className={styles.image}
-						src={`http://localhost:4444${imageUrl}`}
-						alt='Uploaded'
+			<div className={styles['image-container']}>
+				<div>
+					{imageUrl && (
+						<img
+							className={styles.image}
+							src={`http://localhost:4444${imageUrl}`}
+							alt='Uploaded'
+						/>
+					)}
+				</div>
+				<div>
+					<Button
+						text={t('blog.download_preview')}
+						style={styles.btn}
+						onClick={() => inputFileRef.current.click()}
+					></Button>
+					<input
+						onChange={handleChangeFile}
+						type='file'
+						hidden
+						ref={inputFileRef}
 					/>
-				</>
-			)}
-
+					{imageUrl && (
+						<Button
+							style={styles.delete}
+							text={t('blog.delete')}
+							onClick={onClickRemoveImage}
+						></Button>
+					)}
+				</div>
+			</div>
 			<input
 				type='text'
 				className={styles['input-title']}
