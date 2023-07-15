@@ -1,7 +1,9 @@
-import { FiPlus } from 'react-icons/fi'
+import styles from './Money.module.css'
+
 import { Button } from '../../ui/Button'
 import { Typeography } from '../../ui/Typeography'
-import styles from './Money.module.css'
+
+import { FiPlus } from 'react-icons/fi'
 
 export const Money = () => {
 	return (
@@ -14,7 +16,11 @@ export const Money = () => {
 					~ {'$3670.00'}
 				</Typeography>
 			</div>
-			<Button text={<FiPlus />} hover={true} style={styles.btn}></Button>
+			<Button
+				text={<FiPlus fontSize={'20px'} />}
+				hover={true}
+				style={styles.btn}
+			></Button>
 		</div>
 	)
 }

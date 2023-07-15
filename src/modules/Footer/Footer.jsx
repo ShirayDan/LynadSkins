@@ -38,8 +38,8 @@ export const Footer = () => {
 			title: t('footer_one_title'),
 			items: [
 				{ text: t('footer_one_item_one'), link: '/prime' },
+				{ text: t('footer_one_item_three'), link: '/blog' },
 				{ text: t('footer_one_item_two'), link: '/' },
-				{ text: t('footer_one_item_three'), link: '/' },
 				{ text: t('footer_one_item_four'), link: '/' },
 			],
 		},

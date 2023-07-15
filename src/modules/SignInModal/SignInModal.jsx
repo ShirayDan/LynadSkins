@@ -22,14 +22,15 @@ export const SignInModal = ({ state, setState }) => {
 		handleSubmit,
 		reset,
 	} = useForm({
-		defaultValues: {
-			email: 'test@test.ua',
-			password: '12345',
-		},
+		// defaultValues: {
+		// 	email: 'test@test.ua',
+		// 	password: '12345',
+		// },
 		mode: 'onBlur',
 	})
 
 	const onSubmit = async (values) => {
+		// console.log(values)
 		const data = await dispatch(fetchAuth(values))
 
 		if (!data.payload) {
@@ -65,7 +66,7 @@ export const SignInModal = ({ state, setState }) => {
 						<Input
 							type={'email'}
 							placeholder={'Email'}
-							obj={register('Email', {
+							obj={register('email', {
 								required: true,
 								pattern: /^\S+@\S+$/i,
 							})}
@@ -83,7 +84,7 @@ export const SignInModal = ({ state, setState }) => {
 							<Input
 								type={viewPass}
 								placeholder={'Password'}
-								obj={register('Password', {
+								obj={register('password', {
 									required: true,
 									minLength: 5,
 									maxLength: 12,

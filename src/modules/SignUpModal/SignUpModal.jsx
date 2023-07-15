@@ -22,11 +22,11 @@ export const SignUpModal = ({ state, setState }) => {
 		handleSubmit,
 		reset,
 	} = useForm({
-		defaultValues: {
-			fullName: 'Dan 10',
-			email: 'test10@test.ua',
-			password: '12345',
-		},
+		// defaultValues: {
+		// 	fullName: 'Dan 10',
+		// 	email: 'test10@test.ua',
+		// 	password: '12345',
+		// },
 		mode: 'onBlur',
 	})
 

@@ -69,6 +69,7 @@ export const ContactInfo = () => {
 				<div className={styles.post}>
 					<Typeography>{t('personalPage.you_have_something')}</Typeography>
 					<Button
+						hover={true}
 						text={t('personalPage.create_post')}
 						onClick={() => nav('/add-post')}
 					></Button>

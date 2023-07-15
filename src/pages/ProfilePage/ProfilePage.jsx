@@ -9,6 +9,7 @@ import styles from './ProfilePage.module.css'
 import { UserSkins } from '../../modules/UserSkins'
 import { Container } from '../../ui/Container'
 import { Typeography } from '../../ui/Typeography'
+import { AddSkin } from './components/AddSkin'
 import { Background } from './components/Background'
 import { ContactInfo } from './components/ContactInfo'
 import { GeneralInfo } from './components/GeneralInfo'
@@ -57,14 +58,18 @@ export const ProfilePage = () => {
 					<ContactInfo></ContactInfo>
 				</Background>
 			</div>
-			<Typeography
-				variant={'h1'}
-				fontSize={'32px'}
-				color={'white'}
-				m={'0 0 20px 10px'}
-			>
-				{t('personalPage.your_inventory')}
-			</Typeography>
+			<div className={styles.skins}>
+				<Typeography
+					variant={'h1'}
+					fontSize={'32px'}
+					color={'white'}
+					m={'0 0 20px 10px'}
+				>
+					{t('personalPage.your_inventory')}
+				</Typeography>
+				<AddSkin />
+			</div>
+
 			<UserSkins />
 		</Container>
 	)
