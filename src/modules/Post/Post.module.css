@@ -61,7 +61,15 @@
 }
 .link {
 	color: var(--text-primary);
+	margin-right: 5px;
+	transition: ease 0.3s;
+	font-size: 12px;
 }
 .counter {
 	margin-left: 5px;
+}
+@media screen and (min-width: 992px) {
+	.link:hover {
+		color: #e71fb8;
+	}
 }

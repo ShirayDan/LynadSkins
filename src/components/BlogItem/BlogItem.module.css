@@ -13,10 +13,18 @@
 .titled {
 	font-size: 18px;
 	color: var(--text-primary);
+	transition: ease 0.3s;
 }
 .description {
 	display: none;
 }
+.link {
+	color: var(--text-primary);
+	margin-right: 5px;
+	transition: ease 0.3s;
+	font-size: 12px;
+}
+
 @media screen and (min-width: 768px) {
 	.top {
 		display: grid;
@@ -54,5 +62,9 @@
 	}
 	.mainTitle {
 		font-size: 32px;
+	}
+	.link:hover,
+	.titled:hover {
+		color: #e71fb8;
 	}
 }

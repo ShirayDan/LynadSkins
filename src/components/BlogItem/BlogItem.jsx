@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import styles from './BlogItem.module.css'
 
 import { Container } from '../../ui/Container'
+import { List } from '../../ui/List'
+import { ListItem } from '../../ui/ListItem'
 import { Typeography } from '../../ui/Typeography'
 
 export const BlogItem = forwardRef(
@@ -30,9 +32,16 @@ export const BlogItem = forwardRef(
 				</div>
 				<div className={styles.column}>
 					<div className={styles.hashtags}>
-						<Typeography variant='span' color={'white'} fontSize={'12px'}>
-							{hashtags}
-						</Typeography>
+						<List variant={'ul'} display={'flex'} mt={'5px'}>
+							<ListItem style={styles.hashtag}>
+								{hashtags?.map((item, i) => (
+									<a key={i} href='/' className={styles.link}>
+										#{item}
+									</a>
+								))}
+							</ListItem>
+						</List>
+
 						{time && (
 							<Typeography variant='span' color={'white'} fontSize={'12px'}>
 								{time}
