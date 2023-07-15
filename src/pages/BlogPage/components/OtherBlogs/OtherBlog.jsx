@@ -41,9 +41,10 @@ export const OtherBlog = () => {
 		>
 			{(isPostsLoading ? [...Array(9)] : posts.items).map((item, i) =>
 				isPostsLoading ? (
-					<BlogSkeleton variants={textAnimation} custom={i + 2} />
+					<BlogSkeleton variants={textAnimation} custom={i + 2} key={i} />
 				) : (
 					<BlogItem
+						key={i}
 						id={item._id}
 						title={item.title}
 						imageUrl={

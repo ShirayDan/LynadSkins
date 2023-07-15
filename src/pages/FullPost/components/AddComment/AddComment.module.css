@@ -3,10 +3,15 @@
 	grid-template-columns: 40px 1fr;
 	grid-gap: 10px;
 }
-.userPhoto {
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 40px;
 	height: 40px;
-	border-radius: 20px;
+	border-radius: 50%;
+	background: #7668cb;
+	transition: ease 0.3s;
 }
 .textBox {
 	display: flex;

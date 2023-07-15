@@ -42,11 +42,23 @@ export const BlogItem = forwardRef(
 					<div className={styles.title}>
 						{top ? (
 							<h1 className={`${styles.titled} ${top && styles.mainTitle}`}>
-								{isFullPost ? title : <Link to={`/blog/${id}`}>{title}</Link>}
+								{isFullPost ? (
+									title
+								) : (
+									<Link className={styles.titled} to={`/blog/${id}`}>
+										{title}
+									</Link>
+								)}
 							</h1>
 						) : (
 							<h2 className={`${styles.titled} ${top && styles.mainTitle}`}>
-								{isFullPost ? title : <Link to={`/blog/${id}`}>{title}</Link>}
+								{isFullPost ? (
+									title
+								) : (
+									<Link className={styles.titled} to={`/blog/${id}`}>
+										{title}
+									</Link>
+								)}
 							</h2>
 						)}
 

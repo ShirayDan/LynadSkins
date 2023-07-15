@@ -6,7 +6,7 @@ import { ListItem } from '../../../../ui/ListItem'
 import { Typeography } from '../../../../ui/Typeography'
 import styles from './CommentBlock.module.css'
 
-import img from '../../../../i/flag-punisher.jpg'
+import { FaUserAlt } from 'react-icons/fa'
 
 export const CommentBlock = ({ children }) => {
 	const { t } = useTranslation()
@@ -22,29 +22,29 @@ export const CommentBlock = ({ children }) => {
 			</Typeography>
 			<List mt={'8px'} mb={'8px'} variant={'ul'}>
 				<ListItem p={'8px 0'} style={styles.comment}>
-					<div className={styles.userImage}>
-						<img src={img} alt='' className={styles.userPhoto} />
+					<div className={styles.user}>
+						<FaUserAlt color='white' />
 					</div>
 					<div className={styles.userMessage}>
 						<Typeography color={'white'} variant={'span'} fontSize={'16px'}>
 							User 1
 						</Typeography>
 						<Typeography color={'white'} fontSize={'14px'}>
-							Это тестовый комментарий
+							It is a test comment
 						</Typeography>
 					</div>
 				</ListItem>
 				<hr className={styles.line} />
 				<ListItem p={'8px 0'} style={styles.comment}>
-					<div className={styles.userImage}>
-						<img src={img} alt='' className={styles.userPhoto} />
+					<div className={styles.user}>
+						<FaUserAlt color='white' />
 					</div>
 					<div className={styles.userMessage}>
 						<Typeography color={'white'} variant={'span'} fontSize={'16px'}>
 							User 1
 						</Typeography>
 						<Typeography color={'white'} fontSize={'14px'}>
-							Это тестовый комментарий
+							It is a test comment
 						</Typeography>
 					</div>
 				</ListItem>

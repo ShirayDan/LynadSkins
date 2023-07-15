@@ -4,26 +4,10 @@ import { List } from '../../ui/List'
 import { ListItem } from '../../ui/ListItem'
 import { Typeography } from '../../ui/Typeography'
 
-import { FaCommentAlt, FaEye } from 'react-icons/fa'
-
-import img from '../../i/flag-punisher.jpg'
-import postImg from '../../i/hotskins_eng-768x432.png'
+import { FaCommentAlt, FaEye, FaUserAlt } from 'react-icons/fa'
 
 import styles from './Post.module.css'
-export const Post = ({
-	id,
-	title,
-	createdAt,
-	imageUrl,
-	user,
-	viewsCount,
-	commentsCount,
-	tags,
-	children,
-	isFullPost,
-	isLoading,
-	isEditable,
-}) => {
+export const Post = ({ data }) => {
 	// const dispatch = useDispatch()
 	// if (isLoading) {
 	// 	return <PostSkeleton />
@@ -37,13 +21,19 @@ export const Post = ({
 
 	return (
 		<Container styles={styles.container}>
-			<img src={postImg} alt='' className={styles.postImage} />
+			<img
+				src={`http://localhost:4444${data?.imageUrl}`}
+				alt=''
+				className={styles.postImage}
+			/>
 			<div className={styles.wrapper}>
 				<div className={styles.userInfo}>
-					<img src={img} alt='' className={styles.userPhoto} />
+					<div className={styles.user}>
+						<FaUserAlt color='white' />
+					</div>
 					<div className={styles.userDetails}>
-						<span className={styles.userName}>Danil</span>
-						<span className={styles.additional}>2023-07-05T15:17:38.470Z</span>
+						<span className={styles.userName}>{data?.user.fullName}</span>
+						<span className={styles.additional}>{data?.createdAt}</span>
 					</div>
 				</div>
 				<div className={styles.postContainer}>
@@ -53,32 +43,28 @@ export const Post = ({
 						fontSize={'32px'}
 						fontWeight={800}
 					>
-						Post cerated from app
-						{/* {isFullPost ? (
-								title
-							) : (
-								<Link to={`/posts/${id}`}>{title}</Link>
-							)} */}
+						{data?.title}
 					</Typeography>
-					{/* {children && <div className={styles.content}>{children}</div>} */}
 					<List variant={'ul'} display={'flex'} mt={'5px'}>
 						<ListItem style={styles.hashtag}>
-							<a href='/' className={styles.link}>
-								#react
-							</a>
+							{data?.tags.map((item, i) => (
+								<a key={i} href='/' className={styles.link}>
+									#{item}
+								</a>
+							))}
 						</ListItem>
 					</List>
 					<div className={styles.postContent}>
-						<Typeography color={'white'}>Post cerated from app 1</Typeography>
+						<Typeography color={'white'}>{data?.text}</Typeography>
 					</div>
 					<List m={'20px 0 0 0'} display={'flex'}>
 						<ListItem style={styles.icon}>
 							<FaEye fontSize={'18px'} color='' />
-							<span className={styles.counter}>100</span>
+							<span className={styles.counter}>{data?.viewsCount}</span>
 						</ListItem>
 						<ListItem style={styles.icon}>
 							<FaCommentAlt fontSize={'18px'} />
-							<span className={styles.counter}>100</span>
+							<span className={styles.counter}>2</span>
 						</ListItem>
 					</List>
 				</div>

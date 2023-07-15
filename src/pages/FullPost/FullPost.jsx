@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import { useParams } from 'react-router-dom'
+import axios from '../../axios'
+import styles from './Fullpost.module.css'
+
 import { Post } from '../../modules/Post'
 import { Container } from '../../ui/Container'
-import styles from './Fullpost.module.css'
 import { AddComment } from './components/AddComment'
 import { CommentBlock } from './components/CommentBlock'
 
 export const FullPost = () => {
+	const [data, setData] = useState()
+	const [isLoading, setLoading] = useState(true)
+	const { id } = useParams()
+
+	useEffect(() => {
+		axios
+			.get(`/posts/${id}`)
+			.then((res) => {
+				setData(res.data)
+				setLoading(false)
+			})
+			.catch((err) => {
+				console.warn(err)
+				alert('Error getting post')
+			})
+	}, [])
+
 	return (
 		<Container styles={styles.container}>
-			<Post>
+			<Post data={data}>
 				{/* data.text */}
 				<ReactMarkdown children={''} />
 			</Post>

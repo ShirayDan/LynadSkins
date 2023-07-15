@@ -17,10 +17,15 @@
 .userInfo {
 	display: flex;
 }
-.userPhoto {
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 30px;
 	height: 30px;
-	border-radius: 30px;
+	border-radius: 50%;
+	background: #7668cb;
+	transition: ease 0.3s;
 	margin-right: 10px;
 }
 .userName {
