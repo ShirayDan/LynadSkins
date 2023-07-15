@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import axios from '../../axios'
 import { changeOverflow } from '../../helpers/helpers'
 import { selectIsAuth } from '../../redux/slices/auth'
 import styles from './Header.module.css'
@@ -23,6 +24,7 @@ import { Profile } from './components/Profile'
 export const Header = ({ theme, setTheme, langFunc }) => {
 	const [open, setOpen] = useState(false)
 	const [signUpOpen, setSignUpOpen] = useState(false)
+	const [data, setData] = useState(null)
 	const isAuth = useSelector(selectIsAuth)
 
 	const handleClick = () => {
@@ -34,6 +36,14 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 		setSignUpOpen(!signUpOpen)
 		changeOverflow(signUpOpen)
 	}
+	useEffect(() => {
+		if (isAuth) {
+			const token = window.localStorage.getItem('token')
+			axios.get('/auth/me', token).then((res) => {
+				setData(res.data)
+			})
+		}
+	}, [isAuth])
 
 	return (
 		<div className={styles.header}>
@@ -85,7 +95,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 				<DarkMode theme={theme} setTheme={setTheme} />
 				{isAuth && (
 					<>
-						<Money />
+						<Money data={data} />
 						<div className={styles.hide}>
 							<Profile />
 						</div>

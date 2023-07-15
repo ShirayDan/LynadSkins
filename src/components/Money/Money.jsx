@@ -5,15 +5,15 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FiPlus } from 'react-icons/fi'
 
-export const Money = () => {
+export const Money = ({ data }) => {
 	return (
 		<div className={styles.money}>
 			<div className={styles.left}>
 				<Typeography color={'white'} fontSize={'14px'}>
-					$100.00
+					{data?.money + ' $'}
 				</Typeography>
 				<Typeography color={'white'} fontSize={'10px'}>
-					~ {'$3670.00'}
+					~ {(data?.money * 36.7).toFixed(2) + ' ₴'}
 				</Typeography>
 			</div>
 			<Button
