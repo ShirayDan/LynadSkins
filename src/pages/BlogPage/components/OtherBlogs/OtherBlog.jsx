@@ -1,13 +1,24 @@
-import React from 'react'
-import { MBlogItem } from '../../../../components/BlogItem'
-import { MBlogSkeleton } from '../../../../components/BlogSkeleton'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPosts, fetchTags } from '../../../../redux/slices/posts'
+
+import { BlogItem } from '../../../../components/BlogItem'
+import { BlogSkeleton } from '../../../../components/BlogSkeleton'
 import { MContainer } from '../../../../ui/Container'
+
 import styles from './OtherBlog.module.css'
 
-import img1 from '../../../../i/hotskins_eng-768x432.png'
-
 export const OtherBlog = () => {
-	const isPostsLoading = false
+	const dispatch = useDispatch()
+	const { posts, tags } = useSelector((state) => state.posts)
+	const userData = useSelector((state) => state.auth.data)
+
+	let isPostsLoading = posts.status == 'loading'
+	const isTagsLoading = tags.status == 'loading'
+	useEffect(() => {
+		dispatch(fetchPosts())
+		dispatch(fetchTags())
+	}, [])
 
 	const textAnimation = {
 		hidden: {
@@ -21,66 +32,6 @@ export const OtherBlog = () => {
 		}),
 	}
 
-	const data = [
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-
-		{
-			photo: img1,
-			title: 'Top Hottest Skins of Summer 2023!',
-			hashtags: 'Skins',
-			time: '10 Jul. 2023',
-			description:
-				'Summer is the time to update your inventory with bright skins! CS.MONEY Blog compiled a list of best skins of 2023 so you can style up.',
-		},
-	]
-
 	return (
 		<MContainer
 			initial='hidden'
@@ -88,15 +39,21 @@ export const OtherBlog = () => {
 			viewport={{ once: true }}
 			styles={styles.container}
 		>
-			{(isPostsLoading ? [...Array(9)] : data).map((item, i) =>
+			{(isPostsLoading ? [...Array(9)] : posts.items).map((item, i) =>
 				isPostsLoading ? (
-					<MBlogSkeleton variants={textAnimation} custom={i + 2} />
+					<BlogSkeleton variants={textAnimation} custom={i + 2} />
 				) : (
-					<MBlogItem
-						photo={item.photo}
+					<BlogItem
+						id={item._id}
 						title={item.title}
-						hashtags={item.hashtags}
-						time={item.time}
+						imageUrl={
+							item.imageUrl ? `http://localhost:4444${item.imageUrl}` : ''
+						}
+						user={item.user}
+						viewsCount={item.viewsCount}
+						hashtags={item.tags}
+						time={item.createdAt}
+						isEditable={userData?._id === item.user._id}
 						description={item.description}
 						variants={textAnimation}
 						custom={i + 2}

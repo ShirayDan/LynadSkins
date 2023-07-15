@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import React from 'react'
 import styles from './BlogPage.module.css'
 
-import { MBlogItem } from '../../components/BlogItem'
-import { MBlogSkeleton } from '../../components/BlogSkeleton'
+// import { MBlogItem } from '../../components/BlogItem'
+// import { MBlogSkeleton } from '../../components/BlogSkeleton'
 import { Container } from '../../ui/Container'
 import { OtherBlog } from './components/OtherBlogs'
-import { TopBlog } from './components/TopBlogs'
+// import { TopBlog } from './components/TopBlogs'
 
-import img1 from '../../i/hotskins_eng-768x432.png'
+// import img1 from '../../i/hotskins_eng-768x432.png'
 
 export const BlogPage = () => {
 	const isPostsLoading = false
@@ -27,7 +27,7 @@ export const BlogPage = () => {
 
 	return (
 		<Container styles={styles.container}>
-			<motion.div
+			{/* <motion.div
 				className={styles.top}
 				initial='hidden'
 				whileInView='visible'
@@ -49,7 +49,7 @@ export const BlogPage = () => {
 					/>
 				)}
 				<TopBlog />
-			</motion.div>
+			</motion.div> */}
 			<OtherBlog />
 		</Container>
 	)

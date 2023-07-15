@@ -1,16 +1,32 @@
 import { motion } from 'framer-motion'
 import React, { forwardRef } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './BlogItem.module.css'
 
 import { Container } from '../../ui/Container'
 import { Typeography } from '../../ui/Typeography'
 
 export const BlogItem = forwardRef(
-	({ photo, hashtags, title, time, top, description }, ref) => {
+	(
+		{
+			id,
+			hashtags,
+			title,
+			time,
+			top,
+			description,
+			imageUrl,
+			user,
+			isFullPost,
+			isLoading,
+			isEditable,
+		},
+		ref
+	) => {
 		return (
 			<Container ref={ref} styles={`${styles.container} ${top && styles.top}`}>
 				<div className={styles.column}>
-					<img src={photo} className={styles.photo} alt='' />
+					<img src={imageUrl} className={styles.photo} alt='' />
 				</div>
 				<div className={styles.column}>
 					<div className={styles.hashtags}>
@@ -26,11 +42,11 @@ export const BlogItem = forwardRef(
 					<div className={styles.title}>
 						{top ? (
 							<h1 className={`${styles.titled} ${top && styles.mainTitle}`}>
-								{title}
+								{isFullPost ? title : <Link to={`/blog/${id}`}>{title}</Link>}
 							</h1>
 						) : (
 							<h2 className={`${styles.titled} ${top && styles.mainTitle}`}>
-								{title}
+								{isFullPost ? title : <Link to={`/blog/${id}`}>{title}</Link>}
 							</h2>
 						)}
 
