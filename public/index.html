@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <title>LynadSkins</title>
-    <style>
-      .load {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta
+			name="description"
+			content="LynadSkins is a CS:GO skins shop. You can quickly and safely buy CS:GO skins for real money. Over 5000 skins of various quality and rarity are available for purchase"
+		/>
+		<link
+			rel="canonical"
+			href="https://lynad-skins-ovoplb4di-shiraydan.vercel.app/"
+		/>
 
-        width: 100px;
-        height: 100px;
-      }
-      .preloader-item {
-        border: 0;
-        margin: 0;
-        width: 40%;
-        height: 40%;
-        position: absolute;
-        border-radius: 50%;
-        animation: spin 2s ease infinite;
-      }
+		<title>LynadSkins</title>
+		<style>
+			.load {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
 
-      .load :first-child {
-        background: #04efc4;
-        animation-delay: -1.5s;
-      }
-      .load :nth-child(2) {
-        background: #f63d3a;
-        animation-delay: -1s;
-      }
-      .load :nth-child(3) {
-        background: #fda543;
-        animation-delay: -0.5s;
-      }
-      .load :last-child {
-        background: #3996bb;
-      }
+				width: 100px;
+				height: 100px;
+			}
+			.preloader-item {
+				border: 0;
+				margin: 0;
+				width: 40%;
+				height: 40%;
+				position: absolute;
+				border-radius: 50%;
+				animation: spin 2s ease infinite;
+			}
 
-      @keyframes spin {
-        0%,
-        100% {
-          transform: translate(0);
-        }
-        25% {
-          transform: translate(160%);
-        }
-        50% {
-          transform: translate(160%, 160%);
-        }
-        75% {
-          transform: translate(0, 160%);
-        }
-      }
-      .preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(#423e77, #212126);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root">
-      <div class="preloader">
-        <div class="load">
-          <div class="preloader-item"></div>
-          <div class="preloader-item"></div>
-          <div class="preloader-item"></div>
-          <div class="preloader-item"></div>
-        </div>
-      </div>
-    </div>
-  </body>
+			.load :first-child {
+				background: #04efc4;
+				animation-delay: -1.5s;
+			}
+			.load :nth-child(2) {
+				background: #f63d3a;
+				animation-delay: -1s;
+			}
+			.load :nth-child(3) {
+				background: #fda543;
+				animation-delay: -0.5s;
+			}
+			.load :last-child {
+				background: #3996bb;
+			}
+
+			@keyframes spin {
+				0%,
+				100% {
+					transform: translate(0);
+				}
+				25% {
+					transform: translate(160%);
+				}
+				50% {
+					transform: translate(160%, 160%);
+				}
+				75% {
+					transform: translate(0, 160%);
+				}
+			}
+			.preloader {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(#423e77, #212126);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<div class="preloader">
+				<div class="load">
+					<div class="preloader-item"></div>
+					<div class="preloader-item"></div>
+					<div class="preloader-item"></div>
+					<div class="preloader-item"></div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

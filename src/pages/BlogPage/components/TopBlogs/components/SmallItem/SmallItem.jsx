@@ -17,7 +17,12 @@ export const SmallItem = forwardRef(({ photo, title, hashtag }, ref) => {
 					</Typeography>
 				</div>
 				<div className={styles.title}>
-					<Typeography variant={'h6'} color={'white'} fontWeight={700}>
+					<Typeography
+						fontSize={'14px'}
+						variant={'h2'}
+						color={'white'}
+						fontWeight={700}
+					>
 						{title}
 					</Typeography>
 				</div>

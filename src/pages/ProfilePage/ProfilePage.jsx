@@ -60,7 +60,7 @@ export const ProfilePage = () => {
 			</div>
 			<div className={styles.skins}>
 				<Typeography
-					variant={'h1'}
+					variant={'h2'}
 					fontSize={'32px'}
 					color={'white'}
 					m={'0 0 20px 10px'}

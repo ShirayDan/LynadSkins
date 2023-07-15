@@ -155,6 +155,7 @@ export const PopularItems = () => {
 										img={item.img}
 										exterior={item.exterior}
 										price={item.price}
+										alt={item.alt}
 									/>
 								</SwiperSlide>
 							)

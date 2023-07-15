@@ -98,7 +98,8 @@ export const MainPageTop = () => {
 						color={'grey'}
 						custom={2}
 						variants={textAnimation}
-						variant={'h4'}
+						variant={'h2'}
+						fontSize={'16px'}
 					>
 						{t('footer_advantages')}
 					</MTypeography>

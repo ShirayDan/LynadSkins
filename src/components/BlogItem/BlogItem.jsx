@@ -24,9 +24,16 @@ export const BlogItem = forwardRef(
 						)}
 					</div>
 					<div className={styles.title}>
-						<h2 className={`${styles.titled} ${top && styles.mainTitle}`}>
-							{title}
-						</h2>
+						{top ? (
+							<h1 className={`${styles.titled} ${top && styles.mainTitle}`}>
+								{title}
+							</h1>
+						) : (
+							<h2 className={`${styles.titled} ${top && styles.mainTitle}`}>
+								{title}
+							</h2>
+						)}
+
 						<div className={styles.description}>
 							{top && <Typeography color={'grey'}>{description}</Typeography>}
 						</div>

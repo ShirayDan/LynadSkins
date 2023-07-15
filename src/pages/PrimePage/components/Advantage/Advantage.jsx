@@ -5,6 +5,7 @@ import styles from './Advantage.module.css'
 
 export const Advantage = forwardRef(
 	({ title, description, img, text }, ref) => {
+		console.log(text)
 		return (
 			<div className={styles['advantages-item']} ref={ref}>
 				<div className={styles.subcontainer}>

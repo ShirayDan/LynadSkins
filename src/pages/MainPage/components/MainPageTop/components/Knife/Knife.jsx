@@ -54,6 +54,8 @@ export const Knife = ({ name, img, textStyle, lineStyle, imgStyles }) => {
 				src={img}
 				alt={name}
 				className={imgStyles}
+				title={name}
+				loading='eager'
 			/>
 		</motion.div>
 	)

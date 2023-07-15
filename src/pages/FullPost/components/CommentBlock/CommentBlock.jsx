@@ -14,7 +14,7 @@ export const CommentBlock = ({ children }) => {
 		<Container styles={styles.container}>
 			<Typeography
 				color={'white'}
-				variant={'h6'}
+				variant={'h2'}
 				fontSize={'20px'}
 				fontWeight={500}
 			>

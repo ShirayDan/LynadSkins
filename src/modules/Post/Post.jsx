@@ -49,7 +49,7 @@ export const Post = ({
 				<div className={styles.postContainer}>
 					<Typeography
 						color={'white'}
-						variant={'h2'}
+						variant={'h1'}
 						fontSize={'32px'}
 						fontWeight={800}
 					>
