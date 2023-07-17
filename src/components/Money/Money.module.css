@@ -2,6 +2,12 @@
 	padding: 5px;
 	display: flex;
 }
+.left {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
 .btn {
 	margin-left: 5px;
 	border-radius: 50%;

@@ -35,7 +35,7 @@ export const BlogItem = forwardRef(
 						<List variant={'ul'} display={'flex'} mt={'5px'}>
 							<ListItem style={styles.hashtag}>
 								{hashtags?.map((item, i) => (
-									<a key={i} href='/' className={styles.link}>
+									<a key={i} href='/blog' className={styles.link}>
 										#{item}
 									</a>
 								))}

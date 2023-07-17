@@ -22,15 +22,10 @@ export const SignInModal = ({ state, setState }) => {
 		handleSubmit,
 		reset,
 	} = useForm({
-		// defaultValues: {
-		// 	email: 'test@test.ua',
-		// 	password: '12345',
-		// },
 		mode: 'onBlur',
 	})
 
 	const onSubmit = async (values) => {
-		// console.log(values)
 		const data = await dispatch(fetchAuth(values))
 
 		if (!data.payload) {
@@ -49,6 +44,7 @@ export const SignInModal = ({ state, setState }) => {
 	const changeView = () => {
 		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
 	}
+
 	return (
 		<>
 			<Container styles={styles.container}>

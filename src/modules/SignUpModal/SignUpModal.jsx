@@ -22,11 +22,6 @@ export const SignUpModal = ({ state, setState }) => {
 		handleSubmit,
 		reset,
 	} = useForm({
-		// defaultValues: {
-		// 	fullName: 'Dan 10',
-		// 	email: 'test10@test.ua',
-		// 	password: '12345',
-		// },
 		mode: 'onBlur',
 	})
 
@@ -46,10 +41,6 @@ export const SignUpModal = ({ state, setState }) => {
 		setState(false)
 		changeOverflow(state)
 	}
-
-	// if (isAuth) {
-	//   return <Navigate to="/" />;
-	// }
 
 	const changeView = () => {
 		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
