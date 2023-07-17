@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useParams } from 'react-router-dom'
 import axios from '../../axios'
 import styles from './Fullpost.module.css'
@@ -29,10 +28,7 @@ export const FullPost = () => {
 
 	return (
 		<Container styles={styles.container}>
-			<Post data={data}>
-				{/* data.text */}
-				<ReactMarkdown children={''} />
-			</Post>
+			<Post data={data}></Post>
 			<CommentBlock
 				items={[
 					{
