@@ -44,7 +44,7 @@ export const BlogItem = forwardRef(
 
 						{time && (
 							<Typeography variant='span' color={'white'} fontSize={'12px'}>
-								{time}
+								{time.substring(0, 10)}
 							</Typeography>
 						)}
 					</div>

@@ -68,8 +68,24 @@
 .counter {
 	margin-left: 5px;
 }
+.info {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.edit,
+.remove {
+	transition: 0.2s ease;
+}
+.edit {
+	margin-right: 5px;
+}
 @media screen and (min-width: 992px) {
 	.link:hover {
 		color: #e71fb8;
+	}
+	.edit:hover,
+	.remove:hover {
+		fill: #e71fb8;
 	}
 }

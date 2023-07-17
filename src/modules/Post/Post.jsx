@@ -1,23 +1,26 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchRemovePost } from '../../redux/slices/posts'
+import { useNavigate } from 'react-router-dom'
+import styles from './Post.module.css'
+
+import { FaCommentAlt, FaEye, FaUserAlt, FaEdit, FaTrash } from 'react-icons/fa'
+
 import { Container } from '../../ui/Container'
 import { List } from '../../ui/List'
 import { ListItem } from '../../ui/ListItem'
 import { Typeography } from '../../ui/Typeography'
 
-import { FaCommentAlt, FaEye, FaUserAlt } from 'react-icons/fa'
-
-import styles from './Post.module.css'
 export const Post = ({ data }) => {
-	// const dispatch = useDispatch()
-	// if (isLoading) {
-	// 	return <PostSkeleton />
-	// }
-
-	// const onClickRemove = () => {
-	// 	if (window.confirm('You really want to delete post?')) {
-	// 		dispatch(fetchRemovePost(id))
-	// 	}
-	// }
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	const userData = useSelector((state) => state.auth.data)
+	const onClickRemove = () => {
+		if (window.confirm('You really want to delete post?')) {
+			dispatch(fetchRemovePost(data._id))
+		}
+		navigate('/blog')
+	}
 
 	return (
 		<Container styles={styles.container}>
@@ -31,9 +34,23 @@ export const Post = ({ data }) => {
 					<div className={styles.user}>
 						<FaUserAlt color='white' />
 					</div>
-					<div className={styles.userDetails}>
-						<span className={styles.userName}>{data?.user.fullName}</span>
-						<span className={styles.additional}>{data?.createdAt}</span>
+					<div className={styles.info}>
+						<div className={styles.userDetails}>
+							<span className={styles.userName}>{data?.user.fullName}</span>
+							<span className={styles.additional}>
+								{data?.createdAt.substring(0, 10)}
+							</span>
+						</div>
+						{userData?._id == data?.user._id && (
+							<div>
+								<FaEdit fill='var(--text-primary)' className={styles.edit} />
+								<FaTrash
+									fill='var(--text-primary)'
+									onClick={onClickRemove}
+									className={styles.remove}
+								/>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className={styles.postContainer}>
@@ -59,7 +76,7 @@ export const Post = ({ data }) => {
 					</div>
 					<List m={'20px 0 0 0'} display={'flex'}>
 						<ListItem style={styles.icon}>
-							<FaEye fontSize={'18px'} color='' />
+							<FaEye fontSize={'18px'} />
 							<span className={styles.counter}>{data?.viewsCount}</span>
 						</ListItem>
 						<ListItem style={styles.icon}>
