@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchRemovePost } from '../../redux/slices/posts'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import styles from './Post.module.css'
 
 import { FaCommentAlt, FaEye, FaUserAlt, FaEdit, FaTrash } from 'react-icons/fa'
@@ -43,7 +43,9 @@ export const Post = ({ data }) => {
 						</div>
 						{userData?._id == data?.user._id && (
 							<div>
-								<FaEdit fill='var(--text-primary)' className={styles.edit} />
+								<Link to={`/blog/${data._id}/edit`}>
+									<FaEdit fill='var(--text-primary)' className={styles.edit} />
+								</Link>
 								<FaTrash
 									fill='var(--text-primary)'
 									onClick={onClickRemove}
