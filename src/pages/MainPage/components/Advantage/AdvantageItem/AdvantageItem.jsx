@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import { MTypeography } from '../../../../../ui/Typeography'
-export const AdvantageItem = ({ title, text }) => {
+export const AdvantageItem = ({ data }) => {
 	const textAnimation = {
 		hidden: {
 			x: -100,
@@ -26,10 +26,10 @@ export const AdvantageItem = ({ title, text }) => {
 				variant={'h2'}
 				after={'title'}
 			>
-				{title}
+				{data.title}
 			</MTypeography>
 			<MTypeography variants={textAnimation} custom={1} color={'grey'}>
-				{text}
+				{data.text}
 			</MTypeography>
 		</motion.div>
 	)

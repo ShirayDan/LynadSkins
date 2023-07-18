@@ -281,13 +281,10 @@ export const PrimePage = () => {
 			>
 				{advantages.map((item, i) => (
 					<MAdvantage
+						key={i}
 						custom={i + 1}
 						variants={textAnimation}
-						title={item.title}
-						key={i}
-						description={item.description}
-						img={item.img}
-						text={item.text}
+						data={item}
 					/>
 				))}
 			</motion.div>

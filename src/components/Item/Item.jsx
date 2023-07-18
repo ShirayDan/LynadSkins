@@ -10,17 +10,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaShoppingCart } from 'react-icons/fa'
 
-export const Item = ({
-	img,
-	exterior,
-	price,
-	float,
-	statTrak,
-	souvenir,
-	item,
-	skin,
-	person,
-}) => {
+export const Item = ({ data }) => {
 	const [open, setOpen] = useState(false)
 	const handleClick = () => {
 		setOpen(!open)
@@ -30,45 +20,46 @@ export const Item = ({
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
 				<img
-					src={img}
-					alt={`${item}-${skin}`}
+					src={data?.img}
+					alt={`${data?.item}-${data?.skin}`}
 					className={styles.photo}
 					loading='lazy'
 				/>
 				<div
 					className={`${styles.description} ${
-						person && styles.description_bottom
+						data?.person && styles.description_bottom
 					}`}
 				>
 					<Typeography variant={'h3'} fontSize={'16px'} color={'grey'}>
 						<Typeography variant={'span'} color={'gold'} fontSize={'16px'}>{`${
-							souvenir == true ? 'SV ' : ''
+							data?.souvenir == true ? 'SV ' : ''
 						}`}</Typeography>
 						<Typeography variant={'span'} fontSize={'16px'}>{`${
-							souvenir == true ? '/ ' : ''
+							data?.souvenir == true ? '/ ' : ''
 						}`}</Typeography>
 						<Typeography
 							variant={'span'}
 							fontSize={'16px'}
 							color={'orange'}
-						>{`${statTrak == true ? 'ST ' : ''}`}</Typeography>
-						{statTrak == true
-							? `/ ${exterior
+						>{`${data?.statTrak == true ? 'ST ' : ''}`}</Typeography>
+						{data?.statTrak == true
+							? `/ ${data?.exterior
 									.replace(/([-])/g, ' ')
-									.replace(/([a-z," "])/g, '')} / ${float
+									.replace(/([a-z," "])/g, '')} / ${data?.float
 									.toString()
 									.substring(0, 4)}`
-							: `${exterior
+							: `${data?.exterior
 									.replace(/([-])/g, ' ')
-									.replace(/([a-z," "])/g, '')} / ${float
+									.replace(/([a-z," "])/g, '')} / ${data?.float
 									.toString()
 									.substring(0, 4)}`}
 					</Typeography>
-					<Typeography color={'white'} fontSize={'16px'}>{`$ ${price.toFixed(
-						2
-					)}`}</Typeography>
+					<Typeography
+						color={'white'}
+						fontSize={'16px'}
+					>{`$ ${data?.price.toFixed(2)}`}</Typeography>
 				</div>
-				{!person && (
+				{!data?.person && (
 					<Button style={styles.btn} text={<FaShoppingCart />}></Button>
 				)}
 			</div>
@@ -76,19 +67,7 @@ export const Item = ({
 				{open && (
 					<Modal
 						handleClick={() => handleClick()}
-						children={
-							<ItemModal
-								img={img}
-								statTrak={statTrak}
-								souvenir={souvenir}
-								item={item}
-								skin={skin}
-								exterior={exterior}
-								price={price}
-								float={float}
-								btns={person}
-							/>
-						}
+						children={<ItemModal data={data} />}
 						guns={true}
 					/>
 				)}

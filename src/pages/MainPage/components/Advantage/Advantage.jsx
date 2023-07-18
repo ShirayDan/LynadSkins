@@ -18,7 +18,7 @@ export const Advantage = () => {
 	return (
 		<Container styles={styles.container}>
 			{text.map((item, i) => {
-				return <AdvantageItem key={i} title={item.title} text={item.text} />
+				return <AdvantageItem key={i} data={item} />
 			})}
 		</Container>
 	)

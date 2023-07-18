@@ -45,21 +45,7 @@ export const UserSkins = () => {
 		>
 			<div className={styles.conitaner}>
 				{(data ? data : [...Array(20)]).map((item, i) => {
-					return data ? (
-						<Item
-							key={i}
-							img={item.img}
-							exterior={item.exterior}
-							price={item.price}
-							float={item.float}
-							statTrak={item.statTrak}
-							souvenir={item.souvenir}
-							item={item.item}
-							skin={item.skin}
-						/>
-					) : (
-						<SkeletonItem key={i} />
-					)
+					return data ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
 				})}
 			</div>
 		</div>

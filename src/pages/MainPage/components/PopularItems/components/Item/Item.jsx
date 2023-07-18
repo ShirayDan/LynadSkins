@@ -4,27 +4,27 @@ import { Button } from '../../../../../../ui/Button'
 import { Typeography } from '../../../../../../ui/Typeography'
 import styles from './Item.module.css'
 
-export const Item = ({ img, exterior, price, width, alt }) => {
+export const Item = ({ data }) => {
 	const nav = useNavigate()
 	return (
-		<div className={styles.item} style={{ width: width }}>
+		<div className={styles.item}>
 			<img
-				src={img}
-				alt={alt}
+				src={data.img}
+				alt={data.alt}
 				className={styles.photo}
 				loading='eager'
-				title={alt}
+				title={data.alt}
 			/>
 			<div className={styles.description}>
 				<Typeography variant={'h4'} color={'white'}>
-					{exterior}
+					{data.exterior}
 				</Typeography>
 				<Typeography color={'white'}>
 					{' '}
 					From
 					<Typeography variant={'span'} color={'white'}>
 						{' '}
-						{price}
+						{data.price}
 					</Typeography>
 				</Typeography>
 			</div>

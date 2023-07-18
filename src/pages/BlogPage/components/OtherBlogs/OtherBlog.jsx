@@ -45,17 +45,7 @@ export const OtherBlog = () => {
 				) : (
 					<BlogItem
 						key={i}
-						id={item._id}
-						title={item.title}
-						imageUrl={
-							item.imageUrl ? `http://localhost:4444${item.imageUrl}` : ''
-						}
-						user={item.user}
-						viewsCount={item.viewsCount}
-						hashtags={item.tags}
-						time={item.createdAt}
-						isEditable={userData?._id === item.user._id}
-						description={item.description}
+						data={item}
 						variants={textAnimation}
 						custom={i + 2}
 					/>

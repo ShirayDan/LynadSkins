@@ -9,36 +9,37 @@ import { Typeography } from '../../ui/Typeography'
 import { FaHeart } from 'react-icons/fa'
 
 export const ItemModal = ({
-	img,
-	souvenir,
-	statTrak,
-	item,
-	skin,
-	exterior,
-	price,
-	float,
-	btns,
+	data,
+	// img,
+	// souvenir,
+	// statTrak,
+	// item,
+	// skin,
+	// exterior,
+	// price,
+	// float,
+	// btns,
 }) => {
 	return (
 		<Container styles={styles.container}>
 			<div className={styles['modal-container']}>
-				<img src={img} alt='' className={styles['modal-image']} />
+				<img src={data?.img} alt='' className={styles['modal-image']} />
 			</div>
 			<div className={styles['modal-right']}>
 				<Typeography fontSize={'16px'} variant={'h3'} color={'white'}>
 					<Typeography fontSize={'16px'} variant={'span'} color={'gold'}>{`${
-						souvenir == true ? 'SV ' : ''
+						data?.souvenir == true ? 'SV ' : ''
 					}`}</Typeography>
 					<Typeography variant={'span'} fontSize={'16px'}>{`${
-						souvenir == true && statTrak == true ? '/ ' : ''
+						data?.souvenir == true && data?.statTrak == true ? '/ ' : ''
 					}`}</Typeography>
 					<Typeography variant={'span'} fontSize={'16px'} color={'orange'}>{`${
-						statTrak == true ? 'ST ' : ''
+						data?.statTrak == true ? 'ST ' : ''
 					}`}</Typeography>
-					{item}
+					{data?.item}
 				</Typeography>
 				<Typeography variant={'h3'} color={'white'}>
-					{skin} ({exterior})
+					{data?.skin} ({data?.exterior})
 				</Typeography>
 				<div className={styles['modal-info']}>
 					<div className={styles['modal-line']}>
@@ -52,7 +53,7 @@ export const ItemModal = ({
 								position: 'absolute',
 								top: '-7px',
 								marginLeft: '-7px',
-								left: `calc(${float} * 100%)`,
+								left: `calc(${data?.float} * 100%)`,
 								border: '7px solid transparent',
 								borderTop: '7px solid #fff',
 							}}
@@ -68,7 +69,7 @@ export const ItemModal = ({
 								Float
 							</Typeography>
 							<Typeography variant={'span'} color={'white'}>
-								{float}
+								{data?.float}
 							</Typeography>
 						</ListItem>
 						<ListItem
@@ -87,9 +88,11 @@ export const ItemModal = ({
 				</div>
 				<div className={styles['modal-price']}>
 					<Typeography color={'white'}>Price</Typeography>
-					<Typeography color={'white'}>{`$ ${price.toFixed(2)}`}</Typeography>
+					<Typeography color={'white'}>{`$ ${data?.price.toFixed(
+						2
+					)}`}</Typeography>
 				</div>
-				{!btns && (
+				{!data?.btns && (
 					<div className={styles['modal-buttons']}>
 						<Button
 							hover={true}

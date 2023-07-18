@@ -6,57 +6,53 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaTrash } from 'react-icons/fa'
 
-export const SmallItem = ({
-	img,
-	exterior,
-	price,
-	float,
-	statTrak,
-	souvenir,
-	item,
-	skin,
-}) => {
+export const SmallItem = ({ data }) => {
 	return (
 		<Container>
 			<div className={styles.item}>
 				<div className={styles.left}>
-					<img src={img} alt={`${item}-${skin}`} className={styles.photo} />
+					<img
+						src={data.img}
+						alt={`${data.item}-${data.skin}`}
+						className={styles.photo}
+					/>
 					<div className={styles.description}>
 						<Typeography variant={'h3'} fontSize={'12px'} color={'white'}>
-							{item}
+							{data.item}
 						</Typeography>
 						<Typeography variant={'h4'} fontSize={'12px'} color={'white'}>
-							{skin + ' (' + exterior + ')'}
+							{data.skin + ' (' + data.exterior + ')'}
 						</Typeography>
 						<Typeography fontSize={'12px'} color={'grey'}>
 							<Typeography
 								variant={'span'}
 								color={'gold'}
 								fontSize={'12px'}
-							>{`${souvenir == true ? 'SV ' : ''}`}</Typeography>
+							>{`${data.souvenir == true ? 'SV ' : ''}`}</Typeography>
 							<Typeography variant={'span'} fontSize={'12px'}>{`${
-								souvenir == true ? '/ ' : ''
+								data.souvenir == true ? '/ ' : ''
 							}`}</Typeography>
 							<Typeography
 								variant={'span'}
 								fontSize={'12px'}
 								color={'orange'}
-							>{`${statTrak == true ? 'ST ' : ''}`}</Typeography>
-							{statTrak == true
-								? `/ ${exterior
+							>{`${data.statTrak == true ? 'ST ' : ''}`}</Typeography>
+							{data.statTrak == true
+								? `/ ${data.exterior
 										.replace(/([-])/g, ' ')
-										.replace(/([a-z," "])/g, '')} / ${float
+										.replace(/([a-z," "])/g, '')} / ${data.float
 										.toString()
 										.substring(0, 4)}`
-								: `${exterior
+								: `${data.exterior
 										.replace(/([-])/g, ' ')
-										.replace(/([a-z," "])/g, '')} / ${float
+										.replace(/([a-z," "])/g, '')} / ${data.float
 										.toString()
 										.substring(0, 4)}`}
 						</Typeography>
-						<Typeography color={'white'} fontSize={'16px'}>{`$ ${price.toFixed(
-							2
-						)}`}</Typeography>
+						<Typeography
+							color={'white'}
+							fontSize={'16px'}
+						>{`$ ${data.price.toFixed(2)}`}</Typeography>
 					</div>
 				</div>
 

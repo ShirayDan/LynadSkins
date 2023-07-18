@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from '../../components/Item/Item'
+import { Item } from '../../components/Item'
 import { SkeletonItem } from '../../components/SkeletonItem'
 import img1 from './../../i/1.webp'
 import img10 from './../../i/10.webp'
@@ -764,21 +764,7 @@ export const MarketPageItems = () => {
 		<div className={styles['main-container']}>
 			<div className={styles.conitaner}>
 				{(data ? data : [...Array(20)]).map((item, i) => {
-					return data ? (
-						<Item
-							key={i}
-							img={item.img}
-							exterior={item.exterior}
-							price={item.price}
-							float={item.float}
-							statTrak={item.statTrak}
-							souvenir={item.souvenir}
-							item={item.item}
-							skin={item.skin}
-						/>
-					) : (
-						<SkeletonItem key={i} />
-					)
+					return data ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
 				})}
 			</div>
 		</div>

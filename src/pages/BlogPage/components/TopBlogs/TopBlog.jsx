@@ -60,9 +60,10 @@ export const TopBlog = () => {
 					<MSmallBlogItem custom={i + 2} variants={textAnimation} />
 				) : (
 					<MSmallItem
-						photo={item.photo}
-						hashtag={item.hashtag}
-						title={item.title}
+						// photo={item.photo}
+						// hashtag={item.hashtag}
+						// title={item.title}
+						data={item}
 						custom={i + 2}
 						variants={textAnimation}
 					/>
