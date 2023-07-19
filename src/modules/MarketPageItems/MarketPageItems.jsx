@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchAllSkins } from '../../redux/slices/skins'
+
 import { Item } from '../../components/Item'
 import { SkeletonItem } from '../../components/SkeletonItem'
+
 import img1 from './../../i/1.webp'
 import img10 from './../../i/10.webp'
 import img11 from './../../i/11.png'
@@ -54,6 +58,9 @@ import img9 from './../../i/9.webp'
 import styles from './MarketPageItems.module.css'
 
 export const MarketPageItems = () => {
+	const [skins, setSkins] = useState([])
+	const dispatch = useDispatch()
+
 	let data = [
 		{
 			id: 1,
@@ -760,11 +767,17 @@ export const MarketPageItems = () => {
 		},
 	]
 
+	useEffect(() => {
+		dispatch(fetchAllSkins()).then((res) => {
+			setSkins(res.payload || data)
+		})
+	}, [])
+
 	return (
 		<div className={styles['main-container']}>
 			<div className={styles.conitaner}>
-				{(data ? data : [...Array(20)]).map((item, i) => {
-					return data ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
+				{(skins ? skins : [...Array(20)]).map((item, i) => {
+					return skins ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
 				})}
 			</div>
 		</div>

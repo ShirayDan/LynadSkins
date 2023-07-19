@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Item } from '../../components/Item/Item'
-import { SkeletonItem } from '../../components/SkeletonItem'
 import { fetchUserSkins } from '../../redux/slices/skins'
+import { useDispatch } from 'react-redux'
 
 import styles from './UserSkins.module.css'
-import { useDispatch } from 'react-redux'
+import { SkeletonItem } from '../../components/SkeletonItem'
+import { Item } from '../../components/Item/Item'
 
 export const UserSkins = () => {
 	const [skins, setSkins] = useState([])

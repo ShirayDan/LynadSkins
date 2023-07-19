@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { changeOverflow } from '../../helpers/helpers'
+import { useSelector } from 'react-redux'
 import styles from './Item.module.css'
 
 import { ItemModal } from '../../components/ItemModal'
@@ -11,6 +12,8 @@ import { Typeography } from '../../ui/Typeography'
 import { FaShoppingCart } from 'react-icons/fa'
 
 export const Item = ({ data }) => {
+	const currency = useSelector((state) => state.currency)
+
 	const [open, setOpen] = useState(false)
 	const handleClick = () => {
 		setOpen(!open)
@@ -57,10 +60,11 @@ export const Item = ({ data }) => {
 									.toString()
 									.substring(0, 4)}`}
 					</Typeography>
-					<Typeography
-						color={'white'}
-						fontSize={'16px'}
-					>{`$ ${data?.price.toFixed(2)}`}</Typeography>
+					<Typeography color={'white'} fontSize={'16px'}>
+						{currency.currency == 'usd'
+							? `$ ${data?.price.toFixed(2)}`
+							: `₴ ${(data?.price * 36.7).toFixed(2)}`}
+					</Typeography>
 				</div>
 				{!data?.person && (
 					<Button style={styles.btn} text={<FaShoppingCart />}></Button>

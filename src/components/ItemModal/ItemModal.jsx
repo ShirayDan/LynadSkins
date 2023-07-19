@@ -1,4 +1,5 @@
 import styles from './ItemModal.module.css'
+import { useSelector } from 'react-redux'
 
 import { Button } from '../../ui/Button'
 import { Container } from '../../ui/Container'
@@ -9,6 +10,8 @@ import { Typeography } from '../../ui/Typeography'
 import { FaHeart } from 'react-icons/fa'
 
 export const ItemModal = ({ data }) => {
+	const currency = useSelector((state) => state.currency)
+
 	return (
 		<Container styles={styles.container}>
 			<div className={styles['modal-container']}>
@@ -83,9 +86,12 @@ export const ItemModal = ({ data }) => {
 				</div>
 				<div className={styles['modal-price']}>
 					<Typeography color={'white'}>Price</Typeography>
-					<Typeography color={'white'}>{`$ ${data?.price.toFixed(
-						2
-					)}`}</Typeography>
+					<Typeography color={'white'}>
+						{' '}
+						{currency.currency == 'usd'
+							? `$ ${data?.price.toFixed(2)}`
+							: `₴ ${(data?.price * 36.7).toFixed(2)}`}
+					</Typeography>
 				</div>
 				{!data?.btns && (
 					<div className={styles['modal-buttons']}>
