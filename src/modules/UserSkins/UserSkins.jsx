@@ -1,40 +1,20 @@
+import { useEffect, useState } from 'react'
 import { Item } from '../../components/Item/Item'
 import { SkeletonItem } from '../../components/SkeletonItem'
-import img1 from './../../i/1.webp'
-import img2 from './../../i/2.webp'
+import { fetchUserSkins } from '../../redux/slices/skins'
+
 import styles from './UserSkins.module.css'
-let data = [
-	{
-		id: 1,
-		item: 'AK-47',
-		skin: 'Elite Build',
-		img: img1,
-		exterior: 'Field-Tested',
-		rarity: 'Mil-Spec Grade',
-		price: 13.3,
-		float: 0.210546776,
-		statTrak: true,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['black'],
-	},
-	{
-		id: 2,
-		item: 'AK-47',
-		skin: 'Asiimov',
-		img: img2,
-		exterior: 'Field-Tested',
-		rarity: 'Covert',
-		price: 38.24,
-		float: 0.1743020377,
-		statTrak: false,
-		souvenir: false,
-		type: 'Assault Rifles',
-		color: ['red', 'white'],
-	},
-]
+import { useDispatch } from 'react-redux'
 
 export const UserSkins = () => {
+	const [skins, setSkins] = useState([])
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(fetchUserSkins()).then((res) => {
+			setSkins(res.payload)
+		})
+	}, [])
 	const page = window.location.href.match('/trade')
 
 	return (
@@ -44,8 +24,8 @@ export const UserSkins = () => {
 			}`}
 		>
 			<div className={styles.conitaner}>
-				{(data ? data : [...Array(20)]).map((item, i) => {
-					return data ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
+				{(skins ? skins : [...Array(20)]).map((item, i) => {
+					return skins ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
 				})}
 			</div>
 		</div>

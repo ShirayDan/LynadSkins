@@ -16,12 +16,15 @@ export const Item = ({ data }) => {
 		setOpen(!open)
 		changeOverflow(open)
 	}
+
 	return (
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
 				<img
-					src={data?.img}
-					alt={`${data?.item}-${data?.skin}`}
+					src={data?.img || data?.imageUrl}
+					alt={`${data?.item || data?.itemName}-${
+						data?.skin || data?.skinName
+					}`}
 					className={styles.photo}
 					loading='lazy'
 				/>

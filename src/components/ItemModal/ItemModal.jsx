@@ -8,22 +8,17 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaHeart } from 'react-icons/fa'
 
-export const ItemModal = ({
-	data,
-	// img,
-	// souvenir,
-	// statTrak,
-	// item,
-	// skin,
-	// exterior,
-	// price,
-	// float,
-	// btns,
-}) => {
+export const ItemModal = ({ data }) => {
 	return (
 		<Container styles={styles.container}>
 			<div className={styles['modal-container']}>
-				<img src={data?.img} alt='' className={styles['modal-image']} />
+				<img
+					src={data?.img || data?.imageUrl}
+					alt={`${data?.item || data?.itemName}-${
+						data?.skin || data?.skinName
+					}`}
+					className={styles['modal-image']}
+				/>
 			</div>
 			<div className={styles['modal-right']}>
 				<Typeography fontSize={'16px'} variant={'h3'} color={'white'}>
@@ -36,10 +31,10 @@ export const ItemModal = ({
 					<Typeography variant={'span'} fontSize={'16px'} color={'orange'}>{`${
 						data?.statTrak == true ? 'ST ' : ''
 					}`}</Typeography>
-					{data?.item}
+					{data?.item || data?.itemName}
 				</Typeography>
-				<Typeography variant={'h3'} color={'white'}>
-					{data?.skin} ({data?.exterior})
+				<Typeography variant={'h3'} color={'white'} fontSize={'16px'}>
+					{data?.skin || data?.skinName} ({data?.exterior})
 				</Typeography>
 				<div className={styles['modal-info']}>
 					<div className={styles['modal-line']}>
@@ -81,7 +76,7 @@ export const ItemModal = ({
 								Rarity
 							</Typeography>
 							<Typeography variant={'span'} color={'white'}>
-								-
+								{data?.rarity}
 							</Typeography>
 						</ListItem>
 					</List>
