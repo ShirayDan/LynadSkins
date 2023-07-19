@@ -1,5 +1,4 @@
-import { AnimatePresence } from 'framer-motion'
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '../../ui/Button'
@@ -13,32 +12,20 @@ import { Other } from './components/Other'
 import { Price } from './components/Price'
 import { Rarity } from './components/Rarity'
 import { Type } from './components/Type'
+import { FilterItem } from './components/FilterItem'
 
 export const MarketPageSide = () => {
 	const { t } = useTranslation()
-	const FilterItem = ({ filter, fullList }) => {
-		const [open, setOpen] = useState(false)
-		const showAll = () => {
-			setOpen(!open)
-		}
-		return (
-			<>
-				<div className={styles['filter-item']} onClick={showAll}>
-					<Typeography color={'white'} fontSize={'20px'}>
-						{filter}
-					</Typeography>
-					<div className={styles.icon}>
-						{open ? (
-							<span className={styles['icon-minus']}>-</span>
-						) : (
-							<span className={styles['icon-plus']}>+</span>
-						)}
-					</div>
-				</div>
-				<AnimatePresence initial={false}>{open && fullList}</AnimatePresence>
-			</>
-		)
-	}
+
+	const filters = [
+		{ text: t('price'), comp: <Price /> },
+		{ text: t('type'), comp: <Type /> },
+		{ text: t('exteriror'), comp: <Exterior /> },
+		{ text: t('colour'), comp: <Color /> },
+		{ text: t('float'), comp: <Float /> },
+		{ text: t('rarity'), comp: <Rarity /> },
+		{ text: t('other'), comp: <Other /> },
+	]
 
 	return (
 		<Container styles={styles.container}>
@@ -46,13 +33,9 @@ export const MarketPageSide = () => {
 				{t('filters')}
 			</Typeography>
 			<div className={styles.filters}>
-				<FilterItem filter={t('price')} fullList={<Price />} />
-				<FilterItem filter={t('type')} fullList={<Type />} />
-				<FilterItem filter={t('exteriror')} fullList={<Exterior />} />
-				<FilterItem filter={t('colour')} fullList={<Color />} />
-				<FilterItem filter={t('float')} fullList={<Float />} />
-				<FilterItem filter={t('rarity')} fullList={<Rarity />} />
-				<FilterItem filter={t('other')} fullList={<Other />} />
+				{filters.map((item, i) => (
+					<FilterItem key={i} filter={item.text} fullList={item.comp} />
+				))}
 				<div className={styles.btns}>
 					<Button hover={true} text={t('reset')}></Button>
 					<Button hover={true} text={t('save')}></Button>
