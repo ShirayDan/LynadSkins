@@ -60,6 +60,7 @@ export const SignInModal = ({ state, setState }) => {
 					<label htmlFor='Email' className={styles.label}>
 						Email:
 						<Input
+							id={'Email'}
 							type={'email'}
 							placeholder={'Email'}
 							obj={register('email', {
@@ -78,6 +79,7 @@ export const SignInModal = ({ state, setState }) => {
 						Password:
 						<div className={styles.password}>
 							<Input
+								id={'Password'}
 								type={viewPass}
 								placeholder={'Password'}
 								obj={register('password', {

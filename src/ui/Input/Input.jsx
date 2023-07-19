@@ -9,9 +9,11 @@ export const Input = ({
 	value,
 	obj,
 	disabled,
+	id,
 }) => {
 	return (
 		<input
+			id={id}
 			type={type}
 			placeholder={placeholder}
 			className={styles.priceInput}

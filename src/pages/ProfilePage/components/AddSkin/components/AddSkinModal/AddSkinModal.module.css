@@ -43,3 +43,7 @@ option {
 .btn-image {
 	margin: 15px 0;
 }
+.error {
+	color: red;
+	margin-bottom: 5px;
+}

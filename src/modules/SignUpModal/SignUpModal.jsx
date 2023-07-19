@@ -54,8 +54,8 @@ export const SignUpModal = ({ state, setState }) => {
 				</Typeography>
 				<Typeography variant={'h4'} color={'orange'} m={'0 0 15px 0 '}>
 					<FaExclamationTriangle fill='#e5864e' fontSize={'14px'} />
-					Your email address must be valid and password must include minimum 6
-					symbols
+					Your full name must include at least 3 symbols, email address must be
+					valid and password must include minimum 5 symbols
 				</Typeography>
 				<form
 					action=''
@@ -65,10 +65,12 @@ export const SignUpModal = ({ state, setState }) => {
 					<label htmlFor='fullName' className={styles.label}>
 						Full name:
 						<Input
+							id={'fullName'}
 							type={'text'}
-							placeholder={'fullName'}
+							placeholder={'Full name'}
 							obj={register('fullName', {
 								required: true,
+								minLength: 3,
 							})}
 							mt={'5px'}
 						/>
@@ -82,8 +84,9 @@ export const SignUpModal = ({ state, setState }) => {
 					<label htmlFor='Email' className={styles.label}>
 						Email:
 						<Input
+							id={'Email'}
 							type={'email'}
-							placeholder={'email'}
+							placeholder={'Email'}
 							obj={register('email', {
 								required: true,
 								pattern: /^\S+@\S+$/i,
@@ -101,8 +104,9 @@ export const SignUpModal = ({ state, setState }) => {
 						Password:
 						<div className={styles.password}>
 							<Input
+								id={'Password'}
 								type={viewPass}
-								placeholder={'password'}
+								placeholder={'Password'}
 								obj={register('password', {
 									required: true,
 									minLength: 5,

@@ -1,90 +1,252 @@
 import React from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import styles from './AddSkinModal.module.css'
+import { createSkin } from '../../../../../../redux/slices/skins'
+import { useDispatch } from 'react-redux'
 
-import { Button } from '../../../../../../ui/Button'
 import { Container } from '../../../../../../ui/Container'
 import { Input } from '../../../../../../ui/Input'
 import { Typeography } from '../../../../../../ui/Typeography'
 
 export const AddSkinModal = () => {
+	const dispatch = useDispatch()
+
+	const {
+		register,
+		formState: { errors, isValid },
+		handleSubmit,
+		control,
+		reset,
+	} = useForm({
+		mode: 'onBlur',
+	})
+
+	const onSubmit = async (values) => {
+		console.log(values)
+		await dispatch(createSkin(values))
+		reset()
+	}
+
 	return (
 		<Container styles={styles.container}>
 			<Typeography variant={'h3'} color={'white'} m={'0 0 10px 0'}>
 				Add your skin
 			</Typeography>
-			<form action='' className={styles.form}>
-				<label htmlFor='' className={styles.label}>
+			<form action='' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+				<label htmlFor='itemName' className={styles.label}>
 					Item name:
-					<Input mt={'5px'} />
+					<Input
+						id={'itemName'}
+						mt={'5px'}
+						type={'text'}
+						placeholder={'Item name'}
+						obj={register('itemName', {
+							required: true,
+							minLength: 5,
+						})}
+					/>
 				</label>
-				<label htmlFor='' className={styles.label}>
+				<div>
+					{errors?.itemName && (
+						<p className={styles.error}>
+							{errors?.itemName?.message || 'Mininum length equals 5'}
+						</p>
+					)}
+				</div>
+				<label htmlFor='skinName' className={styles.label}>
 					Skin name:
-					<Input mt={'5px'} />
+					<Input
+						id={'skinName'}
+						mt={'5px'}
+						type={'text'}
+						placeholder={'Skin name'}
+						obj={register('skinName', {
+							required: true,
+							minLength: 5,
+						})}
+					/>
 				</label>
+				<div>
+					{errors?.skinName && (
+						<p className={styles.error}>
+							{errors?.skinName?.message || 'Mininum length equals 5'}
+						</p>
+					)}
+				</div>
 				<div className={styles.selects}>
-					<select name='' id='' className={styles.select}>
-						<option value='-1'>Select exterior</option>
-						<option value=''>Factory New</option>
-						<option value=''>Minimal Wear</option>
-						<option value=''>Field-Tested</option>
-						<option value=''>Well-Worn</option>
-						<option value=''>Battle-Scarred</option>
-					</select>
-
-					<select name='' id='' className={styles.select}>
-						<option value='-1'>Select rariry</option>
-						<option value=''>Consumer Grade</option>
-						<option value=''>Industrial Grade</option>
-						<option value=''>Mil-Spec Grade</option>
-						<option value=''>Restricted</option>
-						<option value=''>Classified</option>
-						<option value=''>Covert</option>
-					</select>
-					<select name='' id='' className={styles.select}>
-						<option value='-1'>Select gun type</option>
-						<option value=''>Knives</option>
-						<option value=''>Gloves</option>
-						<option value=''>Pistols</option>
-						<option value=''>SMGs</option>
-						<option value=''>Assault Rifles</option>
-						<option value=''>Sniper Rifles</option>
-						<option value=''>Shotguns</option>
-						<option value=''>Machine guns</option>
-					</select>
+					<Controller
+						control={control}
+						name='exterior'
+						rules={{
+							required: 'Exterior is required',
+						}}
+						render={({ field: { onChange }, fieldState: { error } }) => (
+							<>
+								<select
+									className={styles.select}
+									onChange={(newValue) => onChange(newValue)}
+								>
+									<option value='-1'>Select exterior</option>
+									<option value='Factory New'>Factory New</option>
+									<option value='Minimal Wear'>Minimal Wear</option>
+									<option value='Field-Tested'>Field-Tested</option>
+									<option value='Well-Worn'>Well-Worn</option>
+									<option value='Battle-Scarred'>Battle-Scarred</option>
+								</select>
+								<div>
+									{error && <p className={styles.error}>{error.message}</p>}
+								</div>
+							</>
+						)}
+					/>
+					<Controller
+						control={control}
+						name='rarity'
+						rules={{
+							required: 'Rariry is required',
+						}}
+						render={({ field: { onChange }, fieldState: { error } }) => (
+							<>
+								<select
+									className={styles.select}
+									onChange={(newValue) => onChange(newValue)}
+								>
+									<option value='-1'>Select rarity</option>
+									<option value='Consumer Grade'>Consumer Grade</option>
+									<option value='Industrial Grade'>Industrial Grade</option>
+									<option value='Mil-Spec Grade'>Mil-Spec Grade</option>
+									<option value='Restricted'>Restricted</option>
+									<option value='Classified'>Classified</option>
+									<option value='Covert'>Covert</option>
+								</select>
+								<div>
+									{error && <p className={styles.error}>{error.message}</p>}
+								</div>
+							</>
+						)}
+					/>
+					<Controller
+						control={control}
+						name='type'
+						rules={{
+							required: 'Gun type is required',
+						}}
+						render={({ field: { onChange }, fieldState: { error } }) => (
+							<>
+								<select
+									className={styles.select}
+									onChange={(newValue) => onChange(newValue)}
+								>
+									<option value='-1'>Select gun type</option>
+									<option value='Knives'>Knives</option>
+									<option value='Gloves'>Gloves</option>
+									<option value='Pistols'>Pistols</option>
+									<option value='SMGs'>SMGs</option>
+									<option value='Assault Rifles'>Assault Rifles</option>
+									<option value='Sniper Rifles'>Sniper Rifles</option>
+									<option value='Shotguns'>Shotguns</option>
+									<option value='Machine guns'>Machine guns</option>
+								</select>
+								<div>
+									{error && <p className={styles.error}>{error.message}</p>}
+								</div>
+							</>
+						)}
+					/>
 				</div>
 
-				<label htmlFor='' className={styles.label}>
+				<label htmlFor='price' className={styles.label}>
 					Price:
-					<Input mt={'5px'} />
+					<Input
+						id={'price'}
+						mt={'5px'}
+						type={'text'}
+						placeholder={'Price'}
+						obj={register('price', {
+							required: true,
+						})}
+					/>
 				</label>
+				<div>
+					{errors?.price && (
+						<p className={styles.error}>
+							{errors?.price?.message || 'Price is required'}
+						</p>
+					)}
+				</div>
 
-				<label htmlFor='' className={styles.label}>
+				<label htmlFor='float' className={styles.label}>
 					Float:
-					<Input mt={'5px'} />
+					<Input
+						id={'float'}
+						mt={'5px'}
+						type={'text'}
+						placeholder={'Float'}
+						obj={register('float', {
+							required: true,
+						})}
+					/>
 				</label>
+				<div>
+					{errors?.float && (
+						<p className={styles.error}>
+							{errors?.float?.message || 'Float is required'}
+						</p>
+					)}
+				</div>
+
 				<div className={styles.checkboxes}>
 					<label
-						htmlFor=''
+						htmlFor='statTrack'
 						className={`${styles.label} ${styles['label-checkbox']}`}
 					>
 						Statrack:
 					</label>
-					<input type='checkbox' />
+					<input
+						id='statTrack'
+						type='checkbox'
+						placeholder={'statTrack'}
+						{...register('statTrak', {})}
+					/>
+
 					<label
-						htmlFor=''
+						htmlFor='souvenir'
 						className={`${styles.label} ${styles['label-checkbox']}`}
 					>
 						Souvenir:
 					</label>
-					<input type='checkbox' />
+					<input
+						type='checkbox'
+						id='souvenir'
+						placeholder={'souvenir'}
+						{...register('souvenir', {})}
+					/>
 				</div>
 
-				<label htmlFor='' className={styles.label}>
+				<label htmlFor='color' className={styles.label}>
 					Color:
-					<Input mt={'5px'} />
+					<p>Enter colors separated by commas</p>
+					<Input
+						id={'color'}
+						mt={'5px'}
+						placeholder={'Color'}
+						obj={register('color', {
+							required: true,
+						})}
+					/>
 				</label>
-
-				<Button text={'Upload image'} style={styles['btn-image']} />
+				<label htmlFor='imageUrl' className={styles.label}>
+					Image link:
+					<Input
+						id={'imageUrl'}
+						mt={'5px'}
+						type={'link'}
+						placeholder={'Image link'}
+						obj={register('imageUrl', {
+							required: true,
+						})}
+					/>
+				</label>
 				<div className={styles.btns}>
 					<Input width={'min-content'} type={'submit'} value={'Add skin'} />
 					<Input width={'min-content'} type={'reset'} value={'Reset'} />
