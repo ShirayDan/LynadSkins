@@ -28,7 +28,6 @@ export const createSkin = createAsyncThunk(
 export const updateSkin = createAsyncThunk(
 	'skins/updateSkin',
 	async (params) => {
-		console.log(params)
 		const { data } = await axios.patch(`/skins/${params._id}`, params)
 		return data
 	}

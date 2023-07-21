@@ -40,7 +40,6 @@ export const Cart = () => {
 			item.user = user?._id
 			item.onTrade = false
 			item.color = item.color.join(',')
-			console.log({ ...user, money: user?.money - item.price })
 			dispatch(
 				updateUser({
 					...user,
