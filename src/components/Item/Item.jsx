@@ -26,6 +26,9 @@ export const Item = ({ data }) => {
 		dispatch(addCart(data))
 	}
 
+	const page = window.location.href.match('/profile')
+
+	console.log(data)
 	return (
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
@@ -76,7 +79,13 @@ export const Item = ({ data }) => {
 					<Button
 						style={styles.btn}
 						onClick={addToCart}
-						text={<FaShoppingCart />}></Button>
+						text={
+							page ? (
+								(data?.onTrade && 'Remove from market') || 'Sale'
+							) : (
+								<FaShoppingCart />
+							)
+						}></Button>
 				)}
 			</div>
 			<AnimatePresence initial={false}>
