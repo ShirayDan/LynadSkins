@@ -25,6 +25,15 @@ export const createSkin = createAsyncThunk(
 	}
 )
 
+export const updateSkin = createAsyncThunk(
+	'skins/updateSkin',
+	async (params) => {
+		console.log(params)
+		const { data } = await axios.patch(`/skins/${params._id}`, params)
+		return data
+	}
+)
+
 const initialState = {
 	skins: {
 		items: [],
@@ -70,6 +79,18 @@ const skinsSlice = createSlice({
 			state.data = action.payload
 		},
 		[createSkin.rejected]: (state) => {
+			state.status = 'error'
+			state.data = null
+		},
+		[updateSkin.pending]: (state) => {
+			state.status = 'loading'
+			state.data = null
+		},
+		[updateSkin.fulfilled]: (state, action) => {
+			state.status = 'loaded'
+			state.data = action.payload
+		},
+		[updateSkin.rejected]: (state) => {
 			state.status = 'error'
 			state.data = null
 		},

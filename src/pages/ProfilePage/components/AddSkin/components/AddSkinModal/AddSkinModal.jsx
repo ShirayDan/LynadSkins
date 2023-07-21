@@ -22,7 +22,6 @@ export const AddSkinModal = () => {
 	})
 
 	const onSubmit = async (values) => {
-		console.log(values)
 		await dispatch(createSkin(values))
 		reset()
 	}
@@ -84,8 +83,7 @@ export const AddSkinModal = () => {
 							<>
 								<select
 									className={styles.select}
-									onChange={(newValue) => onChange(newValue)}
-								>
+									onChange={(newValue) => onChange(newValue)}>
 									<option value='-1'>Select exterior</option>
 									<option value='Factory New'>Factory New</option>
 									<option value='Minimal Wear'>Minimal Wear</option>
@@ -109,8 +107,7 @@ export const AddSkinModal = () => {
 							<>
 								<select
 									className={styles.select}
-									onChange={(newValue) => onChange(newValue)}
-								>
+									onChange={(newValue) => onChange(newValue)}>
 									<option value='-1'>Select rarity</option>
 									<option value='Consumer Grade'>Consumer Grade</option>
 									<option value='Industrial Grade'>Industrial Grade</option>
@@ -135,8 +132,7 @@ export const AddSkinModal = () => {
 							<>
 								<select
 									className={styles.select}
-									onChange={(newValue) => onChange(newValue)}
-								>
+									onChange={(newValue) => onChange(newValue)}>
 									<option value='-1'>Select gun type</option>
 									<option value='Knives'>Knives</option>
 									<option value='Gloves'>Gloves</option>
@@ -198,8 +194,7 @@ export const AddSkinModal = () => {
 				<div className={styles.checkboxes}>
 					<label
 						htmlFor='statTrack'
-						className={`${styles.label} ${styles['label-checkbox']}`}
-					>
+						className={`${styles.label} ${styles['label-checkbox']}`}>
 						Statrack:
 					</label>
 					<input
@@ -211,8 +206,7 @@ export const AddSkinModal = () => {
 
 					<label
 						htmlFor='souvenir'
-						className={`${styles.label} ${styles['label-checkbox']}`}
-					>
+						className={`${styles.label} ${styles['label-checkbox']}`}>
 						Souvenir:
 					</label>
 					<input

@@ -28,7 +28,6 @@ export const Item = ({ data }) => {
 
 	const page = window.location.href.match('/profile')
 
-	console.log(data)
 	return (
 		<>
 			<div className={styles.item} onClick={() => handleClick()}>
@@ -46,18 +45,18 @@ export const Item = ({ data }) => {
 					}`}>
 					<Typeography variant={'h3'} fontSize={'16px'} color={'grey'}>
 						<Typeography variant={'span'} color={'gold'} fontSize={'16px'}>{`${
-							data?.souvenir == true ? 'SV ' : ''
+							data?.souvenir === true ? 'SV ' : ''
 						}`}</Typeography>
 						<Typeography variant={'span'} fontSize={'16px'}>{`${
-							data?.souvenir == true ? '/ ' : ''
+							data?.souvenir === true ? '/ ' : ''
 						}`}</Typeography>
 						<Typeography
 							variant={'span'}
 							fontSize={'16px'}
 							color={'orange'}>{`${
-							data?.statTrak == true ? 'ST ' : ''
+							data?.statTrak === true ? 'ST ' : ''
 						}`}</Typeography>
-						{data?.statTrak == true
+						{data?.statTrak === true
 							? `/ ${data?.exterior
 									.replace(/([-])/g, ' ')
 									.replace(/([a-z," "])/g, '')} / ${data?.float
@@ -70,7 +69,7 @@ export const Item = ({ data }) => {
 									.substring(0, 4)}`}
 					</Typeography>
 					<Typeography color={'white'} fontSize={'16px'}>
-						{currency.currency == 'usd'
+						{currency.currency === 'usd'
 							? `$ ${data?.price.toFixed(2)}`
 							: `₴ ${(data?.price * 36.7).toFixed(2)}`}
 					</Typeography>

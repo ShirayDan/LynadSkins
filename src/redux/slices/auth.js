@@ -22,6 +22,14 @@ export const fetchRegister = createAsyncThunk(
 	}
 )
 
+export const updateUser = createAsyncThunk(
+	'auth/updateUser',
+	async (params) => {
+		const { data } = await axios.patch('/auth/me', params)
+		return data
+	}
+)
+
 const initialState = {
 	data: null,
 	status: 'loading',
@@ -69,6 +77,18 @@ const authSlice = createSlice({
 			state.data = action.payload
 		},
 		[fetchRegister.rejected]: (state) => {
+			state.status = 'error'
+			state.data = null
+		},
+		[updateUser.pending]: (state) => {
+			state.status = 'loading'
+			state.data = null
+		},
+		[updateUser.fulfilled]: (state, action) => {
+			state.status = 'loaded'
+			state.data = action.payload
+		},
+		[updateUser.rejected]: (state) => {
 			state.status = 'error'
 			state.data = null
 		},

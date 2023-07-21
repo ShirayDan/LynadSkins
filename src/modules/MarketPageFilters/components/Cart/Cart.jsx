@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Cart.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetCart } from '../../../../redux/slices/cart'
+import { updateSkin } from '../../../../redux/slices/skins'
+import { updateUser } from '../../../../redux/slices/auth'
+import axios from '../../../../axios'
 
 import { SmallModalEmpty } from '../../../../components/SmallModalEmpty'
 import { SmallModalInner } from '../../../../components/SmallModalInner/SmallModalInner'
@@ -10,9 +13,45 @@ import { Container } from '../../../../ui/Container'
 
 export const Cart = () => {
 	const dispatch = useDispatch()
+	const [warning, setWarning] = useState('')
 	const data = useSelector((state) => state.cart)
 
-	const handleBuy = () => {}
+	const handleBuy = async (values) => {
+		let sum = values.reduce((a, b) => a.price + b.price)
+		const token = window.localStorage.getItem('token')
+		let user = null
+		await axios.get('/auth/me', token).then((res) => {
+			user = res.data
+		})
+		if (user?.money < sum) {
+			setWarning('You need to donate some money')
+			return
+		} else {
+			setWarning('')
+		}
+		values.forEach((el) => {
+			let sellerMoney = 0
+			axios.post('/userMoney', { _id: `${el.user}` }).then((res) => {
+				sellerMoney = res.data
+				sellerMoney += el.price
+				axios.patch('/userMoney', { _id: `${el.user}`, money: sellerMoney })
+			})
+			let item = { ...el }
+			item.user = user?._id
+			item.onTrade = false
+			item.color = item.color.join(',')
+			console.log({ ...user, money: user?.money - item.price })
+			dispatch(
+				updateUser({
+					...user,
+					money: Number((user?.money - item.price).toFixed(2)),
+				})
+			)
+			dispatch(updateSkin(item))
+			handleResetCart()
+		})
+	}
+
 	const handleResetCart = () => {
 		dispatch(resetCart([]))
 	}
@@ -22,8 +61,13 @@ export const Cart = () => {
 			{data?.length ? (
 				<>
 					<SmallModalInner data={data} type={'Cart'} />
+					{warning && <div className={styles.warning}>{warning}</div>}
 					<div className={styles.btns}>
-						<Button text={'Buy'} onClick={handleBuy} style={styles.btn} />
+						<Button
+							text={'Buy'}
+							onClick={() => handleBuy(data)}
+							style={styles.btn}
+						/>
 						<Button
 							text={'Empty Cart'}
 							onClick={handleResetCart}
