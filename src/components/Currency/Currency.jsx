@@ -31,8 +31,7 @@ export const Currency = () => {
 		<div className={styles['curr-cont']}>
 			<div
 				className={styles.text}
-				onClick={() => openModal(currencyOpen, setCurrencyOpen)}
-			>
+				onClick={() => openModal(currencyOpen, setCurrencyOpen)}>
 				<Typeography color={'white'} hover={true} icon={true}>
 					{t('currency')}
 					<span
@@ -40,8 +39,7 @@ export const Currency = () => {
 							currencyOpen
 								? `${styles.icon} ${styles['icon-opened']}`
 								: styles.icon
-						}
-					>
+						}>
 						<FaChevronDown fontSize={'16px'} />
 					</span>
 				</Typeography>
@@ -52,19 +50,16 @@ export const Currency = () => {
 						className={styles.currency}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
+						exit={{ opacity: 0 }}>
 						<List variant={'ul'}>
 							<ListItem
 								onClick={() => changeCurrency('usd')}
-								style={styles.item}
-							>
+								style={styles.item}>
 								USD
 							</ListItem>
 							<ListItem
 								onClick={() => changeCurrency('uah')}
-								style={styles.item}
-							>
+								style={styles.item}>
 								UAH
 							</ListItem>
 						</List>

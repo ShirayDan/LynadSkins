@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { changeOverflow } from '../../helpers/helpers'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCart } from '../../redux/slices/cart'
 import styles from './Item.module.css'
 
 import { ItemModal } from '../../components/ItemModal'
@@ -12,12 +13,17 @@ import { Typeography } from '../../ui/Typeography'
 import { FaShoppingCart } from 'react-icons/fa'
 
 export const Item = ({ data }) => {
+	const dispatch = useDispatch()
 	const currency = useSelector((state) => state.currency)
 
 	const [open, setOpen] = useState(false)
 	const handleClick = () => {
 		setOpen(!open)
 		changeOverflow(open)
+	}
+
+	const addToCart = () => {
+		dispatch(addCart(data))
 	}
 
 	return (
@@ -34,8 +40,7 @@ export const Item = ({ data }) => {
 				<div
 					className={`${styles.description} ${
 						data?.person && styles.description_bottom
-					}`}
-				>
+					}`}>
 					<Typeography variant={'h3'} fontSize={'16px'} color={'grey'}>
 						<Typeography variant={'span'} color={'gold'} fontSize={'16px'}>{`${
 							data?.souvenir == true ? 'SV ' : ''
@@ -46,8 +51,9 @@ export const Item = ({ data }) => {
 						<Typeography
 							variant={'span'}
 							fontSize={'16px'}
-							color={'orange'}
-						>{`${data?.statTrak == true ? 'ST ' : ''}`}</Typeography>
+							color={'orange'}>{`${
+							data?.statTrak == true ? 'ST ' : ''
+						}`}</Typeography>
 						{data?.statTrak == true
 							? `/ ${data?.exterior
 									.replace(/([-])/g, ' ')
@@ -67,14 +73,17 @@ export const Item = ({ data }) => {
 					</Typeography>
 				</div>
 				{!data?.person && (
-					<Button style={styles.btn} text={<FaShoppingCart />}></Button>
+					<Button
+						style={styles.btn}
+						onClick={addToCart}
+						text={<FaShoppingCart />}></Button>
 				)}
 			</div>
 			<AnimatePresence initial={false}>
 				{open && (
 					<Modal
 						handleClick={() => handleClick()}
-						children={<ItemModal data={data} />}
+						children={<ItemModal data={data} addToCart={addToCart} />}
 						guns={true}
 					/>
 				)}

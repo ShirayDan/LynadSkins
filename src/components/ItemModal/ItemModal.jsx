@@ -9,7 +9,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaHeart } from 'react-icons/fa'
 
-export const ItemModal = ({ data }) => {
+export const ItemModal = ({ data, addToCart }) => {
 	const currency = useSelector((state) => state.currency)
 
 	return (
@@ -54,15 +54,13 @@ export const ItemModal = ({ data }) => {
 								left: `calc(${data?.float} * 100%)`,
 								border: '7px solid transparent',
 								borderTop: '7px solid #fff',
-							}}
-						></div>
+							}}></div>
 					</div>
 					<List mt={'15px'}>
 						<ListItem
 							display={'flex'}
 							justifyContent={'space-between'}
-							m={'10px 0 0 0'}
-						>
+							m={'10px 0 0 0'}>
 							<Typeography variant={'span'} color={'white'}>
 								Float
 							</Typeography>
@@ -73,8 +71,7 @@ export const ItemModal = ({ data }) => {
 						<ListItem
 							display={'flex'}
 							justifyContent={'space-between'}
-							m={'10px 0 0 0'}
-						>
+							m={'10px 0 0 0'}>
 							<Typeography variant={'span'} color={'white'}>
 								Rarity
 							</Typeography>
@@ -99,12 +96,11 @@ export const ItemModal = ({ data }) => {
 							hover={true}
 							text={'ADD TO CART'}
 							style={styles['modal-cart']}
-						></Button>
+							onClick={addToCart}></Button>
 						<Button
 							hover={true}
 							text={<FaHeart fontSize={'30px'} />}
-							style={styles['modal-like']}
-						></Button>
+							style={styles['modal-like']}></Button>
 					</div>
 				)}
 			</div>
