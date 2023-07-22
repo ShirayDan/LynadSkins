@@ -37,8 +37,7 @@ export const ProfilePage = () => {
 				variant={'h1'}
 				fontSize={'32px'}
 				color={'white'}
-				m={'0 0 20px 10px'}
-			>
+				m={'0 0 20px 10px'}>
 				{t('personalPage.personal_info')}
 			</Typeography>
 			<div className={styles.top}>
@@ -63,8 +62,7 @@ export const ProfilePage = () => {
 					variant={'h2'}
 					fontSize={'32px'}
 					color={'white'}
-					m={'0 0 20px 10px'}
-				>
+					m={'0 0 20px 10px'}>
 					{t('personalPage.your_inventory')}
 				</Typeography>
 				<AddSkin />

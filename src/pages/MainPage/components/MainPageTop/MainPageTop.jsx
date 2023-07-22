@@ -44,18 +44,19 @@ export const MainPageTop = () => {
 	const knives = [
 		{
 			name: 'Butterfly Knife - Lore',
-			img: img,
-			textStyle: 'knifes-text',
-			lineStyle: 'line-one',
-			imgStyles: styles.photo,
-		},
-		{
-			name: 'Karambit - Fade',
 			img: img2,
 			textStyle: 'knifes-text',
 			lineStyle: 'line-two',
 			imgStyles: styles.photo_second,
 		},
+		{
+			name: 'Karambit - Fade',
+			img: img,
+			textStyle: 'knifes-text',
+			lineStyle: 'line-one',
+			imgStyles: styles.photo,
+		},
+
 		{
 			name: 'Bayonet - Gamma Doppler Emerald',
 			img: img3,
@@ -78,8 +79,7 @@ export const MainPageTop = () => {
 					initial='hidden'
 					whileInView='visible'
 					viewport={{ once: true }}
-					className={styles.top}
-				>
+					className={styles.top}>
 					{knives.map((item, i) => (
 						<Knife key={i} data={item} />
 					))}
@@ -89,8 +89,7 @@ export const MainPageTop = () => {
 							color={'white'}
 							variants={textAnimation}
 							custom={1}
-							variant={'h1'}
-						>
+							variant={'h1'}>
 							{t('main_title')}
 						</MTypeography>
 					</div>
@@ -99,31 +98,27 @@ export const MainPageTop = () => {
 					className={styles.subtitle}
 					initial='hidden'
 					whileInView='visible'
-					viewport={{ once: true }}
-				>
+					viewport={{ once: true }}>
 					<MTypeography
 						color={'grey'}
 						custom={2}
 						variants={textAnimation}
 						variant={'h2'}
-						fontSize={'16px'}
-					>
+						fontSize={'16px'}>
 						{t('footer_advantages')}
 					</MTypeography>
 				</motion.div>
 				<motion.div
 					initial='hidden'
 					whileInView='visible'
-					viewport={{ once: true }}
-				>
+					viewport={{ once: true }}>
 					<MButton
 						custom={2}
 						variants={btnAnimation}
 						hover={true}
 						style={styles.btn}
 						text={'Try Now'}
-						onClick={() => nav('/trade')}
-					></MButton>
+						onClick={() => nav('/trade')}></MButton>
 				</motion.div>
 			</Container>
 		</>

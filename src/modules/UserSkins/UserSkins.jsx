@@ -21,8 +21,7 @@ export const UserSkins = () => {
 		<div
 			className={`${styles['main-container']} ${
 				page && styles['main-container_profile']
-			}`}
-		>
+			}`}>
 			<div className={styles.conitaner}>
 				{(skins ? skins : [...Array(20)]).map((item, i) => {
 					return skins ? <Item key={i} data={item} /> : <SkeletonItem key={i} />

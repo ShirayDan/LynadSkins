@@ -17,9 +17,10 @@ import { FaShoppingCart } from 'react-icons/fa'
 export const Item = ({ data }) => {
 	const dispatch = useDispatch()
 	const currency = useSelector((state) => state.currency)
+	const [status, setStatus] = useState(data?.onTrade)
 	const { t } = useTranslation()
-
 	const [open, setOpen] = useState(false)
+
 	const handleClick = () => {
 		setOpen(!open)
 		changeOverflow(open)
@@ -34,7 +35,9 @@ export const Item = ({ data }) => {
 		item.onTrade = !item.onTrade
 		item.color = item.color.join(',')
 		dispatch(updateSkin(item))
+		setStatus(!status)
 	}
+
 	const page = window.location.href.match('/profile')
 
 	return (
@@ -88,11 +91,7 @@ export const Item = ({ data }) => {
 						style={styles.btn}
 						onClick={page ? () => handleTrade(data) : () => addToCart()}
 						text={
-							page ? (
-								(data?.onTrade && t('remove_sale')) || t('sale')
-							) : (
-								<FaShoppingCart />
-							)
+							page ? status ? t('remove_sale') : t('sale') : <FaShoppingCart />
 						}></Button>
 				)}
 			</div>
@@ -101,7 +100,13 @@ export const Item = ({ data }) => {
 					<Modal
 						handleClick={() => handleClick()}
 						children={
-							<ItemModal data={data} addToCart={addToCart} page={page} />
+							<ItemModal
+								data={data}
+								addToCart={addToCart}
+								page={page}
+								handleTrade={handleTrade}
+								status={status}
+							/>
 						}
 						guns={true}
 					/>

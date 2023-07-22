@@ -10,7 +10,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaHeart } from 'react-icons/fa'
 
-export const ItemModal = ({ data, addToCart, page }) => {
+export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 	const currency = useSelector((state) => state.currency)
 	const { t } = useTranslation()
 
@@ -97,12 +97,12 @@ export const ItemModal = ({ data, addToCart, page }) => {
 						<Button
 							hover={true}
 							text={
-								page
-									? (data?.onTrade && t('remove_sale')) || t('sale')
-									: t('add_cart')
+								page ? (status ? t('remove_sale') : t('sale')) : t('add_cart')
 							}
 							style={styles['modal-cart']}
-							onClick={addToCart}></Button>
+							onClick={
+								page ? () => handleTrade(data) : () => addToCart()
+							}></Button>
 						{!page && (
 							<Button
 								hover={true}

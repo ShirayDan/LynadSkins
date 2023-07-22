@@ -13,7 +13,7 @@ export const Money = ({ data }) => {
 		<div className={styles.money}>
 			<div className={styles.left}>
 				<Typeography color={'white'} fontSize={'14px'}>
-					{data?.money + ' $'}
+					{data?.money.toFixed(2) + ' $'}
 				</Typeography>
 				{currency.currency == 'uah' && (
 					<Typeography color={'white'} fontSize={'10px'}>
@@ -24,8 +24,7 @@ export const Money = ({ data }) => {
 			<Button
 				text={<FiPlus fontSize={'20px'} />}
 				hover={true}
-				style={styles.btn}
-			></Button>
+				style={styles.btn}></Button>
 		</div>
 	)
 }

@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './Knife.module.css'
 
 export const Knife = ({ data }) => {
+	console.log(data)
 	const knifeAnimation = {
 		hidden: {
 			opacity: 0,
@@ -28,23 +29,19 @@ export const Knife = ({ data }) => {
 		<motion.div
 			initial='hidden'
 			whileInView='visible'
-			viewport={{ once: true }}
-		>
+			viewport={{ once: true }}>
 			<motion.div
 				custom={2}
 				variants={knifeTextAnimation}
-				className={styles[data.lineStyle]}
-			>
+				className={styles[data.lineStyle]}>
 				<motion.div
 					custom={2}
 					variants={knifeTextAnimation}
-					className={styles.bullet}
-				></motion.div>
+					className={styles.bullet}></motion.div>
 				<motion.p
 					custom={2}
 					variants={knifeTextAnimation}
-					className={styles[data.textStyle]}
-				>
+					className={styles[data.textStyle]}>
 					{data.name}
 				</motion.p>
 			</motion.div>

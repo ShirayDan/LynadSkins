@@ -11,8 +11,9 @@
 		position: absolute;
 		width: 100px;
 		height: 1px;
-		top: 200px;
-		left: calc(100% - 520px);
+
+		top: 340px;
+		left: calc(100% - 330px);
 		rotate: 45deg;
 		transform: scale(1.1);
 		background: linear-gradient(
@@ -35,8 +36,8 @@
 		position: absolute;
 		width: 100px;
 		height: 1px;
-		top: 340px;
-		left: calc(100% - 330px);
+		top: 200px;
+		left: calc(100% - 520px);
 		rotate: 45deg;
 		transform: scale(1.1);
 		background: linear-gradient(
