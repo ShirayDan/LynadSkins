@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { changeOverflow } from '../../helpers/helpers'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCart } from '../../redux/slices/cart'
+import { updateSkin } from '../../redux/slices/skins'
 import styles from './Item.module.css'
 
 import { ItemModal } from '../../components/ItemModal'
@@ -26,6 +27,12 @@ export const Item = ({ data }) => {
 		dispatch(addCart(data))
 	}
 
+	const handleTrade = (data) => {
+		let item = { ...data }
+		item.onTrade = !item.onTrade
+		item.color = item.color.join(',')
+		dispatch(updateSkin(item))
+	}
 	const page = window.location.href.match('/profile')
 
 	return (
@@ -77,7 +84,7 @@ export const Item = ({ data }) => {
 				{!data?.person && (
 					<Button
 						style={styles.btn}
-						onClick={addToCart}
+						onClick={page ? () => handleTrade(data) : () => addToCart()}
 						text={
 							page ? (
 								(data?.onTrade && 'Remove from market') || 'Sale'
