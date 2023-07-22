@@ -77,8 +77,7 @@ export const MarketPageFilters = () => {
 					<Input width={'100%'} />
 					<motion.div
 						whileTap={{ scale: 0.8 }}
-						className={styles['search-btn']}
-					>
+						className={styles['search-btn']}>
 						<div className={styles['icon-search']}>
 							<FaSearch fontSize={'15px'} fill='white' />
 						</div>
@@ -90,8 +89,7 @@ export const MarketPageFilters = () => {
 					<motion.div
 						whileTap={{ scale: 0.8 }}
 						className={styles.fav}
-						onClick={() => openFavMenu()}
-					>
+						onClick={() => openFavMenu()}>
 						<div className={styles['icon-heart']}>
 							<FaHeart fontSize={'15px'} fill='white' />
 						</div>
@@ -101,8 +99,7 @@ export const MarketPageFilters = () => {
 						<div
 							className={
 								open ? `${styles.icon} ${styles['icon-opened']}` : styles.icon
-							}
-						>
+							}>
 							<FaAngleDown fontSize={'25px'} />
 						</div>
 						{open && (
@@ -113,8 +110,7 @@ export const MarketPageFilters = () => {
 											<ListItem
 												key={i}
 												style={styles.item}
-												onClick={() => filterModalClick(item)}
-											>
+												onClick={() => filterModalClick(item)}>
 												{item}
 											</ListItem>
 										)
@@ -128,8 +124,7 @@ export const MarketPageFilters = () => {
 					<motion.div
 						whileTap={{ scale: 0.8 }}
 						className={styles.search}
-						onClick={() => searchModalClick()}
-					>
+						onClick={() => searchModalClick()}>
 						<div className={styles['icon-search']}>
 							<FaSearch fontSize={'15px'} fill='white' />
 						</div>
@@ -138,8 +133,7 @@ export const MarketPageFilters = () => {
 					<motion.div
 						whileTap={{ scale: 0.8 }}
 						className={styles.cart}
-						onClick={() => openCartMenu()}
-					>
+						onClick={() => openCartMenu()}>
 						<div className={styles['icon-cart']}>
 							<FaShoppingCart fontSize={'15px'} fill='white' />
 						</div>
@@ -148,8 +142,7 @@ export const MarketPageFilters = () => {
 					<motion.div
 						whileTap={{ scale: 0.8 }}
 						className={styles['icon-filters']}
-						onClick={() => handleClick()}
-					>
+						onClick={() => handleClick()}>
 						<FaFilter fontSize={'15px'} fill='white' />
 					</motion.div>
 				</div>
