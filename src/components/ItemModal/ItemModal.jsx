@@ -1,5 +1,6 @@
 import styles from './ItemModal.module.css'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '../../ui/Button'
 import { Container } from '../../ui/Container'
@@ -9,8 +10,9 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaHeart } from 'react-icons/fa'
 
-export const ItemModal = ({ data, addToCart }) => {
+export const ItemModal = ({ data, addToCart, page }) => {
 	const currency = useSelector((state) => state.currency)
+	const { t } = useTranslation()
 
 	return (
 		<Container styles={styles.container}>
@@ -94,13 +96,19 @@ export const ItemModal = ({ data, addToCart }) => {
 					<div className={styles['modal-buttons']}>
 						<Button
 							hover={true}
-							text={'ADD TO CART'}
+							text={
+								page
+									? (data?.onTrade && t('remove_sale')) || t('sale')
+									: t('add_cart')
+							}
 							style={styles['modal-cart']}
 							onClick={addToCart}></Button>
-						<Button
-							hover={true}
-							text={<FaHeart fontSize={'30px'} />}
-							style={styles['modal-like']}></Button>
+						{!page && (
+							<Button
+								hover={true}
+								text={<FaHeart fontSize={'30px'} />}
+								style={styles['modal-like']}></Button>
+						)}
 					</div>
 				)}
 			</div>

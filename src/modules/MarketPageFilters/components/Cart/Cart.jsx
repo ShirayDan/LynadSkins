@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { resetCart } from '../../../../redux/slices/cart'
 import { updateSkin } from '../../../../redux/slices/skins'
 import { updateUser } from '../../../../redux/slices/auth'
+import { useTranslation } from 'react-i18next'
 import axios from '../../../../axios'
 
 import { SmallModalEmpty } from '../../../../components/SmallModalEmpty'
@@ -13,6 +14,7 @@ import { Container } from '../../../../ui/Container'
 
 export const Cart = () => {
 	const dispatch = useDispatch()
+	const { t } = useTranslation()
 	const [warning, setWarning] = useState('')
 	const data = useSelector((state) => state.cart)
 
@@ -63,22 +65,19 @@ export const Cart = () => {
 					{warning && <div className={styles.warning}>{warning}</div>}
 					<div className={styles.btns}>
 						<Button
-							text={'Buy'}
+							text={t('buy')}
 							onClick={() => handleBuy(data)}
 							style={styles.btn}
 						/>
 						<Button
-							text={'Empty Cart'}
+							text={t('reset_cart')}
 							onClick={handleResetCart}
 							style={styles.btn}
 						/>
 					</div>
 				</>
 			) : (
-				<SmallModalEmpty
-					message={'Your cart is empty'}
-					desc={'Add some items you want to purchase from our inventory'}
-				/>
+				<SmallModalEmpty message={t('cart_empty')} desc={t('add_cart_items')} />
 			)}
 		</Container>
 	)

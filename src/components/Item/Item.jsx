@@ -4,6 +4,7 @@ import { changeOverflow } from '../../helpers/helpers'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCart } from '../../redux/slices/cart'
 import { updateSkin } from '../../redux/slices/skins'
+import { useTranslation } from 'react-i18next'
 import styles from './Item.module.css'
 
 import { ItemModal } from '../../components/ItemModal'
@@ -16,6 +17,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 export const Item = ({ data }) => {
 	const dispatch = useDispatch()
 	const currency = useSelector((state) => state.currency)
+	const { t } = useTranslation()
 
 	const [open, setOpen] = useState(false)
 	const handleClick = () => {
@@ -87,7 +89,7 @@ export const Item = ({ data }) => {
 						onClick={page ? () => handleTrade(data) : () => addToCart()}
 						text={
 							page ? (
-								(data?.onTrade && 'Remove from market') || 'Sale'
+								(data?.onTrade && t('remove_sale')) || t('sale')
 							) : (
 								<FaShoppingCart />
 							)
@@ -98,7 +100,9 @@ export const Item = ({ data }) => {
 				{open && (
 					<Modal
 						handleClick={() => handleClick()}
-						children={<ItemModal data={data} addToCart={addToCart} />}
+						children={
+							<ItemModal data={data} addToCart={addToCart} page={page} />
+						}
 						guns={true}
 					/>
 				)}
