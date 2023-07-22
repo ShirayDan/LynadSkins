@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { resetCart } from '../../../../redux/slices/cart'
 import { updateSkin } from '../../../../redux/slices/skins'
 import { updateUser } from '../../../../redux/slices/auth'
+import { setState } from '../../../../redux/slices/marketItems'
 import { useTranslation } from 'react-i18next'
 import axios from '../../../../axios'
 
@@ -17,6 +18,8 @@ export const Cart = () => {
 	const { t } = useTranslation()
 	const [warning, setWarning] = useState('')
 	const data = useSelector((state) => state.cart)
+	const state = useSelector((state) => state.marketItems)
+	console.log(state)
 
 	const handleBuy = async (values) => {
 		let sum = values.reduce((a, b) => a.price + b.price)
@@ -50,6 +53,8 @@ export const Cart = () => {
 			)
 			dispatch(updateSkin(item))
 			handleResetCart()
+
+			dispatch(setState(!state.state))
 		})
 	}
 

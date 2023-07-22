@@ -7,15 +7,14 @@ import { SkeletonItem } from '../../components/SkeletonItem'
 
 import styles from './MarketPageItems.module.css'
 
-export const MarketPageItems = () => {
+export const MarketPageItems = ({ update }) => {
 	const [skins, setSkins] = useState([])
 	const dispatch = useDispatch()
-
 	useEffect(() => {
 		dispatch(fetchAllSkins()).then((res) => {
 			setSkins(res.payload)
 		})
-	}, [])
+	}, [update])
 
 	return (
 		<div className={styles['main-container']}>

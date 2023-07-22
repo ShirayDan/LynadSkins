@@ -9,7 +9,6 @@ import { ListItem } from '../../ui/ListItem'
 import { Typeography } from '../../ui/Typeography'
 
 export const BlogItem = forwardRef(({ top, data }, ref) => {
-	console.log(data)
 	return (
 		<Container ref={ref} styles={`${styles.container} ${top && styles.top}`}>
 			<div className={styles.column}>

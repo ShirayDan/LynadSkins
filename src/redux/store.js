@@ -4,6 +4,7 @@ import { postReducer } from './slices/posts'
 import { currencyReducer } from './slices/currency'
 import { skinsReducer } from './slices/skins'
 import { cartReducer } from './slices/cart'
+import { marketItemsReducer } from './slices/marketItems'
 
 const store = configureStore({
 	reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
 		currency: currencyReducer,
 		skins: skinsReducer,
 		cart: cartReducer,
+		marketItems: marketItemsReducer,
 	},
 })
 
