@@ -19,7 +19,6 @@ export const Cart = () => {
 	const [warning, setWarning] = useState('')
 	const data = useSelector((state) => state.cart)
 	const state = useSelector((state) => state.marketItems)
-	console.log(state)
 
 	const handleBuy = async (values) => {
 		let sum = values.reduce((a, b) => a.price + b.price)

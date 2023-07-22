@@ -27,6 +27,7 @@
 	border-radius: 2px;
 	transition: 0.2s ease;
 	cursor: pointer;
+	position: relative;
 }
 .cart {
 	position: relative;
@@ -37,6 +38,22 @@
 .icon-search {
 	margin-right: 10px;
 }
+.icon-cart__number {
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: -9px;
+	left: 16px;
+	width: 20px;
+	height: 20px;
+	font-size: 14px;
+	border-radius: 50%;
+	color: var(--text-primary);
+	background-color: #00a046;
+}
+
 .icon path {
 	fill: var(--text-primary);
 }

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import styles from './MarketPageFilters.module.css'
 
 import { Modal } from '../../components/Modal'
@@ -29,6 +30,7 @@ export const MarketPageFilters = () => {
 	const [cartOpen, setCartOpen] = useState(false)
 	const [search, setSearch] = useState(false)
 	const [favOpen, setFavOpen] = useState(false)
+	const cart = useSelector((state) => state.cart)
 
 	const showAll = () => {
 		setOpen(!open)
@@ -136,6 +138,9 @@ export const MarketPageFilters = () => {
 						onClick={() => openCartMenu()}>
 						<div className={styles['icon-cart']}>
 							<FaShoppingCart fontSize={'15px'} fill='white' />
+							{cart.length > 0 && (
+								<div className={styles['icon-cart__number']}>{cart.length}</div>
+							)}
 						</div>
 					</motion.div>
 
