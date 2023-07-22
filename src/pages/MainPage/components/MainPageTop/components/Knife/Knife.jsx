@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './Knife.module.css'
 
 export const Knife = ({ data }) => {
-	console.log(data)
 	const knifeAnimation = {
 		hidden: {
 			opacity: 0,

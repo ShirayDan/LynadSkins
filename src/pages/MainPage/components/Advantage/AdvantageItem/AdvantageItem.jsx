@@ -17,15 +17,13 @@ export const AdvantageItem = ({ data }) => {
 		<motion.div
 			initial='hidden'
 			whileInView='visible'
-			viewport={{ once: true }}
-		>
+			viewport={{ once: true }}>
 			<MTypeography
 				variants={textAnimation}
 				custom={1}
 				color={'white'}
 				variant={'h2'}
-				after={'title'}
-			>
+				after={'title'}>
 				{data.title}
 			</MTypeography>
 			<MTypeography variants={textAnimation} custom={1} color={'grey'}>

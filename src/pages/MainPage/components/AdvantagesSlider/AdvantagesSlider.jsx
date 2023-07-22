@@ -1,80 +1,57 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import styles from './AdvantagesSlider.module.css'
 
-import { MContainer } from '../../../../ui/Container'
-import { Typeography } from '../../../../ui/Typeography'
-import { AdvantageSliderItems } from './components/AdvantagesSliderItems'
+import CarouselCompound from './components/Carousel/index'
+
+import { FiRotateCcw } from 'react-icons/fi'
+import { FaShoppingCart, FaUser, FaCrown } from 'react-icons/fa'
 
 export const AdvantagesSlider = () => {
-	const { t, i18n } = useTranslation()
-
-	const textAnimation = {
-		hidden: {
-			x: -100,
-			opacity: 0,
-		},
-		visible: (custom) => ({
-			x: 0,
-			opacity: 1,
-			transition: { delay: custom * 0.2 },
-		}),
-	}
-
-	const data = [
-		{
-			title: t('advantage_slider.one.title'),
-			text: t('advantage_slider.one.text'),
-			advantages: [
-				t('advantage_slider.one.advantages.one'),
-				t('advantage_slider.one.advantages.two'),
-			],
-		},
-		{
-			title: t('advantage_slider.two.title'),
-			text: t('advantage_slider.two.text'),
-			advantages: [
-				t('advantage_slider.two.advantages.one'),
-				t('advantage_slider.two.advantages.two'),
-				t('advantage_slider.two.advantages.three'),
-			],
-		},
-		{
-			title: t('advantage_slider.three.title'),
-			text: t('advantage_slider.three.text'),
-			advantages: [
-				t('advantage_slider.three.advantages.one'),
-				t('advantage_slider.three.advantages.two'),
-			],
-		},
-		{
-			title: t('advantage_slider.four.title'),
-			text: t('advantage_slider.four.text'),
-			advantages: [
-				t('advantage_slider.four.advantages.one'),
-				t('advantage_slider.four.advantages.two'),
-				t('advantage_slider.four.advantages.three'),
-			],
-		},
-	]
 	return (
-		<MContainer
-			initial='hidden'
-			whileInView='visible'
-			variants={textAnimation}
-			custom={1}
-			viewport={{ once: true }}
-			styles={styles.container}
-		>
-			<Typeography color={'white'} variant={'h2'}>
-				{t('our_advantages')}
-			</Typeography>
-
-			<div className={styles.items}>
-				{data.map((item, i) => {
-					return <AdvantageSliderItems key={i} content={item} />
-				})}
+		<>
+			<div className={styles['app__main-container']}>
+				<CarouselCompound infinite>
+					<CarouselCompound.Page>
+						<div className={styles.item}>
+							<div className={styles.line}>
+								<div className={`${styles.round} ${styles['round-first']}`}>
+									<FiRotateCcw color='var(--text-primary)' fontSize={'24px'} />
+								</div>
+							</div>
+						</div>
+					</CarouselCompound.Page>
+					<CarouselCompound.Page>
+						<div className={styles.item}>
+							<div className={styles.line}>
+								<div className={`${styles.round} ${styles['round-second']}`}>
+									<FaUser color='var(--text-primary)' fontSize={'24px'} />
+								</div>
+							</div>
+						</div>
+					</CarouselCompound.Page>
+					<CarouselCompound.Page>
+						<div className={styles.item}>
+							<div className={styles.line}>
+								<div className={`${styles.round} ${styles['round-third']}`}>
+									<FaCrown color='var(--text-primary)' fontSize={'24px'} />
+								</div>
+							</div>
+						</div>
+					</CarouselCompound.Page>
+					<CarouselCompound.Page>
+						<div className={styles.item}>
+							<div className={styles.line}>
+								<div className={`${styles.round} ${styles['round-fourth']}`}>
+									<FaShoppingCart
+										color='var(--text-primary)'
+										fontSize={'24px'}
+									/>
+								</div>
+							</div>
+						</div>
+					</CarouselCompound.Page>
+				</CarouselCompound>
 			</div>
-		</MContainer>
+		</>
 	)
 }
