@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeOverflow } from '../../helpers/helpers'
 import { fetchAuth, selectIsAuth } from '../../redux/slices/auth'
+import { Button } from '../../ui/Button'
 import styles from './SingInModal.module.css'
 
 import { Container } from '../../ui/Container'
@@ -11,7 +12,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignInModal = ({ state, setState }) => {
+export const SignInModal = ({ setState, setOtherState }) => {
 	const isAuth = useSelector(selectIsAuth)
 	const dispatch = useDispatch()
 
@@ -38,13 +39,17 @@ export const SignInModal = ({ state, setState }) => {
 
 		reset()
 		setState(false)
-		changeOverflow(state)
+		changeOverflow(false)
 	}
 
 	const changeView = () => {
 		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
 	}
 
+	const changeModal = () => {
+		setState(false)
+		setOtherState((curr) => !curr)
+	}
 	return (
 		<>
 			<Container styles={styles.container}>
@@ -55,8 +60,7 @@ export const SignInModal = ({ state, setState }) => {
 				<form
 					action=''
 					onSubmit={handleSubmit(onSubmit)}
-					className={styles.form}
-				>
+					className={styles.form}>
 					<label htmlFor='Email' className={styles.label}>
 						Email:
 						<Input
@@ -114,6 +118,17 @@ export const SignInModal = ({ state, setState }) => {
 						<Input type={'reset'} value={'Reset'} mt={'10px'} />
 					</div>
 				</form>
+				<Typeography
+					color={'white'}
+					fontWeight={600}
+					fontSize={'14px'}
+					m={'10px 0 0 0'}>
+					New to GitHub?{' '}
+					<Button
+						style={styles.btn}
+						text={'Create an account.'}
+						onClick={changeModal}></Button>{' '}
+				</Typeography>
 			</Container>
 		</>
 	)

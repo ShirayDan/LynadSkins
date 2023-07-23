@@ -134,43 +134,49 @@ export const Carousel = ({ children, infinite }) => {
 
 	return (
 		<CarouselContext.Provider value={{ width }}>
-			<div className={styles['main-container']}>
-				<FaChevronLeft
-					fill='var(--text-primary)'
-					className={styles['arrow-left']}
-					onClick={handleLeftArrowClick}
-				/>
-				<div className={styles.window} ref={windowElRef}>
-					<div
-						className={styles['all-pages-container']}
-						style={{
-							transform: `translateX(${offset}px)`,
-							transitionDuration: `${transitionDuration}ms`,
-						}}>
-						{pages}
+			<div className={styles.container}>
+				<div className={styles['main-container']}>
+					<FaChevronLeft
+						fill='var(--text-primary)'
+						className={styles['arrow-left']}
+						onClick={handleLeftArrowClick}
+					/>
+					<div className={styles.window} ref={windowElRef}>
+						<div
+							className={styles['all-pages-container']}
+							style={{
+								transform: `translateX(${offset}px)`,
+								transitionDuration: `${transitionDuration}ms`,
+							}}>
+							{pages}
+						</div>
 					</div>
+					<FaChevronRight
+						fill='var(--text-primary)'
+						className={styles['arrow-right']}
+						onClick={handleRightArrowClick}
+					/>
 				</div>
-				<FaChevronRight
-					fill='var(--text-primary)'
-					className={styles['arrow-right']}
-					onClick={handleRightArrowClick}
-				/>
-			</div>
-			<div className={styles.description}>
-				<div className={styles.subcont}>
-					<Typeography color={'white'} mt={'10px'}>
-						{data[page].text}
-					</Typeography>
+				<div className={styles.description}>
+					<div className={styles.subcont}>
+						<Typeography
+							color={'white'}
+							mt={'10px'}
+							variant={'h3'}
+							fontSize={'24px'}>
+							{data[page].text}
+						</Typeography>
 
-					<List mt={'10px'} variant={'ul'}>
-						{data[page].advantages.map((item, i) => {
-							return (
-								<ListItem key={i} style={styles.listItems}>
-									{item}
-								</ListItem>
-							)
-						})}
-					</List>
+						<List mt={'10px'} variant={'ul'}>
+							{data[page].advantages.map((item, i) => {
+								return (
+									<ListItem key={i} style={styles.listItems}>
+										{item}
+									</ListItem>
+								)
+							})}
+						</List>
+					</div>
 				</div>
 			</div>
 		</CarouselContext.Provider>

@@ -37,6 +37,7 @@
 	padding-left: 15px;
 	position: relative;
 	color: var(--grey);
+	font-size: 20px;
 }
 .listItems::before {
 	content: '';
@@ -47,4 +48,14 @@
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
+}
+@media screen and (min-width: 1050px) {
+	.container {
+		display: flex;
+		margin: 0 50px;
+	}
+	.main-container,
+	.window {
+		width: 50%;
+	}
 }

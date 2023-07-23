@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeOverflow } from '../../helpers/helpers'
 import { fetchRegister, selectIsAuth } from '../../redux/slices/auth'
+import { Button } from '../../ui/Button'
 import styles from './SignUpModal.module.css'
 
 import { Container } from '../../ui/Container'
@@ -11,7 +12,7 @@ import { Typeography } from '../../ui/Typeography'
 
 import { FaExclamationTriangle, FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export const SignUpModal = ({ state, setState }) => {
+export const SignUpModal = ({ setState, setOtherState }) => {
 	const [viewPass, setViewPass] = useState('password')
 	const dispatch = useDispatch()
 	const isAuth = useSelector(selectIsAuth)
@@ -39,11 +40,16 @@ export const SignUpModal = ({ state, setState }) => {
 
 		reset()
 		setState(false)
-		changeOverflow(state)
+		changeOverflow(false)
 	}
 
 	const changeView = () => {
 		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
+	}
+
+	const changeModal = () => {
+		setState(false)
+		setOtherState((curr) => !curr)
 	}
 	return (
 		<>
@@ -60,8 +66,7 @@ export const SignUpModal = ({ state, setState }) => {
 				<form
 					action=''
 					onSubmit={handleSubmit(onSubmit)}
-					className={styles.form}
-				>
+					className={styles.form}>
 					<label htmlFor='fullName' className={styles.label}>
 						Full name:
 						<Input
@@ -138,6 +143,17 @@ export const SignUpModal = ({ state, setState }) => {
 						<Input type={'reset'} value={'Reset'} mt={'10px'} />
 					</div>
 				</form>
+				<Typeography
+					color={'white'}
+					fontWeight={600}
+					fontSize={'14px'}
+					m={'10px 0 0 0'}>
+					Already have an account?{' '}
+					<Button
+						style={styles.btn}
+						text={'Sign in'}
+						onClick={changeModal}></Button>{' '}
+				</Typeography>
 			</Container>
 		</>
 	)

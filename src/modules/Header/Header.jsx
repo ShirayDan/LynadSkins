@@ -57,8 +57,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 								<Typeography
 									variant={'span'}
 									color={'purple'}
-									fontSize={'20px'}
-								>
+									fontSize={'20px'}>
 									Skins
 								</Typeography>
 							</Typeography>
@@ -107,20 +106,20 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 							text={'Sign up'}
 							style={styles.btn}
 							hover={true}
-							onClick={() => openSignUpModal()}
-						></Button>
+							onClick={() => openSignUpModal()}></Button>
 						<Button
 							text={'Sign in'}
 							style={styles['btn-second']}
 							hover={true}
-							onClick={() => handleClick()}
-						></Button>
+							onClick={() => handleClick()}></Button>
 					</>
 				)}
 				<AnimatePresence initial={false}>
 					{open && (
 						<Modal
-							children={<SignInModal state={open} setState={setOpen} />}
+							children={
+								<SignInModal setState={setOpen} setOtherState={setSignUpOpen} />
+							}
 							handleClick={() => handleClick()}
 						/>
 					)}
@@ -129,7 +128,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 					{signUpOpen && (
 						<Modal
 							children={
-								<SignUpModal state={signUpOpen} setState={setSignUpOpen} />
+								<SignUpModal setState={setSignUpOpen} setOtherState={setOpen} />
 							}
 							handleClick={() => openSignUpModal()}
 						/>
