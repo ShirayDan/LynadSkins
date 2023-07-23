@@ -13,7 +13,9 @@ import { Typeography } from '../../ui/Typeography'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 export const SignInModal = ({ setState, setOtherState }) => {
-	const isAuth = useSelector(selectIsAuth)
+	console.log(1)
+
+	//const isAuth = useSelector(selectIsAuth)
 	const dispatch = useDispatch()
 
 	const [viewPass, setViewPass] = useState('password')
@@ -123,7 +125,7 @@ export const SignInModal = ({ setState, setOtherState }) => {
 					fontWeight={600}
 					fontSize={'14px'}
 					m={'10px 0 0 0'}>
-					New to GitHub?{' '}
+					New to LynadSkins?{' '}
 					<Button
 						style={styles.btn}
 						text={'Create an account.'}

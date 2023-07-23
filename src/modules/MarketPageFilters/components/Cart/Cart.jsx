@@ -5,7 +5,9 @@ import { resetCart } from '../../../../redux/slices/cart'
 import { updateSkin } from '../../../../redux/slices/skins'
 import { updateUser } from '../../../../redux/slices/auth'
 import { setState } from '../../../../redux/slices/marketItems'
+import { setSignInState } from '../../../../redux/slices/signInModal'
 import { useTranslation } from 'react-i18next'
+import { changeOverflow } from '../../../../helpers/helpers'
 import axios from '../../../../axios'
 
 import { SmallModalEmpty } from '../../../../components/SmallModalEmpty'
@@ -13,7 +15,7 @@ import { SmallModalInner } from '../../../../components/SmallModalInner/SmallMod
 import { Button } from '../../../../ui/Button'
 import { Container } from '../../../../ui/Container'
 
-export const Cart = () => {
+export const Cart = ({ setStateModal }) => {
 	const dispatch = useDispatch()
 	const { t } = useTranslation()
 	const [warning, setWarning] = useState('')
@@ -23,6 +25,12 @@ export const Cart = () => {
 	const handleBuy = async (values) => {
 		let sum = values.reduce((a, b) => a.price + b.price)
 		const token = window.localStorage.getItem('token')
+		if (token === null) {
+			dispatch(setSignInState(true))
+			setStateModal(false)
+			changeOverflow(false)
+			return
+		}
 		let user = null
 		await axios.get('/auth/me', token).then((res) => {
 			user = res.data

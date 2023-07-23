@@ -1,10 +1,11 @@
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from '../../axios'
 import { changeOverflow } from '../../helpers/helpers'
 import { selectIsAuth } from '../../redux/slices/auth'
+import { setSignInState } from '../../redux/slices/signInModal'
 import styles from './Header.module.css'
 
 import { Currency } from '../../components/Currency'
@@ -22,12 +23,20 @@ import { Burger } from './components/Burger'
 import { Profile } from './components/Profile'
 
 export const Header = ({ theme, setTheme, langFunc }) => {
-	const [open, setOpen] = useState(false)
+	const dispatch = useDispatch()
+	const singInOpen = useSelector((store) => store.signInModal)
+	const [open, setOpen] = useState(singInOpen.state || false)
 	const [signUpOpen, setSignUpOpen] = useState(false)
 	const [data, setData] = useState(null)
 	const isAuth = useSelector(selectIsAuth)
 
 	const handleClick = () => {
+		if (singInOpen) {
+			dispatch(setSignInState(false))
+			setOpen(false)
+			changeOverflow(true)
+			return
+		}
 		setOpen(!open)
 		changeOverflow(open)
 	}
@@ -115,7 +124,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 					</>
 				)}
 				<AnimatePresence initial={false}>
-					{open && (
+					{(singInOpen.state || open) && (
 						<Modal
 							children={
 								<SignInModal setState={setOpen} setOtherState={setSignUpOpen} />

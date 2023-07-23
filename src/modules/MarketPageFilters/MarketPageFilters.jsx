@@ -163,7 +163,10 @@ export const MarketPageFilters = () => {
 			</AnimatePresence>
 			<AnimatePresence initial={false}>
 				{cartOpen && (
-					<ModalSmall handleClick={() => openCartMenu()} children={<Cart />} />
+					<ModalSmall
+						handleClick={() => openCartMenu()}
+						children={<Cart setStateModal={setCartOpen} />}
+					/>
 				)}
 			</AnimatePresence>
 			{/* {favOpen && (
