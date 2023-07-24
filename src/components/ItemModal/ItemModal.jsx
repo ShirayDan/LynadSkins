@@ -39,13 +39,13 @@ export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 			<div className={styles['modal-right']}>
 				<Typeography fontSize={'16px'} variant={'h3'} color={'white'}>
 					<Typeography fontSize={'16px'} variant={'span'} color={'gold'}>{`${
-						data?.souvenir == true ? 'SV ' : ''
+						data?.souvenir === true ? 'SV ' : ''
 					}`}</Typeography>
 					<Typeography variant={'span'} fontSize={'16px'}>{`${
-						data?.souvenir == true && data?.statTrak == true ? '/ ' : ''
+						data?.souvenir === true && data?.statTrak === true ? '/ ' : ''
 					}`}</Typeography>
 					<Typeography variant={'span'} fontSize={'16px'} color={'orange'}>{`${
-						data?.statTrak == true ? 'ST ' : ''
+						data?.statTrak === true ? 'ST ' : ''
 					}`}</Typeography>
 					{data?.item || data?.itemName}
 				</Typeography>
@@ -98,7 +98,7 @@ export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 					<Typeography color={'white'}>Price</Typeography>
 					<Typeography color={'white'}>
 						{' '}
-						{currency.currency == 'usd'
+						{currency.currency === 'usd'
 							? `$ ${data?.price.toFixed(2)}`
 							: `₴ ${(data?.price * 36.7).toFixed(2)}`}
 					</Typeography>

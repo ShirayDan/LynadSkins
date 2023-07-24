@@ -77,7 +77,7 @@ export const SmallItem = ({ data, type }) => {
 							fontSize={'14px'}
 							fill='white'
 							onClick={
-								type == 'Cart'
+								type === 'Cart'
 									? () => handleRemoveCart(data?._id)
 									: () => handleRemoveWish(data?._id)
 							}

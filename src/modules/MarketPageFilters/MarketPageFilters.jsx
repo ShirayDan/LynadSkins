@@ -24,7 +24,7 @@ import {
 } from 'react-icons/fa'
 
 export const MarketPageFilters = () => {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 	const [open, setOpen] = useState(false)
 	const [filter, setFilter] = useState(t('sorting_newest'))
 	const [moreFilters, setMoreFilters] = useState(false)
