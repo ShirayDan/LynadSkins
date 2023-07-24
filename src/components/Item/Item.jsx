@@ -92,6 +92,7 @@ export const Item = ({ data }) => {
 					<Button
 						style={`${styles.btn} ${index !== -1 && styles['btn-cart']}`}
 						onClick={page ? () => handleTrade(data) : () => addToCart()}
+						disabled={index !== -1 && true}
 						text={
 							page ? status ? t('remove_sale') : t('sale') : <FaShoppingCart />
 						}></Button>

@@ -13,6 +13,7 @@ import { ListItem } from '../../ui/ListItem'
 import { Cart } from './components/Cart'
 import { FilterPhones } from './components/FilterPhones'
 import { Search } from './components/Search'
+import { Fav } from './components/Fav'
 
 import {
 	FaAngleDown,
@@ -31,6 +32,7 @@ export const MarketPageFilters = () => {
 	const [search, setSearch] = useState(false)
 	const [favOpen, setFavOpen] = useState(false)
 	const cart = useSelector((state) => state.cart)
+	const wishList = useSelector((state) => state.wishList)
 
 	const showAll = () => {
 		setOpen(!open)
@@ -42,6 +44,7 @@ export const MarketPageFilters = () => {
 	}
 
 	const openCartMenu = () => {
+		setFavOpen(false)
 		setCartOpen(!cartOpen)
 		if (window.innerWidth < 1050) {
 			changeOverflow(cartOpen)
@@ -49,10 +52,11 @@ export const MarketPageFilters = () => {
 	}
 
 	const openFavMenu = () => {
-		// setFavOpen(!favOpen);
-		// if (window.innerWidth < 1050) {
-		//   changeOverflow(cartOpen);
-		// }
+		setCartOpen(false)
+		setFavOpen(!favOpen)
+		if (window.innerWidth < 1050) {
+			changeOverflow(cartOpen)
+		}
 	}
 	const filterModalClick = (text) => {
 		setOpen(false)
@@ -94,6 +98,11 @@ export const MarketPageFilters = () => {
 						onClick={() => openFavMenu()}>
 						<div className={styles['icon-heart']}>
 							<FaHeart fontSize={'15px'} fill='white' />
+							{wishList.length > 0 && (
+								<div className={styles['icon-heart__number']}>
+									{wishList.length}
+								</div>
+							)}
 						</div>
 					</motion.div>
 					<div className={styles['filter-box']} onClick={showAll}>
@@ -169,9 +178,11 @@ export const MarketPageFilters = () => {
 					/>
 				)}
 			</AnimatePresence>
-			{/* {favOpen && (
-        <ModalSmall handleClick={() => openFavMenu()} children={<Fav />} />
-      )} */}
+			<AnimatePresence initial={false}>
+				{favOpen && (
+					<ModalSmall handleClick={() => openFavMenu()} children={<Fav />} />
+				)}
+			</AnimatePresence>
 			<AnimatePresence initial={false}>
 				{search && (
 					<Modal

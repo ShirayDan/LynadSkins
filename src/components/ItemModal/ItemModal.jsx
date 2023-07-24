@@ -1,6 +1,7 @@
 import styles from './ItemModal.module.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { addWishList } from '../../redux/slices/wishlist'
 
 import { Button } from '../../ui/Button'
 import { Container } from '../../ui/Container'
@@ -11,8 +12,18 @@ import { Typeography } from '../../ui/Typeography'
 import { FaHeart } from 'react-icons/fa'
 
 export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
+	const dispatch = useDispatch()
 	const currency = useSelector((state) => state.currency)
+	const cart = useSelector((state) => state.cart)
+	const wishList = useSelector((state) => state.wishList)
 	const { t } = useTranslation()
+
+	const addToWish = () => {
+		dispatch(addWishList(data))
+	}
+
+	const indexCart = cart.findIndex((item) => data._id === item._id)
+	const indexWish = wishList.findIndex((item) => data._id === item._id)
 
 	return (
 		<Container styles={styles.container}>
@@ -100,13 +111,21 @@ export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 								page ? (status ? t('remove_sale') : t('sale')) : t('add_cart')
 							}
 							style={styles['modal-cart']}
+							disabled={indexCart !== -1 && true}
 							onClick={
 								page ? () => handleTrade(data) : () => addToCart()
 							}></Button>
 						{!page && (
 							<Button
-								hover={true}
-								text={<FaHeart fontSize={'30px'} />}
+								hover={indexWish === -1 && true}
+								disabled={indexWish !== -1 && true}
+								text={
+									<FaHeart
+										fill={indexWish !== -1 ? '#e71fb8' : 'white'}
+										fontSize={'30px'}
+									/>
+								}
+								onClick={() => addToWish()}
 								style={styles['modal-like']}></Button>
 						)}
 					</div>

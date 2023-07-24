@@ -1,4 +1,7 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetWishList } from '../../../../redux/slices/wishlist.js'
+import { useTranslation } from 'react-i18next'
 import styles from './Fav.module.css'
 
 import { SmallModalEmpty } from '../../../../components/SmallModalEmpty'
@@ -6,151 +9,14 @@ import { SmallModalInner } from '../../../../components/SmallModalInner/SmallMod
 import { Button } from '../../../../ui/Button'
 import { Container } from '../../../../ui/Container'
 
-import img1 from '../../../../i/1.webp'
-
 export const Fav = () => {
-	const data = [
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-		{
-			id: 1,
-			item: 'AK-47',
-			skin: 'Elite Build',
-			img: img1,
-			exterior: 'Field-Tested',
-			rarity: 'Mil-Spec Grade',
-			price: 13.3,
-			float: 0.210546776,
-			statTrak: true,
-			souvenir: false,
-			type: 'Assault Rifles',
-			color: ['black'],
-		},
-	]
+	const { t } = useTranslation()
+	const data = useSelector((state) => state.wishList)
+	const dispatch = useDispatch()
+
+	const clearWishList = () => {
+		dispatch(resetWishList([]))
+	}
 
 	return (
 		<Container styles={styles.container}>
@@ -158,14 +24,15 @@ export const Fav = () => {
 				<>
 					<SmallModalInner data={data} type={'Favorites'} />
 					<div className={styles.btns}>
-						<Button text={'Reset favorites'} style={styles.btn} />
+						<Button
+							text={t('reset_fav')}
+							onClick={() => clearWishList()}
+							style={styles.btn}
+						/>
 					</div>
 				</>
 			) : (
-				<SmallModalEmpty
-					message={'Your wishlist is empty'}
-					desc={'Add some items to see them in wishlist'}
-				/>
+				<SmallModalEmpty message={t('fav_empty')} desc={t('add_fav_items')} />
 			)}
 		</Container>
 	)

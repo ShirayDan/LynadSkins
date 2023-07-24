@@ -6,6 +6,7 @@ import { skinsReducer } from './slices/skins'
 import { cartReducer } from './slices/cart'
 import { marketItemsReducer } from './slices/marketItems'
 import { signInModaReducer } from './slices/signInModal'
+import { wishListReducer } from './slices/wishlist'
 
 const store = configureStore({
 	reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
 		currency: currencyReducer,
 		skins: skinsReducer,
 		cart: cartReducer,
+		wishList: wishListReducer,
 		marketItems: marketItemsReducer,
 		signInModal: signInModaReducer,
 	},

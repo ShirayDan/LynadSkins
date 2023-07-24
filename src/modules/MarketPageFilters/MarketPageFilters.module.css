@@ -38,7 +38,8 @@
 .icon-search {
 	margin-right: 10px;
 }
-.icon-cart__number {
+.icon-cart__number,
+.icon-heart__number {
 	z-index: 1;
 	display: flex;
 	align-items: center;
@@ -52,6 +53,9 @@
 	border-radius: 50%;
 	color: var(--text-primary);
 	background-color: #00a046;
+}
+.icon-heart__number {
+	background-color: #e71fb8;
 }
 
 .icon path {

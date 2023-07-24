@@ -13,7 +13,7 @@ export const SmallModalInner = ({ data, type }) => {
 			</Typeography>
 			<div className={styles.items}>
 				{data?.map((item, i) => (
-					<SmallItem key={i} data={item} />
+					<SmallItem key={i} data={item} type={type} />
 				))}
 			</div>
 		</Container>
