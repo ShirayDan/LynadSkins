@@ -67,6 +67,7 @@ export const SmallItem = ({ data }) => {
 				<div className={styles.bucket}>
 					<div className={styles['bucket-icon']}>
 						<FaTrash
+							className={styles['icon-bucket']}
 							fontSize={'14px'}
 							fill='white'
 							onClick={() => handleRemoveCart(data?._id)}

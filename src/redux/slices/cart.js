@@ -5,7 +5,10 @@ const cartSlice = createSlice({
 	initialState: [],
 	reducers: {
 		addCart: (state, action) => {
-			state.push(action.payload)
+			const index = state.findIndex((item) => item._id === action.payload._id)
+			if (index === -1) {
+				state.push(action.payload)
+			}
 		},
 		resetCart: (state) => {
 			state.length = 0

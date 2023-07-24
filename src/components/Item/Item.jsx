@@ -16,6 +16,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 
 export const Item = ({ data }) => {
 	const dispatch = useDispatch()
+	const cart = useSelector((state) => state.cart)
 	const currency = useSelector((state) => state.currency)
 	const [status, setStatus] = useState(data?.onTrade)
 	const { t } = useTranslation()
@@ -37,6 +38,7 @@ export const Item = ({ data }) => {
 		dispatch(updateSkin(item))
 		setStatus(!status)
 	}
+	const index = cart.findIndex((item) => data._id === item._id)
 
 	const page = window.location.href.match('/profile')
 
@@ -88,7 +90,7 @@ export const Item = ({ data }) => {
 				</div>
 				{!data?.person && (
 					<Button
-						style={styles.btn}
+						style={`${styles.btn} ${index !== -1 && styles['btn-cart']}`}
 						onClick={page ? () => handleTrade(data) : () => addToCart()}
 						text={
 							page ? status ? t('remove_sale') : t('sale') : <FaShoppingCart />

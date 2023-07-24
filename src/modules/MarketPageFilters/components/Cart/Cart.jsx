@@ -77,11 +77,13 @@ export const Cart = ({ setStateModal }) => {
 					{warning && <div className={styles.warning}>{warning}</div>}
 					<div className={styles.btns}>
 						<Button
+							hover={true}
 							text={t('buy')}
 							onClick={() => handleBuy(data)}
 							style={styles.btn}
 						/>
 						<Button
+							hover={true}
 							text={t('reset_cart')}
 							onClick={handleResetCart}
 							style={styles.btn}
