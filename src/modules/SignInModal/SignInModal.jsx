@@ -13,9 +13,7 @@ import { Typeography } from '../../ui/Typeography'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 export const SignInModal = ({ setState, setOtherState }) => {
-	console.log(1)
-
-	//const isAuth = useSelector(selectIsAuth)
+	const isAuth = useSelector(selectIsAuth)
 	const dispatch = useDispatch()
 
 	const [viewPass, setViewPass] = useState('password')
@@ -41,7 +39,7 @@ export const SignInModal = ({ setState, setOtherState }) => {
 
 		reset()
 		setState(false)
-		changeOverflow(false)
+		changeOverflow(true)
 	}
 
 	const changeView = () => {

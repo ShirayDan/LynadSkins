@@ -106,7 +106,7 @@ export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 				{!data?.btns && (
 					<div className={styles['modal-buttons']}>
 						<Button
-							hover={true}
+							hover={indexCart === -1 && true}
 							text={
 								page ? (status ? t('remove_sale') : t('sale')) : t('add_cart')
 							}

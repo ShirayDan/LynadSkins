@@ -1,16 +1,21 @@
-import React from 'react'
-import styles from './SmallItem.module.css'
+import React, { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { removeItem } from '../../redux/slices/cart'
 import { useDispatch } from 'react-redux'
 import { removeWishItem } from '../../redux/slices/wishlist'
+import { changeOverflow } from '../../helpers/helpers'
+import styles from './SmallItem.module.css'
 
 import { Container } from '../../ui/Container'
 import { Typeography } from '../../ui/Typeography'
+import { Modal } from '../Modal/Modal'
+import { ItemModal } from '../ItemModal'
 
 import { FaTrash } from 'react-icons/fa'
 
 export const SmallItem = ({ data, type }) => {
 	const dispatch = useDispatch()
+	const [open, setOpen] = useState(false)
 
 	const handleRemoveCart = (id) => {
 		dispatch(removeItem(id))
@@ -20,9 +25,14 @@ export const SmallItem = ({ data, type }) => {
 		dispatch(removeWishItem(id))
 	}
 
+	const handleClick = () => {
+		setOpen(!open)
+		changeOverflow(open)
+	}
+
 	return (
 		<Container>
-			<div className={styles.item}>
+			<div className={styles.item} onClick={() => handleClick()}>
 				<div className={styles.left}>
 					<img
 						src={data?.imageUrl}
@@ -85,6 +95,25 @@ export const SmallItem = ({ data, type }) => {
 					</div>
 				</div>
 			</div>
+
+			<AnimatePresence initial={false}>
+				{open && (
+					<Modal
+						handleClick={() => handleClick()}
+						children={
+							<ItemModal
+								data={data}
+								// addToCart={addToCart}
+								// page={page}
+								// handleTrade={handleTrade}
+								// status={status}
+								disabled={true}
+							/>
+						}
+						guns={true}
+					/>
+				)}
+			</AnimatePresence>
 		</Container>
 	)
 }

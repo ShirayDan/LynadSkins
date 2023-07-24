@@ -31,7 +31,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 	const isAuth = useSelector(selectIsAuth)
 
 	const handleClick = () => {
-		if (singInOpen) {
+		if (singInOpen.state) {
 			dispatch(setSignInState(false))
 			setOpen(false)
 			changeOverflow(true)
@@ -45,6 +45,7 @@ export const Header = ({ theme, setTheme, langFunc }) => {
 		setSignUpOpen(!signUpOpen)
 		changeOverflow(signUpOpen)
 	}
+
 	useEffect(() => {
 		if (isAuth) {
 			const token = window.localStorage.getItem('token')
