@@ -44,7 +44,7 @@ export const SignUpModal = ({ setState, setOtherState }) => {
 	}
 
 	const changeView = () => {
-		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
+		viewPass === 'password' ? setViewPass('text') : setViewPass('password')
 	}
 
 	const changeModal = () => {
@@ -120,7 +120,7 @@ export const SignUpModal = ({ setState, setOtherState }) => {
 								mt={'5px'}
 							/>
 							<span className={styles.icon} onClick={changeView}>
-								{viewPass == 'password' ? (
+								{viewPass === 'password' ? (
 									<FaEyeSlash fontSize={'24px'} />
 								) : (
 									<FaEye fontSize={'24px'} />

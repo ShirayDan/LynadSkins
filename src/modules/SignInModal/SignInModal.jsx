@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeOverflow } from '../../helpers/helpers'
 import { fetchAuth, selectIsAuth } from '../../redux/slices/auth'
 import { Button } from '../../ui/Button'
+import { setSignInState } from '../../redux/slices/signInModal'
 import styles from './SingInModal.module.css'
 
 import { Container } from '../../ui/Container'
@@ -30,7 +31,7 @@ export const SignInModal = ({ setState, setOtherState }) => {
 		const data = await dispatch(fetchAuth(values))
 
 		if (!data.payload) {
-			return alert('Не удалось авторизоваться')
+			return alert('Authorization error')
 		}
 
 		if ('token' in data.payload) {
@@ -39,15 +40,17 @@ export const SignInModal = ({ setState, setOtherState }) => {
 
 		reset()
 		setState(false)
+		dispatch(setSignInState(false))
 		changeOverflow(true)
 	}
 
 	const changeView = () => {
-		viewPass == 'password' ? setViewPass('text') : setViewPass('password')
+		viewPass === 'password' ? setViewPass('text') : setViewPass('password')
 	}
 
 	const changeModal = () => {
 		setState(false)
+		dispatch(setSignInState(false))
 		setOtherState((curr) => !curr)
 	}
 	return (
@@ -94,7 +97,7 @@ export const SignInModal = ({ setState, setOtherState }) => {
 								mt={'5px'}
 							/>
 							<span className={styles.icon} onClick={changeView}>
-								{viewPass == 'password' ? (
+								{viewPass === 'password' ? (
 									<FaEyeSlash fontSize={'24px'} />
 								) : (
 									<FaEye fontSize={'24px'} />
