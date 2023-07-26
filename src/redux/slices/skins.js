@@ -1,16 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from '../../axios'
 
-// export const fetchAllSkins = createAsyncThunk(
-// 	'skins/fetchAllSkins',
-// 	async () => {
-// 		const { data } = await axios.get('/skins')
-// 		return data
-// 	}
-// )
-
-// если не передавать объект после запятой то получаем все скины если передать объект то не получим скины этого пользователя
-
 export const fetchAllSkins = createAsyncThunk(
 	'skins/fetchAllSkins',
 	async (userId) => {

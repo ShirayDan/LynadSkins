@@ -22,7 +22,13 @@ export const Item = ({ data }) => {
 	const { t } = useTranslation()
 	const [open, setOpen] = useState(false)
 
-	const handleClick = () => {
+	const handleClick = (e) => {
+		if (
+			e.target.classList.length === 0 ||
+			e.target.classList[0].substr(0, 6) === 'Button'
+		) {
+			return
+		}
 		setOpen(!open)
 		changeOverflow(open)
 	}
@@ -44,7 +50,7 @@ export const Item = ({ data }) => {
 
 	return (
 		<>
-			<div className={styles.item} onClick={() => handleClick()}>
+			<div className={styles.item} onClick={(e) => handleClick(e)}>
 				<img
 					src={data?.img || data?.imageUrl}
 					alt={`${data?.item || data?.itemName}-${
@@ -101,7 +107,7 @@ export const Item = ({ data }) => {
 			<AnimatePresence initial={false}>
 				{open && (
 					<Modal
-						handleClick={() => handleClick()}
+						handleClick={(e) => handleClick(e)}
 						children={
 							<ItemModal
 								data={data}
