@@ -1,10 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-
-import { Button } from '../../ui/Button'
-import { Container } from '../../ui/Container/Container'
-import { Typeography } from '../../ui/Typeography'
+import { useDispatch } from 'react-redux'
+import { setFilters } from '../../redux/slices/filters'
 import styles from './MarketPageSide.module.css'
+
 import { Color } from './components/Color'
 import { Exterior } from './components/Exterior'
 import { Float } from './components/Float'
@@ -13,9 +12,13 @@ import { Price } from './components/Price'
 import { Rarity } from './components/Rarity'
 import { Type } from './components/Type'
 import { FilterItem } from './components/FilterItem'
+import { Button } from '../../ui/Button'
+import { Container } from '../../ui/Container/Container'
+import { Typeography } from '../../ui/Typeography'
 
 export const MarketPageSide = () => {
 	const { t } = useTranslation()
+	const dispatch = useDispatch()
 
 	const filters = [
 		{ text: t('price'), comp: <Price /> },
@@ -27,6 +30,22 @@ export const MarketPageSide = () => {
 		{ text: t('other'), comp: <Other /> },
 	]
 
+	const handleResetFilters = () => {
+		dispatch(
+			setFilters({
+				itemName: null,
+				skinName: null,
+				exterior: null,
+				rarity: null,
+				type: null,
+				statTrak: null,
+				souvenir: null,
+				price: null,
+				float: null,
+				color: null,
+			})
+		)
+	}
 	return (
 		<Container styles={styles.container}>
 			<Typeography variant={'h2'} fontSize={'24px'} color={'white'}>
@@ -37,7 +56,10 @@ export const MarketPageSide = () => {
 					<FilterItem key={i} filter={item.text} fullList={item.comp} />
 				))}
 				<div className={styles.btns}>
-					<Button hover={true} text={t('reset')}></Button>
+					<Button
+						hover={true}
+						text={t('reset')}
+						onClick={handleResetFilters}></Button>
 					<Button hover={true} text={t('save')}></Button>
 				</div>
 			</div>

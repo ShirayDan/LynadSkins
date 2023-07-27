@@ -110,7 +110,9 @@ export const ItemModal = ({ data, addToCart, page, handleTrade, status }) => {
 							text={
 								page ? (status ? t('remove_sale') : t('sale')) : t('add_cart')
 							}
-							style={styles['modal-cart']}
+							style={`${styles['modal-cart']} ${
+								indexCart !== -1 && styles['modal-cart_added']
+							}`}
 							disabled={indexCart !== -1 && true}
 							onClick={
 								page ? () => handleTrade(data) : () => addToCart()

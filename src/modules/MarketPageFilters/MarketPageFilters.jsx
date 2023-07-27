@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './MarketPageFilters.module.css'
 
 import { Modal } from '../../components/Modal'
@@ -22,9 +22,11 @@ import {
 	FaSearch,
 	FaShoppingCart,
 } from 'react-icons/fa'
+import { setSkins } from '../../redux/slices/skins'
 
 export const MarketPageFilters = () => {
-	const { t } = useTranslation()
+	const dispatch = useDispatch()
+	const { t, i18n } = useTranslation()
 	const [open, setOpen] = useState(false)
 	const [filter, setFilter] = useState(t('sorting_newest'))
 	const [moreFilters, setMoreFilters] = useState(false)
@@ -33,6 +35,7 @@ export const MarketPageFilters = () => {
 	const [favOpen, setFavOpen] = useState(false)
 	const cart = useSelector((state) => state.cart)
 	const wishList = useSelector((state) => state.wishList)
+	const skins = useSelector((state) => state.skins.items)
 
 	const showAll = () => {
 		setOpen(!open)
@@ -61,6 +64,37 @@ export const MarketPageFilters = () => {
 	const filterModalClick = (text) => {
 		setOpen(false)
 		setFilter(text)
+		if (i18n.language === 'en') {
+			switch (text) {
+				case 'Price: Min':
+					dispatch(setSkins([...skins].sort((a, b) => a.price - b.price)))
+					break
+				case 'Price: Max':
+					dispatch(setSkins([...skins].sort((a, b) => b.price - a.price)))
+					break
+				case 'Float: Low':
+					dispatch(setSkins([...skins].sort((a, b) => a.float - b.float)))
+					break
+				case 'Float: Max':
+					dispatch(setSkins([...skins].sort((a, b) => b.float - a.float)))
+					break
+			}
+		} else {
+			switch (text) {
+				case 'Ціна: мін':
+					dispatch(setSkins([...skins].sort((a, b) => a.price - b.price)))
+					break
+				case 'Ціна: макс':
+					dispatch(setSkins([...skins].sort((a, b) => b.price - a.price)))
+					break
+				case 'Якість: мін':
+					dispatch(setSkins([...skins].sort((a, b) => a.float - b.float)))
+					break
+				case 'Якість: макс':
+					dispatch(setSkins([...skins].sort((a, b) => b.float - a.float)))
+					break
+			}
+		}
 	}
 
 	const searchModalClick = (text) => {

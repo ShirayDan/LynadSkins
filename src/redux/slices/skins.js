@@ -3,8 +3,8 @@ import axios from '../../axios'
 
 export const fetchAllSkins = createAsyncThunk(
 	'skins/fetchAllSkins',
-	async (userId) => {
-		const { data } = await axios.post('/Nskins', {
+	async (userId, filters) => {
+		const { data } = await axios.post(`/Nskins${filters && '?' + filters}`, {
 			user: userId,
 		})
 
@@ -46,7 +46,11 @@ const initialState = {
 const skinsSlice = createSlice({
 	name: 'skins',
 	initialState,
-	reducers: {},
+	reducers: {
+		setSkins: (state, action) => {
+			state.items = action.payload
+		},
+	},
 	extraReducers: {
 		[fetchAllSkins.pending]: (state) => {
 			state.status = 'loading'
@@ -98,5 +102,5 @@ const skinsSlice = createSlice({
 		},
 	},
 })
-
+export const { setSkins } = skinsSlice.actions
 export const skinsReducer = skinsSlice.reducer

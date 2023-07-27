@@ -104,6 +104,9 @@
 	font-size: 18px;
 	width: 100%;
 }
+.modal-cart_added {
+	background-color: #00a046;
+}
 @media screen and (min-width: 1050px) {
 	.container {
 		display: flex;

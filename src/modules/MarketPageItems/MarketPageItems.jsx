@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllSkins } from '../../redux/slices/skins'
 import { decode } from '../../helpers/helpers'
+import { setSkins } from '../../redux/slices/skins'
 
 import { Item } from '../../components/Item'
 import { SkeletonItem } from '../../components/SkeletonItem'
@@ -9,7 +10,6 @@ import { SkeletonItem } from '../../components/SkeletonItem'
 import styles from './MarketPageItems.module.css'
 
 export const MarketPageItems = ({ update }) => {
-	const [skins, setSkins] = useState([])
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -18,10 +18,12 @@ export const MarketPageItems = ({ update }) => {
 		if (token) {
 			userId = decode(token).payload._id
 		}
-		dispatch(fetchAllSkins(userId)).then((res) => {
-			setSkins(res.payload)
-		})
+		dispatch(fetchAllSkins(userId)).then((res) =>
+			dispatch(setSkins(res.payload))
+		)
 	}, [update])
+
+	const skins = useSelector((state) => state.skins.items)
 
 	return (
 		<div className={styles['main-container']}>

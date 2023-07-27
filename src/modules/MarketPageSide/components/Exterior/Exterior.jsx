@@ -6,7 +6,7 @@ import { List } from '../../../../ui/List'
 import { SideItem } from './../../../../components/SideItem'
 
 export const Exterior = () => {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 	const items = [
 		{ text: t('factory_new'), value: 'factory-new' },
 		{ text: t('minimal_wear'), value: 'minimal_wear' },
@@ -19,8 +19,7 @@ export const Exterior = () => {
 			styles={styles.typeContainer}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+			exit={{ opacity: 0 }}>
 			<List>
 				{items.map((item, i) => {
 					return <SideItem key={i} text={item.text} value={item.value} />

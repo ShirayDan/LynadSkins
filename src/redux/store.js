@@ -7,6 +7,7 @@ import { cartReducer } from './slices/cart'
 import { marketItemsReducer } from './slices/marketItems'
 import { signInModaReducer } from './slices/signInModal'
 import { wishListReducer } from './slices/wishlist'
+import { filtersReducer } from './slices/filters'
 
 const store = configureStore({
 	reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
 		wishList: wishListReducer,
 		marketItems: marketItemsReducer,
 		signInModal: signInModaReducer,
+		filters: filtersReducer,
 	},
 })
 

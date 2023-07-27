@@ -276,7 +276,7 @@ i18n
 					sorting_price_low: 'Ціна: мін',
 					sorting_price_high: 'Ціна: макс',
 					sorting_float_low: 'Якість: мін',
-					sorting_float_high: ' Якість: макс',
+					sorting_float_high: 'Якість: макс',
 					filters: 'Фільтри',
 					reset: 'Очистити',
 					save: 'Зберегти',
