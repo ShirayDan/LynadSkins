@@ -18,8 +18,8 @@ export const ChangePage = () => {
 	return (
 		<>
 			<Container styles={styles.container}>
+				<BuyBtn />
 				<div className={styles.tabs}>
-					<BuyBtn />
 					<Tab
 						amount={2}
 						firstTab={'Inventory'}
@@ -39,17 +39,19 @@ export const ChangePage = () => {
 						}
 					/>
 				</div>
-				<div className={styles.profile}>
-					<MarketPageFilters />
-					{!isAuth && <PersonalPage />}
-					{isAuth && <UserSkins />}
-				</div>
-				<div className={styles.sideBar}>
-					<MarketPageSide />
-				</div>
-				<div className={styles.items}>
-					<MarketPageFilters />
-					<MarketPageItems />
+				<div className={styles.pc}>
+					<div className={styles.profile}>
+						<MarketPageFilters />
+						{!isAuth && <PersonalPage />}
+						{isAuth && <UserSkins />}
+					</div>
+					<div className={styles.sideBar}>
+						<MarketPageSide />
+					</div>
+					<div className={styles.items}>
+						<MarketPageFilters />
+						<MarketPageItems />
+					</div>
 				</div>
 			</Container>
 		</>

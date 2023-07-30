@@ -110,6 +110,8 @@ export const MarketPageFilters = () => {
 		t('sorting_float_high'),
 	]
 
+	const page = window.location.href.match('/market')
+
 	return (
 		<div className={styles.filters}>
 			<div className={styles['filter-top']}>
@@ -174,18 +176,21 @@ export const MarketPageFilters = () => {
 							<FaSearch fontSize={'15px'} fill='white' />
 						</div>
 					</motion.div>
-
-					<motion.div
-						whileTap={{ scale: 0.8 }}
-						className={styles.cart}
-						onClick={() => openCartMenu()}>
-						<div className={styles['icon-cart']}>
-							<FaShoppingCart fontSize={'15px'} fill='white' />
-							{cart.length > 0 && (
-								<div className={styles['icon-cart__number']}>{cart.length}</div>
-							)}
-						</div>
-					</motion.div>
+					{page && (
+						<motion.div
+							whileTap={{ scale: 0.8 }}
+							className={styles.cart}
+							onClick={() => openCartMenu()}>
+							<div className={styles['icon-cart']}>
+								<FaShoppingCart fontSize={'15px'} fill='white' />
+								{cart.length > 0 && (
+									<div className={styles['icon-cart__number']}>
+										{cart.length}
+									</div>
+								)}
+							</div>
+						</motion.div>
+					)}
 
 					<motion.div
 						whileTap={{ scale: 0.8 }}

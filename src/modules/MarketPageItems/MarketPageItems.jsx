@@ -27,7 +27,6 @@ export const MarketPageItems = ({ update }) => {
 	}, [update, filters])
 
 	const skins = useSelector((state) => state.skins.items)
-
 	return (
 		<div className={styles['main-container']}>
 			<div className={styles.conitaner}>

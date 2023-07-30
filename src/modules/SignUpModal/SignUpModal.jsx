@@ -27,7 +27,6 @@ export const SignUpModal = ({ setState, setOtherState }) => {
 	})
 
 	const onSubmit = async (values) => {
-		alert(JSON.stringify(values))
 		const data = await dispatch(fetchRegister(values))
 
 		if (!data.payload) {

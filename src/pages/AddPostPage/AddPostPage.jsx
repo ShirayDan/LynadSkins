@@ -91,7 +91,7 @@ export const AddPostPage = () => {
 					{imageUrl && (
 						<img
 							className={styles.image}
-							src={`http://localhost:4444${imageUrl}`}
+							src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
 							alt='Uploaded'
 						/>
 					)}
@@ -100,8 +100,7 @@ export const AddPostPage = () => {
 					<Button
 						text={t('blog.download_preview')}
 						style={styles.btn}
-						onClick={() => inputFileRef.current.click()}
-					></Button>
+						onClick={() => inputFileRef.current.click()}></Button>
 					<input
 						onChange={handleChangeFile}
 						type='file'
@@ -112,8 +111,7 @@ export const AddPostPage = () => {
 						<Button
 							style={styles.delete}
 							text={t('blog.delete')}
-							onClick={onClickRemoveImage}
-						></Button>
+							onClick={onClickRemoveImage}></Button>
 					)}
 				</div>
 			</div>
@@ -136,14 +134,12 @@ export const AddPostPage = () => {
 				value={text}
 				onChange={(e) => setText(e.target.value)}
 				className={styles.textarea}
-				placeholder={t('blog.enter_text')}
-			></textarea>
+				placeholder={t('blog.enter_text')}></textarea>
 			<div className={styles.buttons}>
 				<Button
 					onClick={onSubmit}
 					text={isEditing ? t('blog.save') : t('blog.publish')}
-					style={styles.submit}
-				></Button>
+					style={styles.submit}></Button>
 				<a href='/blog'>
 					<Button text={t('blog.cancel')}></Button>
 				</a>

@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import { removeItem } from '../../redux/slices/cart'
 import { useDispatch } from 'react-redux'
 import { removeWishItem } from '../../redux/slices/wishlist'
+import { removeChange } from '../../redux/slices/change'
 import { changeOverflow } from '../../helpers/helpers'
 import styles from './SmallItem.module.css'
 
@@ -23,6 +24,9 @@ export const SmallItem = ({ data, type }) => {
 
 	const handleRemoveWish = (id) => {
 		dispatch(removeWishItem(id))
+	}
+	const handleRemoveChange = (id) => {
+		dispatch(removeChange(id))
 	}
 
 	const handleClick = () => {
@@ -89,6 +93,8 @@ export const SmallItem = ({ data, type }) => {
 							onClick={
 								type === 'Cart'
 									? () => handleRemoveCart(data?._id)
+									: type === 'change'
+									? () => handleRemoveChange(data?._id)
 									: () => handleRemoveWish(data?._id)
 							}
 						/>
@@ -100,16 +106,7 @@ export const SmallItem = ({ data, type }) => {
 				{open && (
 					<Modal
 						handleClick={() => handleClick()}
-						children={
-							<ItemModal
-								data={data}
-								// addToCart={addToCart}
-								// page={page}
-								// handleTrade={handleTrade}
-								// status={status}
-								disabled={true}
-							/>
-						}
+						children={<ItemModal data={data} disabled={true} />}
 						guns={true}
 					/>
 				)}

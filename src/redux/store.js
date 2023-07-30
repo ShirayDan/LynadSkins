@@ -4,6 +4,7 @@ import { postReducer } from './slices/posts'
 import { currencyReducer } from './slices/currency'
 import { skinsReducer } from './slices/skins'
 import { cartReducer } from './slices/cart'
+import { changeReducer } from './slices/change'
 import { marketItemsReducer } from './slices/marketItems'
 import { signInModaReducer } from './slices/signInModal'
 import { wishListReducer } from './slices/wishlist'
@@ -20,6 +21,7 @@ const store = configureStore({
 		marketItems: marketItemsReducer,
 		signInModal: signInModaReducer,
 		filters: filtersReducer,
+		change: changeReducer,
 	},
 })
 

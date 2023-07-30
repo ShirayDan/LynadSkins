@@ -64,8 +64,7 @@ export const Burger = ({ langFunc }) => {
 			<div
 				className={styles['burger-btn']}
 				ref={burgerBtn}
-				onClick={burgerClick}
-			>
+				onClick={burgerClick}>
 				<span className={styles['burger-span-top']}></span>
 				<span className={styles['burger-span']}></span>
 				<span className={styles['burger-span-bottom']}></span>
@@ -73,19 +72,17 @@ export const Burger = ({ langFunc }) => {
 			<div className={styles.burger} ref={burger}>
 				<div className={styles['burger-main']}>
 					<div className={styles['burger-top']}>
-						<Link to={'/'}>
+						<Link to={'/'} onClick={() => burgerClick()}>
 							{' '}
 							<Typeography
 								variant={'h2'}
 								fontSize={'32px'}
-								color={'white-strong'}
-							>
+								color={'white-strong'}>
 								Lynad
 								<Typeography
 									variant={'span'}
 									fontSize={'32px'}
-									color={'purple'}
-								>
+									color={'purple'}>
 									Skins
 								</Typeography>
 							</Typeography>
@@ -95,7 +92,7 @@ export const Burger = ({ langFunc }) => {
 						<nav>
 							<List>
 								<ListItem style={styles.item}>
-									<Link to={'/trade'}>
+									<Link onClick={() => burgerClick()} to={'/trade'}>
 										<Typeography color={'white-strong'} fontSize={'20px'}>
 											Trade
 										</Typeography>
@@ -132,8 +129,7 @@ export const Burger = ({ langFunc }) => {
 						m={'15px 0 0 0'}
 						variant={'h3'}
 						fontSize={'20px'}
-						color={'white-strong'}
-					>
+						color={'white-strong'}>
 						{t('settings')}
 					</Typeography>
 					<div className={styles['burger-btns']}>
@@ -147,8 +143,7 @@ export const Burger = ({ langFunc }) => {
 							<Button
 								onClick={onClickLogout}
 								style={styles.btn}
-								text={'Log out'}
-							></Button>
+								text={'Log out'}></Button>
 						</div>
 					)}
 
@@ -157,8 +152,7 @@ export const Burger = ({ langFunc }) => {
 							variant={'ul'}
 							display={'flex'}
 							alignItems={'center'}
-							justifyContent={'space-between'}
-						>
+							justifyContent={'space-between'}>
 							{social.map((item, i) => {
 								return (
 									<ListItem key={i} style={styles['social-item']}>

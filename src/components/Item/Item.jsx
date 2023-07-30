@@ -4,6 +4,7 @@ import { changeOverflow } from '../../helpers/helpers'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCart } from '../../redux/slices/cart'
 import { updateSkin } from '../../redux/slices/skins'
+import { addChange } from '../../redux/slices/change'
 import { useTranslation } from 'react-i18next'
 import styles from './Item.module.css'
 
@@ -44,9 +45,16 @@ export const Item = ({ data }) => {
 		dispatch(updateSkin(item))
 		setStatus(!status)
 	}
+
+	const handleChange = (data) => {
+		dispatch(addChange(data))
+		// setStatus(!status)
+	}
+
 	const index = cart.findIndex((item) => data._id === item._id)
 
 	const page = window.location.href.match('/profile')
+	const pageTrage = window.location.href.match('/trade')
 
 	return (
 		<>
@@ -97,7 +105,13 @@ export const Item = ({ data }) => {
 				{!data?.person && (
 					<Button
 						style={`${styles.btn} ${index !== -1 && styles['btn-cart']}`}
-						onClick={page ? () => handleTrade(data) : () => addToCart()}
+						onClick={
+							pageTrage
+								? () => handleChange(data)
+								: page
+								? () => handleTrade(data)
+								: () => addToCart()
+						}
 						disabled={index !== -1 && true}
 						text={
 							page ? status ? t('remove_sale') : t('sale') : <FaShoppingCart />
