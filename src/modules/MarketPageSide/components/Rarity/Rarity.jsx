@@ -6,7 +6,7 @@ import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
 export const Rarity = ({ register }) => {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 	const items = [
 		{ text: t('consumer_grade'), value: 'Consumer Grade' },
 		{ text: t('industrial_grade'), value: 'Industrial Grade' },

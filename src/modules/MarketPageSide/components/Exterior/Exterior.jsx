@@ -4,7 +4,6 @@ import styles from './Exterior.module.css'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 import { SideItem } from './../../../../components/SideItem'
-import { Typeography } from '../../../../ui/Typeography'
 
 export const Exterior = ({ register }) => {
 	const { t } = useTranslation()

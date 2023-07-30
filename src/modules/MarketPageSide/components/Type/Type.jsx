@@ -6,7 +6,7 @@ import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
 export const Type = ({ register }) => {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 	const items = [
 		{ text: t('knives'), value: 'Knives' },
 		{ text: t('gloves'), value: 'Gloves' },
