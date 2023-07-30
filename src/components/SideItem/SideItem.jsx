@@ -3,16 +3,17 @@ import styles from './Item.module.css'
 
 import { ListItem } from '../../ui/ListItem'
 import { Typeography } from '../../ui/Typeography'
-export const SideItem = ({ value, text }) => {
+export const SideItem = ({ value, text, register, filterParam }) => {
 	return (
 		<ListItem style={styles.item}>
 			<input
 				type='checkbox'
 				className={styles.input}
-				value={value}
 				id={value}
+				value={value}
+				{...register(filterParam, {})}
 			/>
-			<label className={styles.label} htmlFor={value}>
+			<label htmlFor={value}>
 				<Typeography color={'white'}>{text}</Typeography>
 			</label>
 		</ListItem>

@@ -5,26 +5,33 @@ import { SideItem } from '../../../../components/SideItem'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
-export const Rarity = () => {
+export const Rarity = ({ register }) => {
 	const { t, i18n } = useTranslation()
 	const items = [
-		{ text: t('consumer_grade'), value: 'consumer_grade' },
-		{ text: t('industrial_grade'), value: 'industrial_grade' },
-		{ text: t('milSpec_grade'), value: 'milSpec_grade' },
-		{ text: t('restricted'), value: 'restricted' },
-		{ text: t('classified'), value: 'classified' },
-		{ text: t('covert'), value: 'covert' },
+		{ text: t('consumer_grade'), value: 'Consumer Grade' },
+		{ text: t('industrial_grade'), value: 'Industrial Grade' },
+		{ text: t('milSpec_grade'), value: 'Mil-Spec Grade' },
+		{ text: t('restricted'), value: 'Restricted' },
+		{ text: t('classified'), value: 'Classified' },
+		{ text: t('covert'), value: 'Covert' },
 	]
 	return (
 		<MContainer
 			styles={styles.typeContainer}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+			exit={{ opacity: 0 }}>
 			<List>
 				{items.map((item, i) => {
-					return <SideItem key={i} text={item.text} value={item.value} />
+					return (
+						<SideItem
+							key={i}
+							text={item.text}
+							value={item.value}
+							register={register}
+							filterParam={'rarity'}
+						/>
+					)
 				})}
 			</List>
 		</MContainer>

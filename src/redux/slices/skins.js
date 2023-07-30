@@ -3,8 +3,8 @@ import axios from '../../axios'
 
 export const fetchAllSkins = createAsyncThunk(
 	'skins/fetchAllSkins',
-	async (userId, filters) => {
-		const { data } = await axios.post(`/Nskins${filters && '?' + filters}`, {
+	async ([userId, filters]) => {
+		const { data } = await axios.post(`/Nskins${filters && filters}`, {
 			user: userId,
 		})
 

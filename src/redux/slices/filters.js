@@ -3,23 +3,39 @@ import { createSlice } from '@reduxjs/toolkit'
 const filtersSlice = createSlice({
 	name: 'filters',
 	initialState: {
-		itemName: null,
-		skinName: null,
-		exterior: null,
-		rarity: null,
-		type: null,
-		statTrak: null,
-		souvenir: null,
-		price: null,
-		float: null,
-		color: null,
+		updated: false,
+		filters: {
+			itemName: '',
+			skinName: '',
+			exterior: '',
+			rarity: '',
+			type: '',
+			statTrak: '',
+			souvenir: '',
+			price: '',
+			float: '',
+			color: '',
+		},
 	},
 	reducers: {
 		setFilters: (state, action) => {
-			console.log(action.payload)
-			state = action.payload
+			state.filters = action.payload
+		},
+		resetFilters: (state) => {
+			state.filters = {
+				itemName: '',
+				skinName: '',
+				exterior: '',
+				rarity: '',
+				type: '',
+				statTrak: '',
+				souvenir: '',
+				price: '',
+				float: '',
+				color: '',
+			}
 		},
 	},
 })
-export const { setFilters } = filtersSlice.actions
+export const { setFilters, resetFilters } = filtersSlice.actions
 export const filtersReducer = filtersSlice.reducer

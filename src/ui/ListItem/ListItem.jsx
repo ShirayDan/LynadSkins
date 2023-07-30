@@ -26,6 +26,7 @@ export const ListItem = forwardRef(
 			rotate,
 			cursor,
 			onClick,
+			obj,
 		},
 		ref
 	) => {
@@ -59,7 +60,7 @@ export const ListItem = forwardRef(
 				}}
 				className={cl}
 				onClick={onClick}
-			>
+				obj>
 				{children}
 			</li>
 		)

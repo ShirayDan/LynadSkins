@@ -3,25 +3,28 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllSkins } from '../../redux/slices/skins'
 import { decode } from '../../helpers/helpers'
 import { setSkins } from '../../redux/slices/skins'
+import { request } from '../../helpers/helpers'
+import styles from './MarketPageItems.module.css'
 
 import { Item } from '../../components/Item'
 import { SkeletonItem } from '../../components/SkeletonItem'
 
-import styles from './MarketPageItems.module.css'
-
 export const MarketPageItems = ({ update }) => {
 	const dispatch = useDispatch()
+	const filters = useSelector(({ filters }) => filters)
 
 	useEffect(() => {
 		const token = localStorage.getItem('token')
 		let userId = null
+
 		if (token) {
 			userId = decode(token).payload._id
 		}
-		dispatch(fetchAllSkins(userId)).then((res) =>
+		const st = request(filters.filters)
+		dispatch(fetchAllSkins([userId, st])).then((res) =>
 			dispatch(setSkins(res.payload))
 		)
-	}, [update])
+	}, [update, filters])
 
 	const skins = useSelector((state) => state.skins.items)
 

@@ -5,28 +5,35 @@ import { SideItem } from '../../../../components/SideItem'
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
-export const Type = () => {
+export const Type = ({ register }) => {
 	const { t, i18n } = useTranslation()
 	const items = [
-		{ text: t('knives'), value: 'knives' },
-		{ text: t('gloves'), value: 'gloves' },
-		{ text: t('pistols'), value: 'pistols' },
-		{ text: t('smgs'), value: 'smgs' },
-		{ text: t('assault_rifles'), value: 'assault_rifles' },
-		{ text: t('sniper_rifles'), value: 'sniper_rifles' },
-		{ text: t('shotguns'), value: 'shotguns' },
-		{ text: t('machine_guns'), value: 'machine_guns' },
+		{ text: t('knives'), value: 'Knives' },
+		{ text: t('gloves'), value: 'Gloves' },
+		{ text: t('pistols'), value: 'Pistols' },
+		{ text: t('smgs'), value: 'SMGs' },
+		{ text: t('assault_rifles'), value: 'Assault Rifles' },
+		{ text: t('sniper_rifles'), value: 'Sniper Rifles' },
+		{ text: t('shotguns'), value: 'Shotguns' },
+		{ text: t('machine_guns'), value: 'Machine Guns' },
 	]
 	return (
 		<MContainer
 			styles={styles.typeContainer}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+			exit={{ opacity: 0 }}>
 			<List>
 				{items.map((item, i) => {
-					return <SideItem key={i} text={item.text} value={item.value} />
+					return (
+						<SideItem
+							key={i}
+							text={item.text}
+							value={item.value}
+							register={register}
+							filterParam={'type'}
+						/>
+					)
 				})}
 			</List>
 		</MContainer>
