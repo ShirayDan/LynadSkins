@@ -13,7 +13,7 @@ export const SideItem = ({ value, text, register, filterParam }) => {
 				value={value}
 				{...register(filterParam, {})}
 			/>
-			<label htmlFor={value}>
+			<label htmlFor={value} className={styles.label}>
 				<Typeography color={'white'}>{text}</Typeography>
 			</label>
 		</ListItem>

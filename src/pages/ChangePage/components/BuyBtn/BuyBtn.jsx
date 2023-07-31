@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './BuyBtn.module.css'
 import { updateUser } from '../../../../redux/slices/auth'
 import { updateSkin } from '../../../../redux/slices/skins'
 import { resetChange } from '../../../../redux/slices/change'
+import { useTranslation } from 'react-i18next'
 import axios from '../../../../axios'
+import styles from './BuyBtn.module.css'
 
 import { Typeography } from '../../../../ui/Typeography'
 import { SmallItem } from '../../../../components/SmallItem/SmallItem'
@@ -15,6 +16,7 @@ import { Button } from '../../../../ui/Button'
 
 export const BuyBtn = () => {
 	const dispatch = useDispatch()
+	const { t } = useTranslation()
 	const [modal, setModal] = useState(false)
 	const [error, setError] = useState('')
 	const change = useSelector((state) => state.change)
@@ -79,7 +81,7 @@ export const BuyBtn = () => {
 					<Typeography color={'white'} fontSize={'20px'}>
 						$ {yourSum}
 					</Typeography>
-					<Typeography color={'white'}>You offer</Typeography>
+					<Typeography color={'white'}>{t('your_offer')}</Typeography>
 				</div>
 				<FaShoppingCart fill='var(--text-primary)' />
 				<div className={styles['trade-place']}>
@@ -87,7 +89,7 @@ export const BuyBtn = () => {
 					<Typeography color={'white'} fontSize={'20px'}>
 						$ {otherSum}
 					</Typeography>
-					<Typeography color={'white'}>You will get</Typeography>
+					<Typeography color={'white'}>{t('you_want')}</Typeography>
 				</div>
 			</div>
 			<AnimatePresence initial={false}>
@@ -100,7 +102,7 @@ export const BuyBtn = () => {
 						<div className={styles.list}>
 							<div>
 								<Typeography variant={'h3'} color={'white'} m={'5px 0'}>
-									Your offer
+									{t('your_offer')}
 								</Typeography>
 								<div className={styles.skins}>
 									{change.yourItems.map((item) => {
@@ -112,7 +114,7 @@ export const BuyBtn = () => {
 							</div>
 							<div>
 								<Typeography variant={'h3'} color={'white'} m={'5px 0'}>
-									You want
+									{t('you_want')}
 								</Typeography>
 								<div className={styles.skins}>
 									{change.marketItems.map((item) => {
@@ -125,9 +127,10 @@ export const BuyBtn = () => {
 						</div>
 						<div className={styles.change}>
 							<Button
-								text={'Change'}
+								text={t('change')}
 								onClick={() => handleChange()}
 								style={styles['btn-confirm']}
+								hover={true}
 							/>
 							{error && <Typeography color={'error'}>{error}</Typeography>}
 						</div>

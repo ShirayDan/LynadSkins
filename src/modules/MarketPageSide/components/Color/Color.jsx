@@ -15,7 +15,6 @@ export const Color = ({ register }) => {
 		{ first: '#1c40ff', second: '#268ded', val: 'blue' },
 		{ first: '#775536', second: '#b87e48', val: 'orange' },
 	]
-
 	return (
 		<MContainer
 			styles={styles.typeContainer}
@@ -23,10 +22,11 @@ export const Color = ({ register }) => {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}>
 			<List variant={'div'} display={'flex'} flexWrap={'wrap'} gap={'10px'}>
-				{colors.map((item, i) => {
+				{colors.map((item) => {
 					return (
 						<>
 							<label
+								key={item.val}
 								htmlFor={item.val}
 								className={styles.item}
 								style={{ backgroundColor: item.first }}></label>

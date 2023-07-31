@@ -63,6 +63,7 @@ export const MarketPageSide = ({ selectFilters }) => {
 						<Button
 							text={t('reset')}
 							style={styles.btn}
+							hover={true}
 							onClick={handleResetFilters}></Button>
 					</div>
 				</form>

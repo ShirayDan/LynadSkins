@@ -6,6 +6,8 @@
 	padding: 10px;
 	align-items: center;
 	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.25s;
 }
 .trade-place {
 	text-align: right;
@@ -38,5 +40,8 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 10px;
+	}
+	.btn:hover {
+		background-color: #e71fb8;
 	}
 }

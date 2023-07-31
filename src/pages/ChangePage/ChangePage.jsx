@@ -41,7 +41,7 @@ export const ChangePage = () => {
 				</div>
 				<div className={styles.pc}>
 					<div className={styles.profile}>
-						<MarketPageFilters />
+						{/* <MarketPageFilters /> */}
 						{!isAuth && <PersonalPage />}
 						{isAuth && <UserSkins />}
 					</div>
