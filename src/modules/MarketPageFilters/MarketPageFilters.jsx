@@ -7,7 +7,6 @@ import styles from './MarketPageFilters.module.css'
 import { Modal } from '../../components/Modal'
 import { ModalSmall } from '../../components/ModalSmall'
 import { changeOverflow } from '../../helpers/helpers'
-import { Input } from '../../ui/Input'
 import { List } from '../../ui/List'
 import { ListItem } from '../../ui/ListItem'
 import { Cart } from './components/Cart'
@@ -116,14 +115,7 @@ export const MarketPageFilters = () => {
 		<div className={styles.filters}>
 			<div className={styles['filter-top']}>
 				<div className={styles.input}>
-					<Input width={'100%'} />
-					<motion.div
-						whileTap={{ scale: 0.8 }}
-						className={styles['search-btn']}>
-						<div className={styles['icon-search']}>
-							<FaSearch fontSize={'15px'} fill='white' />
-						</div>
-					</motion.div>
+					<Search />
 				</div>
 			</div>
 			<div className={styles['filter-bottom']}>

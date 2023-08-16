@@ -14,7 +14,7 @@ import { ItemModal } from '../ItemModal'
 
 import { FaTrash } from 'react-icons/fa'
 
-export const SmallItem = ({ data, type }) => {
+export const SmallItem = ({ data, type, search }) => {
 	const dispatch = useDispatch()
 	const [open, setOpen] = useState(false)
 
@@ -83,23 +83,24 @@ export const SmallItem = ({ data, type }) => {
 							fontSize={'16px'}>{`$ ${data?.price.toFixed(2)}`}</Typeography>
 					</div>
 				</div>
-
-				<div className={styles.bucket}>
-					<div className={styles['bucket-icon']}>
-						<FaTrash
-							className={styles['icon-bucket']}
-							fontSize={'14px'}
-							fill='white'
-							onClick={
-								type === 'Cart'
-									? () => handleRemoveCart(data?._id)
-									: type === 'change'
-									? () => handleRemoveChange(data?._id)
-									: () => handleRemoveWish(data?._id)
-							}
-						/>
+				{search && (
+					<div className={styles.bucket}>
+						<div className={styles['bucket-icon']}>
+							<FaTrash
+								className={styles['icon-bucket']}
+								fontSize={'14px'}
+								fill='white'
+								onClick={
+									type === 'Cart'
+										? () => handleRemoveCart(data?._id)
+										: type === 'change'
+										? () => handleRemoveChange(data?._id)
+										: () => handleRemoveWish(data?._id)
+								}
+							/>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 
 			<AnimatePresence initial={false}>

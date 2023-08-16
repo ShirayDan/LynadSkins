@@ -1,34 +1,42 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import styles from './Search.module.css'
+import { useSelector } from 'react-redux'
 
-import { Button } from '../../../../ui/Button'
 import { Container } from '../../../../ui/Container'
 import { Input } from '../../../../ui/Input'
-import { Typeography } from '../../../../ui/Typeography'
-
-import img1 from './../../../../i/1.webp'
+import { SmallItem } from '../../../../components/SmallItem'
 
 export const Search = () => {
+	const [search, setSearch] = useState('')
+	const skins = useSelector((store) => store.skins.items)
+	const skinsShow = useRef()
+
+	const handleSearch = (e) => {
+		let dspl = e.target.value ? 'block' : 'none'
+		skinsShow.current.style.display = dspl
+		skinsShow.current.style.width = +'px'
+
+		setSearch(e.target.value)
+	}
+
 	return (
 		<Container styles={styles.container}>
 			<div className={styles.top}>
-				<Input width={'100%'} />
-				<Button text={'Find'} style={styles.btn} />
+				<form onChange={(e) => handleSearch(e)} className={styles.form}>
+					<Input width={'100%'} placeholder={'Search...'} />
+				</form>
 			</div>
-			<div className={styles.result}>
-				<div className={styles.item}>
-					<div className={styles.left}>
-						{' '}
-						<img src={img1} alt='' className={styles.img} />
-						<div className={styles.text}>
-							<Typeography fontSize={'14px'} color={'white'}>
-								AK-47
-							</Typeography>
-							<Typeography fontSize={'14px'} color={'white'}>
-								Elite Build
-							</Typeography>
-						</div>
-					</div>
+			<div className={styles['skins-container']}>
+				<div className={styles.skins} ref={skinsShow}>
+					{skins
+						?.filter((item) => {
+							return search.toLowerCase() === ''
+								? item
+								: item.skinName.toLowerCase().includes(search)
+						})
+						.map((item) => {
+							return <SmallItem data={item} search={false} />
+						})}
 				</div>
 			</div>
 		</Container>

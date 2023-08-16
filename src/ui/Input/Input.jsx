@@ -9,6 +9,7 @@ export const Input = ({
 	value,
 	obj,
 	disabled,
+	onChange,
 	id,
 }) => {
 	return (
@@ -19,6 +20,7 @@ export const Input = ({
 			className={styles.priceInput}
 			style={{ width, marginTop: mt, marginBottom: mb }}
 			value={value}
+			onChange={onChange}
 			{...obj}
 			disabled={disabled}
 		/>

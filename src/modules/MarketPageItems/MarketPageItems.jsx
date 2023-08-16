@@ -30,7 +30,7 @@ export const MarketPageItems = ({ update }) => {
 	return (
 		<div className={styles['main-container']}>
 			<div className={styles.conitaner}>
-				{(skins ? skins : [...Array(20)]).map((item, i) => {
+				{(skins ? skins : [...Array(50)]).map((item, i) => {
 					return skins ? <Item key={i} data={item} /> : <SkeletonItem key={i} />
 				})}
 			</div>

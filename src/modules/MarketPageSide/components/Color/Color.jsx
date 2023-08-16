@@ -1,35 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Color.module.css'
 
 import { MContainer } from '../../../../ui/Container'
 import { List } from '../../../../ui/List'
 
 export const Color = ({ register }) => {
+	const [selected, setSelected] = useState([])
 	const colors = [
-		{ first: '#106b50', second: '#5cc14c', val: 'green' },
-		{ first: '#000', second: '#222', val: 'black' },
-		{ first: '#bcc9cb', second: '#fff', val: 'white' },
-		{ first: '#f03d3d', second: '#f0733d', val: 'red' },
-		{ first: '#8340f0', second: '#f54cef', val: 'purple' },
-		{ first: '#dfa93f', second: '#f0de3d', val: 'yellow' },
-		{ first: '#1c40ff', second: '#268ded', val: 'blue' },
-		{ first: '#775536', second: '#b87e48', val: 'orange' },
+		{ first: '#106b50', val: 'green' },
+		{ first: '#000', val: 'black' },
+		{ first: '#bcc9cb', val: 'white' },
+		{ first: '#f03d3d', val: 'red' },
+		{ first: '#8340f0', val: 'purple' },
+		{ first: '#dfa93f', val: 'yellow' },
+		{ first: '#1c40ff', val: 'blue' },
+		{ first: '#e96d0f', val: 'orange' },
 	]
+
+	const handleSelected = (val) => {
+		if (!selected.findIndex((item) => item === val)) {
+			setSelected((state) => state.filter((item) => item !== val))
+		} else {
+			setSelected((state) => [...state, val])
+		}
+
+		console.log(selected)
+	}
+
 	return (
 		<MContainer
 			styles={styles.typeContainer}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}>
-			<List variant={'div'} display={'flex'} flexWrap={'wrap'} gap={'10px'}>
+			<List variant={'ul'} display={'flex'} flexWrap={'wrap'} gap={'10px'}>
 				{colors.map((item) => {
 					return (
 						<>
 							<label
-								key={item.val}
 								htmlFor={item.val}
 								className={styles.item}
-								style={{ backgroundColor: item.first }}></label>
+								//`[item-selected]`
+								style={{ backgroundColor: item.first }}
+								onClick={() => handleSelected(item.val)}></label>
 							<input
 								id={item.val}
 								type='checkbox'
