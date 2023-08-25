@@ -9,6 +9,7 @@
 	border-radius: 5px;
 }
 .curr-cont {
+	user-select: none;
 	position: relative;
 	z-index: 1;
 }

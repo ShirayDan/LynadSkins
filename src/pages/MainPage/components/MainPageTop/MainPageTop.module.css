@@ -2,18 +2,17 @@
 	padding: 0 10px;
 }
 .top {
-	min-height: 375px;
+	min-height: 300px;
 	display: flex;
 	align-items: end;
 	margin-bottom: 20px;
 }
 .photo {
 	position: absolute;
-	width: 400px;
-	height: 400px;
+	width: 350px;
+	height: 350px;
 	top: -35px;
-	left: calc(100% - 375px);
-	transform: scale(1.25);
+	left: calc(100% - 350px);
 	filter: drop-shadow(-10px 0px 4px #e71fb8);
 }
 .title {
@@ -41,6 +40,11 @@
 }
 
 @media screen and (min-width: 530px) {
+	.photo {
+		transform: scale(1.25);
+		left: calc(100% - 395px);
+	}
+
 	.container {
 		padding: 0 30px;
 	}
@@ -90,10 +94,10 @@
 		rotate: 90deg;
 		transform: scale(1.25);
 		top: 95px;
-		left: calc(100% - 375px);
+		left: calc(100% - 395px);
 	}
 	.photo_second {
-		left: calc(100% - 605px);
+		left: calc(100% - 665px);
 		rotate: -90deg;
 	}
 	.subtitle {
@@ -109,7 +113,7 @@
 		width: 400px;
 		height: 300px;
 		top: 80px;
-		left: calc(100% - 905px);
+		left: calc(100% - 970px);
 		rotate: 90deg;
 		filter: drop-shadow(10px 0px 4px #21e692);
 	}
@@ -118,10 +122,10 @@
 	.photo_fourth {
 		display: block;
 		position: absolute;
-		width: 400px;
-		height: 300px;
-		top: 80px;
-		left: calc(100% - 1250px);
+		width: 280px;
+		height: 210px;
+		top: 120px;
+		left: calc(100% - 1300px);
 		rotate: -75deg;
 		filter: drop-shadow(-10px 0px 4px #4d0613);
 	}

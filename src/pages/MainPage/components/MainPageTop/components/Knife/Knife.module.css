@@ -11,9 +11,8 @@
 		position: absolute;
 		width: 100px;
 		height: 1px;
-
-		top: 340px;
-		left: calc(100% - 330px);
+		top: 280px;
+		left: calc(100% - 345px);
 		rotate: 45deg;
 		transform: scale(1.1);
 		background: linear-gradient(
@@ -37,7 +36,7 @@
 		width: 100px;
 		height: 1px;
 		top: 200px;
-		left: calc(100% - 520px);
+		left: calc(100% - 580px);
 		rotate: 45deg;
 		transform: scale(1.1);
 		background: linear-gradient(
@@ -64,7 +63,7 @@
 		position: absolute;
 		width: 400px;
 		top: 80px;
-		left: calc(100% - 905px);
+		left: calc(100% - 930px);
 		rotate: 90deg;
 	}
 	.line-three {
@@ -72,8 +71,8 @@
 		position: absolute;
 		width: 100px;
 		height: 1px;
-		top: 240px;
-		left: calc(100% - 850px);
+		top: 205px;
+		left: calc(100% - 865px);
 		rotate: 45deg;
 		transform: scale(1.1);
 		background: linear-gradient(
@@ -100,7 +99,7 @@
 		position: absolute;
 		width: 400px;
 		top: 80px;
-		left: calc(100% - 1250px);
+		left: calc(100% - 1350px);
 		rotate: -75deg;
 	}
 	.line-fourth {
@@ -108,8 +107,8 @@
 		position: absolute;
 		width: 100px;
 		height: 1px;
-		top: 300px;
-		left: calc(100% - 1130px);
+		top: 230px;
+		left: calc(100% - 1170px);
 		rotate: -135deg;
 		transform: scale(1.1);
 		background: linear-gradient(

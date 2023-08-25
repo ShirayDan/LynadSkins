@@ -4,6 +4,7 @@
 	justify-content: center;
 	flex-direction: column;
 	min-height: 350px;
+	padding: 10px;
 }
 
 .btns {
@@ -22,7 +23,12 @@
 	.unauth {
 		background-color: rgba(121, 121, 121, 0.1);
 		border-radius: 5px;
-		height: calc(100vh + 8px);
+		height: calc(100vh + 43px);
 		overflow-y: auto;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.unauth {
+		height: calc(100vh + 8px);
 	}
 }

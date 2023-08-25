@@ -1,7 +1,6 @@
 .item {
 	background-color: rgba(121, 121, 121, 0.1);
 	width: 100%;
-	min-width: 270px;
 	display: flex;
 	padding: 10px;
 	border-radius: 5px;
@@ -9,11 +8,9 @@
 	justify-content: space-between;
 }
 .photo {
-	/* width: calc(100% - 190px); */
 	width: 100%;
-	min-width: 90px;
+	min-width: 70px;
 	max-width: 140px;
-	height: 100%;
 }
 .description {
 	display: flex;

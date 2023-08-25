@@ -49,6 +49,7 @@
 	background: transparent;
 	text-transform: none;
 	padding: 0;
+	color: var(--text-primary);
 }
 .btn:hover {
 	color: #e71fb8;

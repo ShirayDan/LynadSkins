@@ -8,7 +8,9 @@
 	width: 125px;
 	border-radius: 5px;
 }
+
 .lang-cont {
+	user-select: none;
 	position: relative;
 	z-index: 1;
 }

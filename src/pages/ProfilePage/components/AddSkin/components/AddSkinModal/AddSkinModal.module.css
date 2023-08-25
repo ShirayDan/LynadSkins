@@ -22,7 +22,7 @@
 	grid-gap: 10px;
 }
 option {
-	background-color: #4e4b73;
+	background-color: var(--modals);
 }
 .select {
 	align-self: center;
